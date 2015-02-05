@@ -1,7 +1,7 @@
-# Experiencecoin Core [EPC, Ð]
+# Experiencecoin Core [EPC]
 ==========================
 
-![Experiencecoin](http://static.tumblr.com/ppdj5y9/Ae9mxmxtp/300coin.png)
+![Experiencecoin](https://raw.githubusercontent.com/experiencecoin/experiencecoin/master/src/qt/res/icons/bitcoin.png)
 
 [![Build Status](https://travis-ci.org/experiencecoin/experiencecoin.svg?branch=1.7-dev)](https://travis-ci.org/experiencecoin/experiencecoin) [![tip for next commit](https://tip4commit.com/projects/702.svg)](https://tip4commit.com/github/experiencecoin/experiencecoin)
 
