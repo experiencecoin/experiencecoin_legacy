@@ -136,10 +136,10 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1421884800;
         genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 141121;
+        genesis.nNonce   = 962090;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x23b2f3c592f7e065e5514f779bec86679727894946bb50e36b5a76e59f9deb16"));
+        assert(hashGenesisBlock == uint256("0xd55baaa37b19a736ec7ece9146da6edd181110b4277076f096559e2583ed3ec1"));
         assert(genesis.hashMerkleRoot == uint256("0x4d206c4e41667fbab8860ed129d0c05e12ec8ac39463e816576d12a3425b19c4"));
 
         vSeeds.push_back(CDNSSeedData("experiencecoin.com", "seed.experiencecoin.com"));
@@ -214,7 +214,7 @@ public:
         genesis.nTime = 1391503289;
         genesis.nNonce = 997879;
         hashGenesisBlock = genesis.GetHash();
-        //assert(hashGenesisBlock == uint256("0x23b2f3c592f7e065e5514f779bec86679727894946bb50e36b5a76e59f9deb16"));
+        //assert(hashGenesisBlock == uint256("0xd55baaa37b19a736ec7ece9146da6edd181110b4277076f096559e2583ed3ec1"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
