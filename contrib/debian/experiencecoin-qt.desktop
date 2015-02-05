@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Experiencecoin
+Comment=Experiencecoin P2P Cryptocurrency
+Comment[fr]=Experiencecoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Experiencecoin, eşten eşe kriptografik sanal para birimi
+Exec=experiencecoin-qt %u
+Terminal=false
+Type=Application
+Icon=experiencecoin128
+MimeType=x-scheme-handler/experiencecoin;
+Categories=Office;Finance;

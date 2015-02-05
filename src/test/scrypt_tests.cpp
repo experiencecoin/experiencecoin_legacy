@@ -2,6 +2,7 @@
 
 #include "util.h"
 #include "scrypt.h"
+#include "uint256.h"
 
 BOOST_AUTO_TEST_SUITE(scrypt_tests)
 

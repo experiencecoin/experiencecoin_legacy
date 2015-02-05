@@ -1,58 +1,33 @@
 --- 
-name: bitcoin
+name: experiencecoin
 urls:
-- http://bitcoin.org/bitcoin-latest-win32-gitian.zip
+- http://example.org/experiencecoin-latest-win32-gitian.zip
 rss:
-- url: http://sourceforge.net/api/file/index/project-id/244765/mtime/desc/limit/100/rss
+- url: http://sourceforge.net/projects/experiencecoin/rss
   xpath: //item/link/text()
-  pattern: bitcoin-\d+.\d+.\d+-win32-gitian.zip
+  pattern: experiencecoin-\d+.\d+.\d+-win32-gitian.zip
 signers:
-  0A82509767C7D4A5D14DA2301AE1D35043E08E54:
+  90DC2AC256201AD9377E15049142E5F7E533CE3B:
     weight: 40
-    name: BlueMatt
-    key: bluematt
-  BF6273FAEF7CC0BA1F562E50989F6B3048A116B5:
+    name: rnicoll
+    key: rnicoll
+  1DDC450B45DB5ADCCF5DDA7F8E4217C6D47D946D:
     weight: 40
-    name: Devrandom
-    key: devrandom
-  E463A93F5F3117EEDE6C7316BD02942421F4889F:
-    weight: 40
-    name: Luke-Jr
-    key: luke-jr
-  D762373D24904A3E42F33B08B9A408E71DAAC974:
-    weight: 40
-    name: "Pieter Wuille"
-    key: sipa
-  77E72E69DA7EE0A148C06B21B34821D4944DE5F7:
-    weight: 40
-    name: tcatm
-    key: tcatm
-  01CDF4627A3B88AAE4A571C87588242FBE38D3A8:
-    weight: 40
-    name: "Gavin Andresen"
-    key: gavinandresen
-  71A3B16735405025D447E8F274810B012346C9A6:
-    weight: 40
-    name: "Wladimir J. van der Laan"
-    key: laanwj
-  AEC1884398647C47413C1C3FB1179EB7347DC10D:
-    weight: 40
-    name: "Warren Togami"
-    key: wtogami
-  E084FE305BDF0C476F779792657EB016521670C0:
-    weight: 40
-    name: "Rama McIntosh"
-    key: face
-  1A2511E978239E491A096D0A828AC1F94EF26053:
-    weight: 40
-    name: "Charles Lee"
-    key: coblee
-  EFDFCBD38FFF68B49160C7D3A1596566F87BE631:
-    weight: 40
-    name: "Anton Yemelyanov"
-    key: aspect
-  59CAF0E96F23F53747945FD4FE3348877809386C:
-    weight: 40
-    name: "Adrian Gallagher"
-    key: thrasher
+    name: langerhans
+    key: langerhans
+  86601A39AEE177B1D1F0F7971AEF9F73ECA11726:
+    weight: 20
+    name: leofidus-ger
+    key: leofidus-key
+  6E9C3630F63C1541054C9503B1C60A65E5E64D7B:
+    weight: 20
+    name: "Patrick Lodder"
+    key: patricklodder-key
+  B8273C8A55820B19C2152407279566AD6D852A36:
+    weight: 20
+    name: stapler117
+    key: stapler117
+  BEC5406F9FE5B07FD93964073AF52B1CB90A06E5:
+    name: whit
+    key: whit
 minimum_weight: 120

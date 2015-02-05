@@ -1,42 +1,45 @@
-Copyright (c) 2009-2013 Bitcoin Developers
-
-Distributed under the MIT/X11 software license, see the accompanying
-file COPYING or http://www.opensource.org/licenses/mit-license.php.
-This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](http://www.openssl.org/). This product includes
-cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.
-
 UNIX BUILD NOTES
 ====================
+Some notes on how to build Experiencecoin in Unix. 
 
 To Build
 ---------------------
 
-	cd src/
-	make -f makefile.unix		# Headless litecoin
+	./autogen.sh
+	./configure
+	make
 
-See readme-qt.rst for instructions on building Experiencecoin-Qt, the graphical user interface.
+This will build experiencecoin-qt as well if the dependencies are met.
 
 Dependencies
 ---------------------
 
- Library     Purpose           Description
- -------     -------           -----------
- libssl      SSL Support       Secure communications
- libdb4.8    Berkeley DB       Blockchain & wallet storage
- libboost    Boost             C++ Library
- miniupnpc   UPnP Support      Optional firewall-jumping support
+ Library     | Purpose          | Description
+ ------------|------------------|----------------------
+ libssl      | SSL Support      | Secure communications
+ libdb5.1    | Berkeley DB      | Wallet storage
+ libboost    | Boost            | C++ Library
+ miniupnpc   | UPnP Support     | Optional firewall-jumping support
+ qt          | GUI              | GUI toolkit
+ protobuf    | Payments in GUI  | Data interchange format used for payment protocol
+ libqrencode | QR codes in GUI  | Optional for generating QR codes
+ 
+ Suggested versions of these libraries are as follows:
+      openssl-1.0.1l
+      db-5.1.29
+      boost 1.55
+      miniupnpc-1.9.20140701
+      qt 4.6.4
+      protobuf-2.5.0
+      qrencode-3.4.3
 
 [miniupnpc](http://miniupnp.free.fr/) may be used for UPnP port mapping.  It can be downloaded from [here](
 http://miniupnp.tuxfamily.org/files/).  UPnP support is compiled in and
-turned off by default.  Set USE_UPNP to a different value to control this:
+turned off by default.  See the configure options for upnp behavior desired:
 
-	USE_UPNP=     No UPnP support miniupnp not required
-	USE_UPNP=0    (the default) UPnP support turned off by default at runtime
-	USE_UPNP=1    UPnP support turned on by default at runtime
-
-IPv6 support may be disabled by setting:
-
-	USE_IPV6=0    Disable IPv6 support
+	--without-miniupnpc      No UPnP support miniupnp not required
+	--disable-upnp-default   (the default) UPnP support turned off by default at runtime
+	--enable-upnp-default    UPnP support turned on by default at runtime
 
 Licenses of statically linked libraries:
  Berkeley DB   New BSD license with additional requirement that linked
@@ -44,44 +47,69 @@ Licenses of statically linked libraries:
  Boost         MIT-like license
  miniupnpc     New (3-clause) BSD license
 
-- Versions used in this release:
--  GCC           4.3.3
--  OpenSSL       1.0.1c
--  Berkeley DB   4.8.30.NC
--  Boost         1.37
--  miniupnpc     1.6
+- For the versions used in the release, see doc/release-process.md under *Fetch and build inputs*.
+
+System requirements
+--------------------
+
+C++ compilers are memory-hungry. It is recommended to have at least 1 GB of
+memory available when compiling Experiencecoin Core. With 512MB of memory or less
+compilation will take much longer due to swap thrashing.
 
 Dependency Build Instructions: Ubuntu & Debian
 ----------------------------------------------
 Build requirements:
 
-	sudo apt-get install build-essential
+	sudo apt-get install build-essential pkg-config
+	sudo apt-get install libtool autotools-dev autoconf automake
 	sudo apt-get install libssl-dev
 
-for Ubuntu 12.04:
+for Ubuntu 12.04 and later:
 
-	sudo apt-get install libboost-all-dev
+	sudo apt-get install libboost-all-dev libdb5.1-dev libdb5.1++-dev
 
- db4.8 packages are available [here](https://launchpad.net/~bitcoin/+archive/bitcoin).
+for Debian 7 (Wheezy) and later:
 
- Ubuntu precise has packages for libdb5.1-dev and libdb5.1++-dev,
- but using these will break binary wallet compatibility, and is not recommended.
+	sudo apt-get install libdb5.1-dev
+        sudo apt-get install libdb5.1++-dev
 
-for other Ubuntu & Debian:
-
-	sudo apt-get install libdb4.8-dev
-	sudo apt-get install libdb4.8++-dev
-	sudo apt-get install libboost1.37-dev
- (If using Boost 1.37, append -mt to the boost libraries in the makefile)
+	Note that if you have Berkeley DB 4.8 packages installed (i.e. for other
+	wallet software), they are incompatible with the packages for 5.1. You
+	will have to manually download 5.1 from
+	http://download.oracle.com/berkeley-db/db-5.1.29.NC.tar.gz and compile
+	it, install it to /usr/local where the configure script should locate it
+	automatically.
 
 Optional:
 
-	sudo apt-get install libminiupnpc-dev (see USE_UPNP compile flag)
+	sudo apt-get install libminiupnpc-dev (see --with-miniupnpc and --enable-upnp-default)
 
+Dependencies for the GUI: Ubuntu & Debian
+-----------------------------------------
+
+If you want to build Experiencecoin-Qt, make sure that the required packages for Qt development
+are installed. Either Qt 4 or Qt 5 are necessary to build the GUI.
+If both Qt 4 and Qt 5 are installed, Qt 4 will be used. Pass `--with-gui=qt5` to configure to choose Qt5.
+To build without GUI pass `--without-gui`.
+
+To build with Qt 4 you need the following:
+
+    sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
+
+For Qt 5 you need the following:
+
+    sudo apt-get install libqt5gui5 libqt5core5 libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev
+
+libqrencode (optional) can be installed with:
+
+    sudo apt-get install libqrencode-dev
+
+Once these are installed, they will be found by configure and a experiencecoin-qt executable will be
+built by default.
 
 Notes
 -----
-The release is built with GCC and then "strip bitcoind" to strip the debug
+The release is built with GCC and then "strip experiencecoind" to strip the debug
 symbols, which reduces the executable size by about 90%.
 
 
@@ -96,11 +124,33 @@ miniupnpc
 
 Berkeley DB
 -----------
-You need Berkeley DB 4.8.  If you have to build Berkeley DB yourself:
+It is recommended to use Berkeley DB 5.1. If you have to build it yourself:
 
-	../dist/configure --enable-cxx
-	make
+```bash
+BITCOIN_ROOT=$(pwd)
 
+# Pick some path to install BDB to, here we create a directory within the experiencecoin directory
+BDB_PREFIX="${BITCOIN_ROOT}/db5"
+mkdir -p $BDB_PREFIX
+
+# Fetch the source and verify that it is not tampered with
+wget 'http://download.oracle.com/berkeley-db/db-5.1.29.NC.tar.gz'
+echo '08238e59736d1aacdd47cfb8e68684c695516c37f4fbe1b8267dde58dc3a576c  db-5.1.29.NC.tar.gz' | sha256sum -c
+# -> db-5.1.29.NC.tar.gz: OK
+tar -xzvf db-5.1.29.NC.tar.gz
+
+# Build the library and install to our prefix
+cd db-5.1.29.NC/build_unix/
+#  Note: Do a static build so that it can be embedded into the exectuable, instead of having to find a .so at runtime
+../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
+make install
+
+# Configure Experiencecoin Core to use our own-built instance of BDB
+cd $BITCOIN_ROOT
+./configure (other args...) LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
+```
+
+**Note**: You only need Berkeley DB if the wallet is enabled (see the section *Disable-Wallet mode* below).
 
 Boost
 -----
@@ -111,10 +161,44 @@ If you need to build Boost yourself:
 	./bjam install
 
 
+Dependency Build Instructions: Fedora
+-------------------------------------
+
+Fedora ships with a version of OpenSSL which does not include elliptic curve
+cryptography functions, and therefore cannot be used for Experiencecoin (or other
+cryptocurrencies based on the Bitcoin design). Further details are available
+on the Bitcoin Wiki: https://en.bitcoin.it/wiki/OpenSSL_and_EC_Libraries
+
+Recommended solution is to compile your own OpenSSL libraries.
+
+Tested on Fedora 20:
+
+	sudo yum install autoconf automake make gcc-c++
+	sudo yum install miniupnpc-devel
+	sudo yum install boost-devel
+	sudo yum install libdb-cxx-devel
+	sudo yum install libss-devel
+	sudo yum install qrencode
+
+Optional:
+
+	sudo yum install miniupnpc-devel (see USE_UPNP compile flag)
+
+
+
 Security
 --------
-To help make your litecoin installation more secure by making certain attacks impossible to
-exploit even if a vulnerability is found, you can take the following measures:
+To help make your experiencecoin installation more secure by making certain attacks impossible to
+exploit even if a vulnerability is found, binaries are hardened by default.
+This can be disabled with:
+
+Hardening Flags:
+
+	./configure --enable-hardening
+	./configure --disable-hardening
+
+
+Hardening enables the following features:
 
 * Position Independent Executable
     Build position independent code to take advantage of Address Space Layout Randomization
@@ -126,12 +210,9 @@ exploit even if a vulnerability is found, you can take the following measures:
     On an Amd64 processor where a library was not compiled with -fPIC, this will cause an error
     such as: "relocation R_X86_64_32 against `......' can not be used when making a shared object;"
 
-    To build with PIE, use:
-    make -f makefile.unix ... -e PIE=1
-
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
 
-    	scanelf -e ./litecoin
+    	scanelf -e ./experiencecoin
 
     The output should contain:
      TYPE
@@ -139,16 +220,29 @@ exploit even if a vulnerability is found, you can take the following measures:
 
 * Non-executable Stack
     If the stack is executable then trivial stack based buffer overflow exploits are possible if
-    vulnerable buffers are found. By default, bitcoin should be built with a non-executable stack
+    vulnerable buffers are found. By default, experiencecoin should be built with a non-executable stack
     but if one of the libraries it uses asks for an executable stack or someone makes a mistake
     and uses a compiler extension which requires an executable stack, it will silently build an
     executable without the non-executable stack protection.
 
     To verify that the stack is non-executable after compiling use:
-    `scanelf -e ./litecoin`
+    `scanelf -e ./experiencecoin`
 
     the output should contain:
 	STK/REL/PTL
 	RW- R-- RW-
 
     The STK RW- means that the stack is readable and writeable but not executable.
+
+Disable-wallet mode
+--------------------
+When the intention is to run only a P2P node without a wallet, experiencecoin may be compiled in
+disable-wallet mode with:
+
+    ./configure --disable-wallet
+
+In this case there is no dependency on Berkeley DB 5.1.
+
+Mining is also possible in disable-wallet mode, but only using the `getblocktemplate` RPC
+call not `getwork`.
+

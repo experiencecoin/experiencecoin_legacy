@@ -27,6 +27,8 @@
  * online backup system.
  */
 
+ // Copyright (c) 2013-2014 Experiencecoin Developers
+
 #include "scrypt.h"
 #include "util.h"
 #include <stdlib.h>
