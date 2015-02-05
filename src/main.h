@@ -781,7 +781,7 @@ public:
         nChainWork = 0;
         nTx = 0;
         nChainTx = 0;
-        nStatus = 0;
+        nStatus = 0LL;
         nSequenceId = 0;
 
         nVersion       = 0;
@@ -802,7 +802,7 @@ public:
         nChainWork = 0;
         nTx = 0;
         nChainTx = 0;
-        nStatus = 0;
+        nStatus = 0LL;
         nSequenceId = 0;
 
         nVersion       = block.nVersion;
