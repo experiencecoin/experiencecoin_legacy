@@ -10,11 +10,11 @@ SetCompressor /SOLID lzma
 !define URL http://www.experiencecoin.com/
 
 # MUI Symbol Definitions
-!define MUI_ICON "/home/spencer/Coins/experiencecoin/share/pixmaps/bitcoin.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/spencer/Coins/experiencecoin/share/pixmaps/nsis-wizard.bmp"
+!define MUI_ICON "/home/spencer/Desktop/experiencecoin/share/pixmaps/bitcoin.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/spencer/Desktop/experiencecoin/share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP "/home/spencer/Coins/experiencecoin/share/pixmaps/nsis-header.bmp"
+!define MUI_HEADERIMAGE_BITMAP "/home/spencer/Desktop/experiencecoin/share/pixmaps/nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
@@ -22,7 +22,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Experiencecoin Core"
 !define MUI_FINISHPAGE_RUN $INSTDIR\experiencecoin-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/spencer/Coins/experiencecoin/share/pixmaps/nsis-wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/spencer/Desktop/experiencecoin/share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 # Included files
@@ -48,7 +48,7 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile /home/spencer/Coins/experiencecoin/experiencecoin-${VERSION}-win-setup.exe
+OutFile /home/spencer/Desktop/experiencecoin/experiencecoin-${VERSION}-win-setup.exe
 !if "" == "64"
 InstallDir $PROGRAMFILES64\Experiencecoin
 !else
@@ -73,14 +73,14 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File /home/spencer/Coins/experiencecoin/release/experiencecoin-qt.exe
-    File /oname=COPYING.txt /home/spencer/Coins/experiencecoin/COPYING
-    File /oname=readme.txt /home/spencer/Coins/experiencecoin/doc/README_windows.txt
+    File /home/spencer/Desktop/experiencecoin/release/experiencecoin-qt.exe
+    File /oname=COPYING.txt /home/spencer/Desktop/experiencecoin/COPYING
+    File /oname=readme.txt /home/spencer/Desktop/experiencecoin/doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File /home/spencer/Coins/experiencecoin/release/experiencecoind.exe
-    File /home/spencer/Coins/experiencecoin/release/experiencecoin-cli.exe
+    File /home/spencer/Desktop/experiencecoin/release/experiencecoind.exe
+    File /home/spencer/Desktop/experiencecoin/release/experiencecoin-cli.exe
     SetOutPath $INSTDIR\doc
-    File /r /home/spencer/Coins/experiencecoin/doc\*.*
+    File /r /home/spencer/Desktop/experiencecoin/doc\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 

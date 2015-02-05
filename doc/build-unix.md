@@ -17,7 +17,7 @@ Dependencies
  Library     | Purpose          | Description
  ------------|------------------|----------------------
  libssl      | SSL Support      | Secure communications
- libdb5.1    | Berkeley DB      | Wallet storage
+ libdb5.3    | Berkeley DB      | Wallet storage
  libboost    | Boost            | C++ Library
  miniupnpc   | UPnP Support     | Optional firewall-jumping support
  qt          | GUI              | GUI toolkit
@@ -26,7 +26,7 @@ Dependencies
  
  Suggested versions of these libraries are as follows:
       openssl-1.0.1l
-      db-5.1.29
+      db-5.3.28
       boost 1.55
       miniupnpc-1.9.20140701
       qt 4.6.4

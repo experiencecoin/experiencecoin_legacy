@@ -46,7 +46,7 @@ Instructions: MacPorts
 
 Installing the dependencies using MacPorts is very straightforward.
 
-    sudo port install boost db51@+no_java openssl miniupnpc autoconf pkgconfig automake
+    sudo port install boost db53@+no_java openssl miniupnpc autoconf pkgconfig automake
 
 Optional: install Qt4
 
