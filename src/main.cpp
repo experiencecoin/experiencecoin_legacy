@@ -1241,7 +1241,8 @@ int static generateMTRandom(unsigned int s, int range)
 int64_t GetBlockValue(int nHeight, int64_t nFees, uint256 prevHash)
 {
     int64_t nSubsidy = 17500 * COIN;
-    int halvings = nHeight / !Params().SubsidyHalvingInterval();
+
+    int halvings = nHeight / Params().SubsidyHalvingInterval();
 
     // Force block reward to zero when right shift is undefined.
     if (halvings >= 64)
