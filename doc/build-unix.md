@@ -17,7 +17,7 @@ Dependencies
  Library     | Purpose          | Description
  ------------|------------------|----------------------
  libssl      | SSL Support      | Secure communications
- libdb5.1    | Berkeley DB      | Wallet storage
+ libdb5.3    | Berkeley DB      | Wallet storage
  libboost    | Boost            | C++ Library
  miniupnpc   | UPnP Support     | Optional firewall-jumping support
  qt          | GUI              | GUI toolkit
@@ -26,7 +26,7 @@ Dependencies
  
  Suggested versions of these libraries are as follows:
       openssl-1.0.1l
-      db-5.1.29
+      db-5.3.28
       boost 1.55
       miniupnpc-1.9.20140701
       qt 4.6.4
@@ -66,17 +66,17 @@ Build requirements:
 
 for Ubuntu 12.04 and later:
 
-	sudo apt-get install libboost-all-dev libdb5.1-dev libdb5.1++-dev
+	sudo apt-get install libboost-all-dev libdb5.3-dev libdb5.3++-dev
 
 for Debian 7 (Wheezy) and later:
 
-	sudo apt-get install libdb5.1-dev
-        sudo apt-get install libdb5.1++-dev
+	sudo apt-get install libdb5.3-dev
+        sudo apt-get install libdb5.3++-dev
 
 	Note that if you have Berkeley DB 4.8 packages installed (i.e. for other
-	wallet software), they are incompatible with the packages for 5.1. You
-	will have to manually download 5.1 from
-	http://download.oracle.com/berkeley-db/db-5.1.29.NC.tar.gz and compile
+	wallet software), they are incompatible with the packages for 5.3. You
+	will have to manually download 5.3 from
+	http://download.oracle.com/berkeley-db/db-5.3.29.NC.tar.gz and compile
 	it, install it to /usr/local where the configure script should locate it
 	automatically.
 
@@ -124,7 +124,7 @@ miniupnpc
 
 Berkeley DB
 -----------
-It is recommended to use Berkeley DB 5.1. If you have to build it yourself:
+It is recommended to use Berkeley DB 5.3. If you have to build it yourself:
 
 ```bash
 BITCOIN_ROOT=$(pwd)
@@ -134,13 +134,13 @@ BDB_PREFIX="${BITCOIN_ROOT}/db5"
 mkdir -p $BDB_PREFIX
 
 # Fetch the source and verify that it is not tampered with
-wget 'http://download.oracle.com/berkeley-db/db-5.1.29.NC.tar.gz'
-echo '08238e59736d1aacdd47cfb8e68684c695516c37f4fbe1b8267dde58dc3a576c  db-5.1.29.NC.tar.gz' | sha256sum -c
-# -> db-5.1.29.NC.tar.gz: OK
-tar -xzvf db-5.1.29.NC.tar.gz
+wget 'http://download.oracle.com/berkeley-db/db-5.3.29.NC.tar.gz'
+echo '08238e59736d1aacdd47cfb8e68684c695516c37f4fbe1b8267dde58dc3a576c  db-5.3.29.NC.tar.gz' | sha256sum -c
+# -> db-5.3.29.NC.tar.gz: OK
+tar -xzvf db-5.3.29.NC.tar.gz
 
 # Build the library and install to our prefix
-cd db-5.1.29.NC/build_unix/
+cd db-5.3.29.NC/build_unix/
 #  Note: Do a static build so that it can be embedded into the exectuable, instead of having to find a .so at runtime
 ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
 make install
@@ -241,7 +241,7 @@ disable-wallet mode with:
 
     ./configure --disable-wallet
 
-In this case there is no dependency on Berkeley DB 5.1.
+In this case there is no dependency on Berkeley DB 5.3.
 
 Mining is also possible in disable-wallet mode, but only using the `getblocktemplate` RPC
 call not `getwork`.
