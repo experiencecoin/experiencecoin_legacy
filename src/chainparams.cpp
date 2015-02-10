@@ -123,7 +123,7 @@ public:
         //     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73)
         //     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
         //   vMerkleTree: 4a5e1e
-        const char* pszTimestamp = "Harper Lee's second novel to be published this summer - BBC.com";
+        const char* pszTimestamp = "Greece to Propose a Debt Compromise Plan to Creditors - NY Times Monday, February 9, 2015";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -134,18 +134,18 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1421884800;
+        genesis.nTime    = 1423525899;
         genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 962090;
+        genesis.nNonce   = 631039;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0xd55baaa37b19a736ec7ece9146da6edd181110b4277076f096559e2583ed3ec1"));
-        assert(genesis.hashMerkleRoot == uint256("0x4d206c4e41667fbab8860ed129d0c05e12ec8ac39463e816576d12a3425b19c4"));
+        assert(hashGenesisBlock == uint256("0xe993066c123dd91d1937a293a1f2238ea2a876b6348de59470c13e9edd51ed10"));
+        assert(genesis.hashMerkleRoot == uint256("0x64d443760060d465d622b57abd1035ed4397fc4e42f8dbfc27f33d357651e75d"));
 
-        vSeeds.push_back(CDNSSeedData("experiencecoin.com", "seed.experiencecoin.com"));
-        vSeeds.push_back(CDNSSeedData("mophides.com", "seed.mophides.com"));
-        vSeeds.push_back(CDNSSeedData("dglibrary.org", "seed.dglibrary.org"));
-        vSeeds.push_back(CDNSSeedData("epcchain.info", "seed.epcchain.info"));
+//        vSeeds.push_back(CDNSSeedData("experiencecoin.com", "seed.experiencecoin.com"));
+//        vSeeds.push_back(CDNSSeedData("mophides.com", "seed.mophides.com"));
+//        vSeeds.push_back(CDNSSeedData("dglibrary.org", "seed.dglibrary.org"));
+//        vSeeds.push_back(CDNSSeedData("epcchain.info", "seed.epcchain.info"));
 
         // Workaround for Boost not being quite compatible with C++11;
         std::vector<unsigned char> pka = list_of(33);
@@ -214,7 +214,7 @@ public:
         genesis.nTime = 1391503289;
         genesis.nNonce = 997879;
         hashGenesisBlock = genesis.GetHash();
-        //assert(hashGenesisBlock == uint256("0xd55baaa37b19a736ec7ece9146da6edd181110b4277076f096559e2583ed3ec1"));
+        //assert(hashGenesisBlock == uint256("0xe993066c123dd91d1937a293a1f2238ea2a876b6348de59470c13e9edd51ed10"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
