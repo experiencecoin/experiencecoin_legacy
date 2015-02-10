@@ -123,7 +123,7 @@ public:
         //     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73)
         //     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
         //   vMerkleTree: 4a5e1e
-        const char* pszTimestamp = "Greece to Propose a Debt Compromise Plan to Creditors - NY Times Monday, February 9, 2015";
+        const char* pszTimestamp = "China Hits Qualcomm With Fine - NY Times Monday, February 9, 2015";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -134,13 +134,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1423525899;
+        genesis.nTime    = 1423553425;
         genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 631039;
+        genesis.nNonce   = 1078456;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0xe993066c123dd91d1937a293a1f2238ea2a876b6348de59470c13e9edd51ed10"));
-        assert(genesis.hashMerkleRoot == uint256("0x64d443760060d465d622b57abd1035ed4397fc4e42f8dbfc27f33d357651e75d"));
+        assert(hashGenesisBlock == uint256("0x8753b01bc2dafef2973a1378eb9465617893da73ac177e5ed376f05f42c2a820"));
+        assert(genesis.hashMerkleRoot == uint256("0x16733a25293a66a2d0a304ee04ef55f8e7fff7d441efad46d840592d8de89028"));
 
 //        vSeeds.push_back(CDNSSeedData("experiencecoin.com", "seed.experiencecoin.com"));
 //        vSeeds.push_back(CDNSSeedData("mophides.com", "seed.mophides.com"));
@@ -214,7 +214,7 @@ public:
         genesis.nTime = 1391503289;
         genesis.nNonce = 997879;
         hashGenesisBlock = genesis.GetHash();
-        //assert(hashGenesisBlock == uint256("0xe993066c123dd91d1937a293a1f2238ea2a876b6348de59470c13e9edd51ed10"));
+        //assert(hashGenesisBlock == uint256("0x8753b01bc2dafef2973a1378eb9465617893da73ac177e5ed376f05f42c2a820"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
