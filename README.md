@@ -8,6 +8,15 @@
 ## What is Experiencecoin?
 Experiencecoin is a cryptocurrency like Bitcoin, although it does not use SHA256 as its proof of work (POW). Taking development cues from Tenebrix and Litecoin, Experiencecoin currently employs a simplified variant of scrypt.
 
+Total coins: ~ 450,000,000,000
+Initial subsidy: 17500
+Block target: 60 seconds
+
+Port: 7300
+RPC port: 7400
+Testnet port: 17300
+RPC testnet port: 17400
+
 http://experiencecoin.com/
 
 ## License – Much license
