@@ -11,7 +11,6 @@ Experiencecoin is a cryptocurrency like Bitcoin, although it does not use SHA256
 - Total coins: ~ 450,000,000,000
 - Initial subsidy: 17500
 - Block target: 60 seconds
-
 - Port: 7300
 - RPC port: 7400
 - Testnet port: 17300
