@@ -15,7 +15,7 @@ AC_DEFUN([BITCOIN_FIND_BDB51],[
     AC_TRY_COMPILE([
       #include <${searchpath}db_cxx.h>
     ],[
-      #if !((DB_VERSION_MAJOR == 5 && DB_VERSION_MINOR >= 3) || DB_VERSION_MAJOR > 5)
+      #if !((DB_VERSION_MAJOR == 5 && DB_VERSION_MINOR >= 1) || DB_VERSION_MAJOR > 5)
         #error "failed to find bdb 5.1+"
       #endif
     ],[
