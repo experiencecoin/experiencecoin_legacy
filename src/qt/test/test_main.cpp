@@ -45,9 +45,9 @@ int main(int argc, char *argv[])
     bool fInvalid = false;
 
     // Don't remove this, it's needed to access
-    // QCoreApplication:: in the tests
-    QCoreApplication app(argc, argv);
-    app.setApplicationName("Bitcoin-Qt-test");
+    // QApplication:: and QCoreApplication:: in the tests
+    QApplication app(argc, argv);
+    app.setApplicationName("Litecoin-Qt-test");
 
     SSL_library_init();
 
