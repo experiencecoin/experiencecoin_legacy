@@ -68,4 +68,28 @@ BOOST_AUTO_TEST_CASE(GetFeeTest)
     CFeeRate(MAX_MONEY, std::numeric_limits<size_t>::max() >> 1).GetFeePerK();
 }
 
+BOOST_AUTO_TEST_CASE(BinaryOperatorTest)
+{
+    CFeeRate a, b;
+    a = CFeeRate(1);
+    b = CFeeRate(2);
+    BOOST_CHECK(a < b);
+    BOOST_CHECK(b > a);
+    BOOST_CHECK(a == a);
+    BOOST_CHECK(a <= b);
+    BOOST_CHECK(a <= a);
+    BOOST_CHECK(b >= a);
+    BOOST_CHECK(b >= b);
+    // a should be 0.00000002 BTC/kB now
+    a += a;
+    BOOST_CHECK(a == b);
+}
+
+BOOST_AUTO_TEST_CASE(ToStringTest)
+{
+    CFeeRate feeRate;
+    feeRate = CFeeRate(1);
+    BOOST_CHECK_EQUAL(feeRate.ToString(), "0.00000001 LTC/kB");
+}
+
 BOOST_AUTO_TEST_SUITE_END()
