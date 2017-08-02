@@ -66,9 +66,9 @@ int main(int argc, char *argv[])
     #endif
 
     // Don't remove this, it's needed to access
-    // QApplication:: and QCoreApplication:: in the tests
-    QApplication app(argc, argv);
-    app.setApplicationName("Litecoin-Qt-test");
+    // QCoreApplication:: in the tests
+    QCoreApplication app(argc, argv);
+    app.setApplicationName("Experiencecoin-Qt-test");
 
     SSL_library_init();
 

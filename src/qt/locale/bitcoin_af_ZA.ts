@@ -214,8 +214,8 @@
         <translation>&amp;Opsies</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>Experiencecoin</source>
+        <translation>Experiencecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -452,7 +452,7 @@
     </message>
     <message>
         <source>Transaction Fee:</source>
-        <translation>Transaksie fooi:</translation>
+        <translation>Transaksie bari:</translation>
     </message>
     <message>
         <source>Send to multiple recipients at once</source>
@@ -561,7 +561,7 @@
     </message>
     <message>
         <source>Transaction fee</source>
-        <translation>Transaksie fooi</translation>
+        <translation>Transaksie bari</translation>
     </message>
     <message>
         <source>Net amount</source>

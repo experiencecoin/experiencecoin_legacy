@@ -154,6 +154,7 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
+<<<<<<< HEAD
         <source>Sign &amp;message...</source>
         <translation>Подписать &amp;сообщение...</translation>
     </message>
@@ -232,6 +233,10 @@
     <message>
         <source>Litecoin</source>
         <translation>Litecoin Core</translation>
+=======
+        <source>Experiencecoin</source>
+        <translation>Experiencecoin Core</translation>
+>>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Wallet</source>
@@ -832,8 +837,8 @@
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Core</translation>
+        <source>Experiencecoin Core</source>
+        <translation>Experiencecoin Core</translation>
     </message>
     <message>
         <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>

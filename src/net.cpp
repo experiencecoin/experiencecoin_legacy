@@ -1483,7 +1483,7 @@ void ThreadMapPort()
             }
         }
 
-        std::string strDesc = "Litecoin " + FormatFullVersion();
+        std::string strDesc = "Experiencecoin " + FormatFullVersion();
 
         try {
             while (true) {

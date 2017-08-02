@@ -331,8 +331,8 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>Lemezen lévő blokkok újraindexelése...</translation>
     </message>
     <message>
-        <source>Send coins to a Litecoin address</source>
-        <translation>Litecoin küldése megadott címre</translation>
+        <source>Send coins to a Experiencecoin address</source>
+        <translation>Experiencecoin küldése megadott címre</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -355,8 +355,8 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>Üzenet &amp;valódiságának ellenőrzése</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>Experiencecoin</source>
+        <translation>Experiencecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -383,12 +383,12 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>A tárcádhoz tartozó privát kulcsok titkosítása</translation>
     </message>
     <message>
-        <source>Sign messages with your Litecoin addresses to prove you own them</source>
-        <translation>Üzenetek aláírása a Litecoin-címmeiddel, amivel bizonyítod, hogy a cím a sajátod</translation>
+        <source>Sign messages with your Experiencecoin addresses to prove you own them</source>
+        <translation>Üzenetek aláírása a Experiencecoin-címmeiddel, amivel bizonyítod, hogy a cím a sajátod</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Litecoin addresses</source>
-        <translation>Üzenetek ellenőrzése, hogy valóban a megjelölt Litecoin-címekkel vannak-e aláírva</translation>
+        <source>Verify messages to ensure they were signed with specified Experiencecoin addresses</source>
+        <translation>Üzenetek ellenőrzése, hogy valóban a megjelölt Experiencecoin-címekkel vannak-e aláírva</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -407,8 +407,8 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>Fül eszköztár</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and litecoin: URIs)</source>
-        <translation>Fizetési kérelem (QR-kódot és "litecoin:" URI azonosítót hoz létre)</translation>
+        <source>Request payments (generates QR codes and experiencecoin: URIs)</source>
+        <translation>Fizetési kérelem (QR-kódot és "experiencecoin:" URI azonosítót hoz létre)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -419,16 +419,16 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>A használt fogadó címek és címkék megtekintése</translation>
     </message>
     <message>
-        <source>Open a litecoin: URI or payment request</source>
-        <translation>"litecoin:" URI azonosító vagy fizetési kérelem megnyitása</translation>
+        <source>Open a experiencecoin: URI or payment request</source>
+        <translation>"experiencecoin:" URI azonosító vagy fizetési kérelem megnyitása</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Paran&amp;cssor kapcsolók</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Litecoin network</source>
-        <translation><numerusform>%n aktív kapcsolat a Litecoin hálózathoz</numerusform><numerusform>%n aktív kapcsolat a Litecoin hálózathoz</numerusform></translation>
+        <source>%n active connection(s) to Experiencecoin network</source>
+        <translation><numerusform>%n aktív kapcsolat a Experiencecoin hálózathoz</numerusform><numerusform>%n aktív kapcsolat a Experiencecoin hálózathoz</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -1013,6 +1013,7 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>Szakértő</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>Enable coin &amp;control features</source>
         <translation>Pénzküldés beállításainak engedélyezése</translation>
     </message>
@@ -1027,14 +1028,18 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
     <message>
         <source>Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>A Litecoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
+=======
+        <source>Automatically open the Experiencecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>A Experiencecoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
+>>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>&amp;UPnP port-feltérképezés</translation>
     </message>
     <message>
-        <source>Connect to the Litecoin network through a SOCKS5 proxy.</source>
-        <translation>Csatlakozás a Litecoin hálózatához SOCKS5 proxyn keresztül</translation>
+        <source>Connect to the Experiencecoin network through a SOCKS5 proxy.</source>
+        <translation>Csatlakozás a Experiencecoin hálózatához SOCKS5 proxyn keresztül</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1168,8 +1173,8 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>Űrlap</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>A kijelzett információ lehet, hogy elavult. A pénztárcája automatikusan szinkronizálja magát a Litecoin hálózattal miután a kapcsolat létrejön, de ez e folyamat még nem fejeződött be.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Experiencecoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>A kijelzett információ lehet, hogy elavult. A pénztárcája automatikusan szinkronizálja magát a Experiencecoin hálózattal miután a kapcsolat létrejön, de ez e folyamat még nem fejeződött be.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1345,8 +1350,8 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>Összeg</translation>
     </message>
     <message>
-        <source>Enter a Litecoin address (e.g. %1)</source>
-        <translation>Ad meg egy Litecoin címet (pl: %1)</translation>
+        <source>Enter a Experiencecoin address (e.g. %1)</source>
+        <translation>Ad meg egy Experiencecoin címet (pl: %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2090,8 +2095,13 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>Csak a szükséges %1 díj fizetése</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>Warning: Invalid Litecoin address</source>
         <translation>Figyelmeztetés: Érvénytelen Litecoin cím</translation>
+=======
+        <source>Sign the message to prove you own this Experiencecoin address</source>
+        <translation>Üzenet </translation>
+>>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2787,8 +2797,8 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
 </translation>
     </message>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Core</translation>
+        <source>Experiencecoin Core</source>
+        <translation>Experiencecoin Core</translation>
     </message>
     <message>
         <source>The %s developers</source>
@@ -3002,7 +3012,7 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Nincs elég litecoinod.</translation>
+        <translation>Nincs elég experiencecoinod.</translation>
     </message>
     <message>
         <source>Loading block index...</source>

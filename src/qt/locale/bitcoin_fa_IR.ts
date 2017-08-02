@@ -226,8 +226,8 @@
         <translation>تایید پیام</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>litecoin</translation>
+        <source>Experiencecoin</source>
+        <translation>experiencecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -505,8 +505,8 @@
         <translation>فرم</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>اطلاعات نمایش داده شده ممکن است روزآمد نباشد. wallet شما به صورت خودکار بعد از برقراری اتصال با شبکه litecoin به روز می شود اما این فرایند هنوز تکمیل نشده است.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Experiencecoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>اطلاعات نمایش داده شده ممکن است روزآمد نباشد. wallet شما به صورت خودکار بعد از برقراری اتصال با شبکه experiencecoin به روز می شود اما این فرایند هنوز تکمیل نشده است.</translation>
     </message>
     <message>
         <source>Available:</source>

@@ -61,14 +61,15 @@ TestingSetup::TestingSetup(const std::string& chainName) : BasicTestingSetup(cha
 
         RegisterAllCoreRPCCommands(tableRPC);
         ClearDatadirCache();
-        pathTemp = GetTempPath() / strprintf("test_litecoin_%lu_%i", (unsigned long)GetTime(), (int)(InsecureRandRange(100000)));
-        fs::create_directories(pathTemp);
-        gArgs.ForceSetArg("-datadir", pathTemp.string());
 
         // Note that because we don't bother running a scheduler thread here,
         // callbacks via CValidationInterface are unreliable, but that's OK,
         // our unit tests aren't testing multiple parts of the code at once.
         GetMainSignals().RegisterBackgroundSignalScheduler(scheduler);
+
+        pathTemp = GetTempPath() / strprintf("test_experiencecoin_%lu_%i", (unsigned long)GetTime(), (int)(InsecureRandRange(100000)));
+        fs::create_directories(pathTemp);
+        gArgs.ForceSetArg("-datadir", pathTemp.string());
 
         mempool.setSanityCheck(1.0);
         pblocktree = new CBlockTreeDB(1 << 20, true);
