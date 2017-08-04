@@ -315,7 +315,7 @@ Clone the git repositories for experiencecoin and Gitian.
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
 git clone https://github.com/experiencecoin/experiencecoin
-git clone https://github.com/experiencecoin/gitian.sigs.ltc.git
+git clone https://github.com/experiencecoin/gitian.sigs.epc.git
 ```
 
 Setting up the Gitian image
@@ -480,5 +480,5 @@ Uploading signatures
 ---------------------
 
 After building and signing you can push your signatures (both the `.assert` and `.assert.sig` files) to the
-[experiencecoin-project/gitian.sigs.ltc](https://github.com/experiencecoin/gitian.sigs.ltc/) repository, or if that's not possible create a pull
+[experiencecoin-project/gitian.sigs.epc](https://github.com/experiencecoin/gitian.sigs.epc/) repository, or if that's not possible create a pull
 request. You can also mail the files to thrasher (thrasher@addictionsofware.com) and he will commit them.
