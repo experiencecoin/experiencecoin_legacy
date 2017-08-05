@@ -62,28 +62,47 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
 
     // Limit adjustment step
     int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
-    if (nActualTimespan < params.nPowTargetTimespan/4)
-        nActualTimespan = params.nPowTargetTimespan/4;
-    if (nActualTimespan > params.nPowTargetTimespan*4)
-        nActualTimespan = params.nPowTargetTimespan*4;
+    int64_t nModulatedTimespan = nActualTimespan;
+    if (pindexLast->nHeight+1 >= 145000) {
+        // amplitude filter - thanks to daft27 for this code
+        nModulatedTimespan = params.nPowTargetTimespan + (nModulatedTimespan - params.nPowTargetTimespan)/8;
+
+        if (nModulatedTimespan < (params.nPowTargetTimespan - (params.nPowTargetTimespan/4)) ) nModulatedTimespan = (params.nPowTargetTimespan - (params.nPowTargetTimespan/4));
+        if (nModulatedTimespan > (params.nPowTargetTimespan + (params.nPowTargetTimespan/2)) ) nModulatedTimespan = (params.nPowTargetTimespan + (params.nPowTargetTimespan/2));
+    }
+    else if (pindexLast->nHeight+1 > 10000) {
+        if (nModulatedTimespan < params.nPowTargetTimespan/4)
+            nModulatedTimespan = params.nPowTargetTimespan/4;
+        if (nModulatedTimespan > params.nPowTargetTimespan*4)
+            nModulatedTimespan = params.nPowTargetTimespan*4;
+    }
+    else if (pindexLast->nHeight+1 > 5000)
+    {
+        if (nModulatedTimespan < params.nPowTargetTimespan/8)
+            nModulatedTimespan = params.nPowTargetTimespan/8;
+        if (nModulatedTimespan > params.nPowTargetTimespan*4)
+            nModulatedTimespan = params.nPowTargetTimespan*4;
+    }
+    else
+    {
+        if (nModulatedTimespan < params.nPowTargetTimespan/16)
+            nModulatedTimespan = params.nPowTargetTimespan/16;
+        if (nModulatedTimespan > params.nPowTargetTimespan*4)
+            nModulatedTimespan = params.nPowTargetTimespan*4;
+    }
+
 
     // Retarget
     arith_uint256 bnNew;
-    arith_uint256 bnOld;
     bnNew.SetCompact(pindexLast->nBits);
-    bnOld = bnNew;
-    // Litecoin: intermediate uint256 can overflow by 1 bit
-    const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
-    bool fShift = bnNew.bits() > bnPowLimit.bits() - 1;
-    if (fShift)
-        bnNew >>= 1;
-    bnNew *= nActualTimespan;
+    bnNew *= nModulatedTimespan;
     bnNew /= params.nPowTargetTimespan;
-    if (fShift)
-        bnNew <<= 1;
 
     if (bnNew > bnPowLimit)
         bnNew = bnPowLimit;
+
+    LogPrintf("%d GetNextWorkRequired() : before: %08x, after: %08x\n",
+       pindexLast->nHeight+1, pindexLast->nBits, bnNew.GetCompact());
 
     return bnNew.GetCompact();
 }
