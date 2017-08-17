@@ -37,6 +37,54 @@
         <source>&amp;Delete</source>
         <translation>حذف</translation>
     </message>
+    <message>
+        <source>Choose the address to send coins to</source>
+        <translation>آدرس برای ارسال کوین‌ها را انتخاب کنید</translation>
+    </message>
+    <message>
+        <source>Choose the address to receive coins with</source>
+        <translation>انتخاب آدرس جهت دریافت سکه‌ها با آن</translation>
+    </message>
+    <message>
+        <source>C&amp;hoose</source>
+        <translation>انتخاب</translation>
+    </message>
+    <message>
+        <source>Sending addresses</source>
+        <translation>آدرس‌های فرستنده</translation>
+    </message>
+    <message>
+        <source>Receiving addresses</source>
+        <translation>آدرس‌های گیرنده</translation>
+    </message>
+    <message>
+        <source>These are your Litecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>اینها آدرس‌های بیتکوین شما برای ارسال وجوه هستند. همیشه قبل از ارسال، مقدار و آدرس گیرنده را بررسی کنید.</translation>
+    </message>
+    <message>
+        <source>These are your Litecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>اینها آدرس‌های بیتکوین شما برای دریافت وجوه هستند. توصیه می‌شود برای هر دریافت از یک آدرس جدید استفاده کنید.</translation>
+    </message>
+    <message>
+        <source>&amp;Copy Address</source>
+        <translation>کپی آدرس</translation>
+    </message>
+    <message>
+        <source>Copy &amp;Label</source>
+        <translation>کپی برچسب</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation>ویرایش</translation>
+    </message>
+    <message>
+        <source>Export Address List</source>
+        <translation>از فهرست آدرس خروجی گرفته شود</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>گرفتن خروجی به مشکل خورد</translation>
+    </message>
     </context>
 <context>
     <name>AddressTableModel</name>
@@ -126,6 +174,10 @@
         <translation>دریافت آدرس ها</translation>
     </message>
     <message>
+        <source>Send coins to a Litecoin address</source>
+        <translation>ارسال کوین به آدرس litecoin</translation>
+    </message>
+    <message>
         <source>Backup wallet to another location</source>
         <translation>گرفتن نسخه پیشتیبان در آدرسی دیگر</translation>
     </message>
@@ -134,8 +186,8 @@
         <translation>رمز مربوط به رمزگذاریِ wallet را تغییر دهید</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>bitcoin</translation>
+        <source>Litecoin</source>
+        <translation>litecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -293,8 +345,8 @@
         <translation>فرم</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>اطلاعات نمایش داده شده ممکن است روزآمد نباشد. wallet شما به صورت خودکار بعد از برقراری اتصال با شبکه bitcoin به روز می شود اما این فرایند هنوز تکمیل نشده است.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>اطلاعات نمایش داده شده ممکن است روزآمد نباشد. wallet شما به صورت خودکار بعد از برقراری اتصال با شبکه litecoin به روز می شود اما این فرایند هنوز تکمیل نشده است.</translation>
     </message>
     </context>
 <context>

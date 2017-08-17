@@ -41,6 +41,58 @@
         <source>&amp;Delete</source>
         <translation>&amp;Törlés</translation>
     </message>
+    <message>
+        <source>Choose the address to send coins to</source>
+        <translation>Válassza ki a címet küldéshez</translation>
+    </message>
+    <message>
+        <source>Choose the address to receive coins with</source>
+        <translation>Válassza ki a címet fogadáshoz</translation>
+    </message>
+    <message>
+        <source>C&amp;hoose</source>
+        <translation>K&amp;iválaszt</translation>
+    </message>
+    <message>
+        <source>Sending addresses</source>
+        <translation>Küldési cím</translation>
+    </message>
+    <message>
+        <source>Receiving addresses</source>
+        <translation>Fogadási cím</translation>
+    </message>
+    <message>
+        <source>These are your Litecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Ezek a Litecoin címeid kifizetések küldéséhez. Mindíg ellenőrizd az összeget és a fogadó címet mielőtt coinokat küldenél.</translation>
+    </message>
+    <message>
+        <source>These are your Litecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Ezek a Litecoin címeid kifizetések fogadásához. Ajánlott új címet használni minden új fogadáshoz.</translation>
+    </message>
+    <message>
+        <source>&amp;Copy Address</source>
+        <translation>&amp;Cím másolása</translation>
+    </message>
+    <message>
+        <source>Copy &amp;Label</source>
+        <translation>Másolás és Címkézés</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation>Szerkesztés</translation>
+    </message>
+    <message>
+        <source>Export Address List</source>
+        <translation>Címlista exportálása</translation>
+    </message>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Vesszővel elválasztott adatokat tartalmazó fájl</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>Hiba az exportálás során</translation>
+    </message>
     </context>
 <context>
     <name>AddressTableModel</name>
@@ -63,7 +115,96 @@
         <source>Repeat new passphrase</source>
         <translation>Új jelszó újra</translation>
     </message>
-    </context>
+    <message>
+        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation>Gépelje be az új kulcsmondatot a pénztárcához.&lt;br/&gt;
+Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű karaktert &lt;/b&gt;, vagy &lt;b&gt; nyolc vagy több szót &lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Encrypt wallet</source>
+        <translation>Tárca titkosítása</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
+        <translation>Ehhez a művelethez szükség van a tárcához tartozó kulcsmondathoz, hogy kinyithassa azt.</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Tárca kinyitása</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation>Ehhez a művelethez szükség van a tárcához tartozó kulcsmondathoz, hogy a titkosítás megszűnjön.</translation>
+    </message>
+    <message>
+        <source>Decrypt wallet</source>
+        <translation>Tárca dekódolása</translation>
+    </message>
+    <message>
+        <source>Change passphrase</source>
+        <translation>Kulcsmondat megváltoztatása</translation>
+    </message>
+    <message>
+        <source>Enter the old passphrase and new passphrase to the wallet.</source>
+        <translation>Gépelje be a tárcához tartozó régi, és új kulcsmondatot</translation>
+    </message>
+    <message>
+        <source>Confirm wallet encryption</source>
+        <translation>Tárca titkosításának megerősítése</translation>
+    </message>
+    <message>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LITECOINS&lt;/b&gt;!</source>
+        <translation>Figyelem: Ha titkosítja a tárcáját és elveszíti a jelszavát, akkor &lt;b&gt;AZ ÖSSZES LITECOINJA ELVESZIK&lt;/b&gt;!</translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to encrypt your wallet?</source>
+        <translation>Biztosan titkosítani akarja a tárcát?</translation>
+    </message>
+    <message>
+        <source>Wallet encrypted</source>
+        <translation>Tárca titkosítva</translation>
+    </message>
+    <message>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
+        <translation>A %1 most bezár, hogy befejezze a titkosítást. Ne feledje, hogy a tárca titkosítása nem nyújt teljes védelmet azzal szemben, hogy kártékony programok megfertőzzék a számítógépét és ellopják a litecoinjait.</translation>
+    </message>
+    <message>
+        <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
+        <translation>FONTOS: A tárca-fájl minden korábbi biztonsági mentését cserélje le ezzel az újonnan generált, titkosított tárca-fájllal. Biztonsági okokból a tárca-fájl korábbi, titkosítás nélküli mentései használhatatlanná válnak, amint elkezdi használni az új, titkosított tárcát.</translation>
+    </message>
+    <message>
+        <source>Wallet encryption failed</source>
+        <translation>A tárca titkosítása sikertelen.</translation>
+    </message>
+    <message>
+        <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
+        <translation>Tárca titkosítása belső hiba miatt sikertelen. A tárcád nem lett titkosítva.</translation>
+    </message>
+    <message>
+        <source>The supplied passphrases do not match.</source>
+        <translation>A megadott jelszavak nem egyeznek.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock failed</source>
+        <translation>Tárca megnyitása sikertelen</translation>
+    </message>
+    <message>
+        <source>The passphrase entered for the wallet decryption was incorrect.</source>
+        <translation>A tárca titkosításának feloldásához megadott jelszó helytelen.</translation>
+    </message>
+    <message>
+        <source>Wallet decryption failed</source>
+        <translation>Tárca titkosításának feloldása sikertelen</translation>
+    </message>
+    <message>
+        <source>Wallet passphrase was successfully changed.</source>
+        <translation>Tárca jelszava sikeresen megváltoztatva.</translation>
+    </message>
+    <message>
+        <source>Warning: The Caps Lock key is on!</source>
+        <translation>Vigyázat: a Caps Lock be van kapcsolva!</translation>
+    </message>
+</context>
 <context>
     <name>BanTableModel</name>
     <message>
@@ -158,8 +299,8 @@
         <translation>Lemezen lévő blokkok újraindexelése...</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
-        <translation>Bitcoin küldése megadott címre</translation>
+        <source>Send coins to a Litecoin address</source>
+        <translation>Litecoin küldése megadott címre</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -182,8 +323,8 @@
         <translation>Üzenet &amp;valódiságának ellenőrzése</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Litecoin</source>
+        <translation>Litecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -210,12 +351,12 @@
         <translation>A tárcádhoz tartozó privát kulcsok titkosítása</translation>
     </message>
     <message>
-        <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>Üzenetek aláírása a Bitcoin-címmeiddel, amivel bizonyítod, hogy a cím a sajátod</translation>
+        <source>Sign messages with your Litecoin addresses to prove you own them</source>
+        <translation>Üzenetek aláírása a Litecoin-címmeiddel, amivel bizonyítod, hogy a cím a sajátod</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>Üzenetek ellenőrzése, hogy valóban a megjelölt Bitcoin-címekkel vannak-e aláírva</translation>
+        <source>Verify messages to ensure they were signed with specified Litecoin addresses</source>
+        <translation>Üzenetek ellenőrzése, hogy valóban a megjelölt Litecoin-címekkel vannak-e aláírva</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -234,8 +375,8 @@
         <translation>Fül eszköztár</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Fizetési kérelem (QR-kódot és "bitcoin:" URI azonosítót hoz létre)</translation>
+        <source>Request payments (generates QR codes and litecoin: URIs)</source>
+        <translation>Fizetési kérelem (QR-kódot és "litecoin:" URI azonosítót hoz létre)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -246,16 +387,16 @@
         <translation>A használt fogadó címek és címkék megtekintése</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>"bitcoin:" URI azonosító vagy fizetési kérelem megnyitása</translation>
+        <source>Open a litecoin: URI or payment request</source>
+        <translation>"litecoin:" URI azonosító vagy fizetési kérelem megnyitása</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Paran&amp;cssor kapcsolók</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Bitcoin network</source>
-        <translation><numerusform>%n aktív kapcsolat a Bitcoin hálózathoz</numerusform><numerusform>%n aktív kapcsolat a Bitcoin hálózathoz</numerusform></translation>
+        <source>%n active connection(s) to Litecoin network</source>
+        <translation><numerusform>%n aktív kapcsolat a Litecoin hálózathoz</numerusform><numerusform>%n aktív kapcsolat a Litecoin hálózathoz</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Processed %n block(s) of transaction history.</source>
@@ -288,6 +429,18 @@
     <message>
         <source>Up to date</source>
         <translation>Naprakész</translation>
+    </message>
+    <message>
+        <source>Show the %1 help message to get a list with possible Litecoin command-line options</source>
+        <translation>A %1 súgó megjelenítése a Litecoin lehetséges parancssori kapcsolóinak listájával</translation>
+    </message>
+    <message>
+        <source>%1 client</source>
+        <translation>%1 kliens</translation>
+    </message>
+    <message>
+        <source>Connecting to peers...</source>
+        <translation>Csatlakozás párokhoz...</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -339,7 +492,11 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Tárca &lt;b&gt;kódolva&lt;/b&gt; és jelenleg &lt;b&gt;zárva&lt;/b&gt;.</translation>
     </message>
-    </context>
+    <message>
+        <source>A fatal error occurred. Litecoin can no longer continue safely and will quit.</source>
+        <translation>Végzetes hiba történt. A Litecoin működése nem biztonságos és hamarosan leáll.</translation>
+    </message>
+</context>
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -433,7 +590,39 @@
         <source>&amp;Address</source>
         <translation>&amp;Cím</translation>
     </message>
-    </context>
+    <message>
+        <source>New receiving address</source>
+        <translation>Új fogadó cím</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>Új küldő cím</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>Fogadó cím szerkesztése</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>Küldő cím szerkesztése</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is not a valid Litecoin address.</source>
+        <translation>A megadott "%1" cím nem egy érvényes Litecoin-cím.</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>A megadott "%1" cím már szerepel a címjegyzékben.</translation>
+    </message>
+    <message>
+        <source>Could not unlock wallet.</source>
+        <translation>Tárca feloldása sikertelen</translation>
+    </message>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>Új kulcs generálása sikertelen.</translation>
+    </message>
+</context>
 <context>
     <name>FreespaceChecker</name>
     <message>
@@ -508,6 +697,22 @@
     <message>
         <source>Form</source>
         <translation>Űrlap</translation>
+    </message>
+    <message>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the litecoin network, as detailed below.</source>
+        <translation>A legutóbbi tranzakciók még lehet, hogy nem látszanak, ezért előfordulhat, hogy a pénztárca egyenlege nem a valós állapotot mutatja. Ha a pénztárca befejezte a szinkronizációt a litecoin hálózattal, utána már az aktuális egyenleget fogja mutatni, amint alant részletesen látszik.</translation>
+    </message>
+    <message>
+        <source>Attempting to spend litecoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>A hálózat nem fogadja el azoknak a litecoinoknak az elköltését, amelyek érintettek a még nem látszódó tranzakciókban.</translation>
+    </message>
+    <message>
+        <source>Number of blocks left</source>
+        <translation>Hátralévő blokkok száma</translation>
+    </message>
+    <message>
+        <source>Unknown...</source>
+        <translation>Ismeretlen...</translation>
     </message>
     <message>
         <source>Last block time</source>
@@ -592,16 +797,28 @@
         <translation>Szakértő</translation>
     </message>
     <message>
-        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>A Bitcoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
+        <source>Enable coin &amp;control features</source>
+        <translation>Pénzküldés beállításainak engedélyezése</translation>
+    </message>
+    <message>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
+        <translation>Ha letiltja a jóváhagyatlan változások elköltését, akkor egy tranzakcióból származó változást nem lehet használni, amíg legalább egy jóváhagyás nem történik. Ez befolyásolja az egyenlegének a kiszámítását is.</translation>
+    </message>
+    <message>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp;Költése a a jóváhagyatlan változásnak</translation>
+    </message>
+    <message>
+        <source>Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>A Litecoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>&amp;UPnP port-feltérképezés</translation>
     </message>
     <message>
-        <source>Connect to the Bitcoin network through a SOCKS5 proxy.</source>
-        <translation>Csatlakozás a Bitcoin hálózatához SOCKS5 proxyn keresztül</translation>
+        <source>Connect to the Litecoin network through a SOCKS5 proxy.</source>
+        <translation>Csatlakozás a Litecoin hálózatához SOCKS5 proxyn keresztül</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -626,6 +843,14 @@
     <message>
         <source>Tor</source>
         <translation>Tor</translation>
+    </message>
+    <message>
+        <source>Connect to the Litecoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Csatlakozás a Litecoin hálózathoz külön SOCKS5 proxy használatával a Tor rejtett szolgáltatásainak eléréséhez.</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
+        <translation>Más SOCKS5 proxy használata a párok eléréséhez, a Tor rejtett szolgáltatásain keresztül:</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -695,8 +920,8 @@
         <translation>Űrlap</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>A kijelzett információ lehet, hogy elavult. A pénztárcája automatikusan szinkronizálja magát a Bitcoin hálózattal miután a kapcsolat létrejön, de ez e folyamat még nem fejeződött be.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>A kijelzett információ lehet, hogy elavult. A pénztárcája automatikusan szinkronizálja magát a Litecoin hálózattal miután a kapcsolat létrejön, de ez e folyamat még nem fejeződött be.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -749,7 +974,87 @@
     </context>
 <context>
     <name>PaymentServer</name>
-    </context>
+    <message>
+        <source>Payment request error</source>
+        <translation>Hiba történt a fizetési kérelem során</translation>
+    </message>
+    <message>
+        <source>Cannot start litecoin: click-to-pay handler</source>
+        <translation>A litecoin nem tud elindulni: click-to-pay kezelő</translation>
+    </message>
+    <message>
+        <source>URI handling</source>
+        <translation>URI kezelés</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>Érvénytelen fizetési cím %1</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid Litecoin address or malformed URI parameters.</source>
+        <translation>Nem sikerült az URI elemzése! Ezt okozhatja érvénytelen Litecoin cím, vagy rossz URI paraméterezés.</translation>
+    </message>
+    <message>
+        <source>Payment request file handling</source>
+        <translation>Fizetés kérelmi fájl kezelése</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Nem sikerült beolvasni a fizetési kérelmi fájlt! Ezt érvénytelen fizetési kérelmi fájl okozhatja.</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>A fizetési kérelem visszautasítva</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>A fizetési kérelmi hálózat nem egyezik a kliens hálózatával.</translation>
+    </message>
+    <message>
+        <source>Payment request expired.</source>
+        <translation>A fizetési kérelem lejárt.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>A fizetési kérelem nem inicializálódott</translation>
+    </message>
+    <message>
+        <source>Invalid payment request.</source>
+        <translation>Érvénytelen fizetési kérelem</translation>
+    </message>
+    <message>
+        <source>Requested payment amount of %1 is too small (considered dust).</source>
+        <translation>A %1 fizetésre kért összege túl kevés (porszemnek minősül).</translation>
+    </message>
+    <message>
+        <source>Refund from %1</source>
+        <translation>Visszatérítés a %1 -tól</translation>
+    </message>
+    <message>
+        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
+        <translation>A fizetési kérelem %1 túl nagy (%2 byte, csak %3 byte engedélyezett).</translation>
+    </message>
+    <message>
+        <source>Error communicating with %1: %2</source>
+        <translation>Hiba a kommuniáció során %1 -el: %2</translation>
+    </message>
+    <message>
+        <source>Payment request cannot be parsed!</source>
+        <translation>Nem sikerült elemezni a fizetési kérelmet!</translation>
+    </message>
+    <message>
+        <source>Bad response from server %1</source>
+        <translation>Rossz válasz a kiszolgálótól %1</translation>
+    </message>
+    <message>
+        <source>Network request error</source>
+        <translation>Hálózati kérelem hiba</translation>
+    </message>
+    <message>
+        <source>Payment acknowledged</source>
+        <translation>Fizetés elfogadva</translation>
+    </message>
+</context>
 <context>
     <name>PeerTableModel</name>
     <message>
@@ -764,8 +1069,8 @@
         <translation>Összeg</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. %1)</source>
-        <translation>Ad meg egy Bitcoin címet (pl: %1)</translation>
+        <source>Enter a Litecoin address (e.g. %1)</source>
+        <translation>Ad meg egy Litecoin címet (pl: %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1032,6 +1337,30 @@
         <translation>&amp;Üzenet:</translation>
     </message>
     <message>
+        <source>Reuse one of the previously used receiving addresses. Reusing addresses has security and privacy issues. Do not use this unless re-generating a payment request made before.</source>
+        <translation>Egy előzőleg használt fogadó cím újrafelhasználása. A címek újrafelhasználása biztonsági és adatvédelmi problémát jelent. Ne használja ezt a funkciót, kivéve, ha egy korábbi fizetési kérelmet szeretne megismételni.</translation>
+    </message>
+    <message>
+        <source>R&amp;euse an existing receiving address (not recommended)</source>
+        <translation>&amp;Újrafelhasznál egy létező fogadó címet (nem ajánlott)</translation>
+    </message>
+    <message>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Litecoin network.</source>
+        <translation>Egy opcionális üzenet csatolása a fizetési kérelemhez, amely megjelenik a kérelem megnyitásakor. Megjegyzés: Az üzenet nem lesz elküldve a fizetséggel a Litecoin hálózaton keresztül.</translation>
+    </message>
+    <message>
+        <source>An optional label to associate with the new receiving address.</source>
+        <translation>Egy opcionális címke, amit hozzá lehet rendelni az új fogadó címhez.</translation>
+    </message>
+    <message>
+        <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
+        <translation>Használja ezt az űrlapot fizetési kérelmekhez. Minden mező &lt;b&gt;opcionális&lt;/b&gt; </translation>
+    </message>
+    <message>
+        <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
+        <translation>Egy opcionálisan kérhető összeg. Hagyja üresen, vagy írjon be nullát, ha nem kívánja használni.</translation>
+    </message>
+    <message>
         <source>Clear all fields of the form.</source>
         <translation>Minden mező törlése</translation>
     </message>
@@ -1285,8 +1614,8 @@
         <translation>A jelenleg kiválasztott aláírás másolása a rendszer-vágólapra</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Bitcoin address</source>
-        <translation>Üzenet </translation>
+        <source>Warning: Invalid Litecoin address</source>
+        <translation>Figyelmeztetés: Érvénytelen Litecoin cím</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1304,7 +1633,203 @@
         <source>Verify &amp;Message</source>
         <translation>Üzenet ellenőrzése</translation>
     </message>
-    </context>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>Összeg:</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Címzett:</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>Címke:</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Válassz egy korábban már használt címet</translation>
+    </message>
+    <message>
+        <source>The Litecoin address to send the payment to</source>
+        <translation>Erre a Litecoin címre küldje az összeget</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Cím beillesztése a vágólapról</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Remove this entry</source>
+        <translation>Ez a bejegyzés eltávolítása</translation>
+    </message>
+    <message>
+        <source>S&amp;ubtract fee from amount</source>
+        <translation>&amp;Vonja le a díjat az összegből</translation>
+    </message>
+    <message>
+        <source>Message:</source>
+        <translation>Üzenet:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>Adjon egy címkét ehhez a címhez, hogy bekerüljön a használt címek közé</translation>
+    </message>
+    <message>
+        <source>Pay To:</source>
+        <translation>Címzett:</translation>
+    </message>
+    <message>
+        <source>Memo:</source>
+        <translation>Jegyzet:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Adjon egy címkét ehhez a címhez, hogy bekerüljön a címtárába</translation>
+    </message>
+</context>
+<context>
+    <name>SendConfirmationDialog</name>
+    <message>
+        <source>Yes</source>
+        <translation>Igen</translation>
+    </message>
+</context>
+<context>
+    <name>ShutdownWindow</name>
+    <message>
+        <source>%1 is shutting down...</source>
+        <translation>A %1 leáll...</translation>
+    </message>
+    <message>
+        <source>Do not shut down the computer until this window disappears.</source>
+        <translation>Ne állítsd le a számítógépet amíg ez az ablak el nem tűnik.</translation>
+    </message>
+</context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    <message>
+        <source>Signatures - Sign / Verify a Message</source>
+        <translation>Aláírások - üzenet aláírása/ellenőrzése</translation>
+    </message>
+    <message>
+        <source>&amp;Sign Message</source>
+        <translation>Üzenet aláírása...</translation>
+    </message>
+    <message>
+        <source>The Litecoin address to sign the message with</source>
+        <translation>Litecoin cím, amivel alá kívánja írni az üzenetet</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Válassz egy korábban már használt címet</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Cím beillesztése a vágólapról</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Enter the message you want to sign here</source>
+        <translation>Ide írja az aláírandó üzenetet</translation>
+    </message>
+    <message>
+        <source>Signature</source>
+        <translation>Aláírás</translation>
+    </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>A jelenleg kiválasztott aláírás másolása a rendszer-vágólapra</translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this Litecoin address</source>
+        <translation>Üzenet </translation>
+    </message>
+    <message>
+        <source>Sign &amp;Message</source>
+        <translation>Üzenet &amp;aláírása</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Mindent &amp;töröl</translation>
+    </message>
+    <message>
+        <source>&amp;Verify Message</source>
+        <translation>Üzenet ellenőrzése</translation>
+    </message>
+    <message>
+        <source>The Litecoin address the message was signed with</source>
+        <translation>Litecoin cím, amivel aláírta az üzenetet</translation>
+    </message>
+    <message>
+        <source>Verify the message to ensure it was signed with the specified Litecoin address</source>
+        <translation>Ellenőrizze az üzenetet, hogy valóban a megjelölt Litecoin címmel van-e aláírva</translation>
+    </message>
+    <message>
+        <source>Verify &amp;Message</source>
+        <translation>Üzenet ellenőrzése</translation>
+    </message>
+    <message>
+        <source>Click "Sign Message" to generate signature</source>
+        <translation>Klikkeljen az "Üzenet Aláírása" -ra, hogy aláírást generáljon</translation>
+    </message>
+    <message>
+        <source>The entered address is invalid.</source>
+        <translation>A megadott cím nem érvényes.</translation>
+    </message>
+    <message>
+        <source>Please check the address and try again.</source>
+        <translation>Kérem ellenőrizze a címet és próbálja meg újra.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock was cancelled.</source>
+        <translation>Tárca megnyitása megszakítva</translation>
+    </message>
+    <message>
+        <source>Private key for the entered address is not available.</source>
+        <translation>A megadott cím privát kulcsa nem található.</translation>
+    </message>
+    <message>
+        <source>Message signing failed.</source>
+        <translation>Üzenet aláírása sikertelen.</translation>
+    </message>
+    <message>
+        <source>Message signed.</source>
+        <translation>Üzenet aláírva.</translation>
+    </message>
+    <message>
+        <source>The signature could not be decoded.</source>
+        <translation>Az aláírást nem sikerült dekódolni.</translation>
+    </message>
+    <message>
+        <source>Please check the signature and try again.</source>
+        <translation>Kérem ellenőrizze az aláírást és próbálja újra.</translation>
+    </message>
+    <message>
+        <source>Message verification failed.</source>
+        <translation>Az üzenet igazolása sikertelen.</translation>
+    </message>
+    <message>
+        <source>Message verified.</source>
+        <translation>Üzenet ellenőrizve.</translation>
+    </message>
+</context>
 <context>
     <name>SplashScreen</name>
     <message>
@@ -1378,8 +1903,8 @@
 </translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
+        <source>Litecoin Core</source>
+        <translation>Litecoin Core</translation>
     </message>
     <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
@@ -1533,7 +2058,7 @@
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Nincs elég bitcoinod.</translation>
+        <translation>Nincs elég litecoinod.</translation>
     </message>
     <message>
         <source>Loading block index...</source>

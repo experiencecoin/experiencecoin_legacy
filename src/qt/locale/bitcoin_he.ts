@@ -62,12 +62,12 @@
         <translation>מקבל כתובות</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>אלה הם כתובות הביטקוין שלך לשליחת תשלומים. חשוב לבדוק את הכמות של הכתובות המקבלות לפני שליחת מטבעות</translation>
+        <source>These are your Litecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>אלו הן כתובות לייטקוין שלך לשליחת תשלומים. חשוב לבדוק את כמות הכתובות המקבלות לפני שליחת מטבעות.</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>אלה הן כתובות הביטקוין שלך לקבלת תשלומים. מומלץ להשתמש בכתובת חדשה לכל העברה.</translation>
+        <source>These are your Litecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>אלו הן כתובות לייטקוין שלך לקבלת תשלומים. מומלץ להשתמש בכתובת חדשה לכל העברה.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -123,7 +123,95 @@
         <source>Repeat new passphrase</source>
         <translation>נא לחזור על מילת הצופן החדשה</translation>
     </message>
-    </context>
+    <message>
+        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation>נא להזין את מילת הצופן לארנק.&lt;br/&gt;נא להשתמש במילת צופן המורכבת מ&lt;b&gt;עשרה או יותר תווים אקראיים&lt;/b&gt;, או &lt;b&gt;שמונה מילים ומעלה&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Encrypt wallet</source>
+        <translation>הצפנת הארנק</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
+        <translation>פעולה זו דורשת את מילת הצופן של הארנק שלך כדי לשחרר את הארנק.</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>שחרור הארנק</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation>פעולה זו דורשת את מילת הצופן של הארנק שלך כדי לפענח את הארנק.</translation>
+    </message>
+    <message>
+        <source>Decrypt wallet</source>
+        <translation>פענוח הארנק</translation>
+    </message>
+    <message>
+        <source>Change passphrase</source>
+        <translation>החלפת מילת הצופן</translation>
+    </message>
+    <message>
+        <source>Enter the old passphrase and new passphrase to the wallet.</source>
+        <translation>נא להזין את מילת הצופן הישנה וחדשה לארנק</translation>
+    </message>
+    <message>
+        <source>Confirm wallet encryption</source>
+        <translation>אימות הצפנת הארנק</translation>
+    </message>
+    <message>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LITECOINS&lt;/b&gt;!</source>
+        <translation>אזהרה: איבוד מילת הצופן לאחר הצפנת הארנק עשויה לגרום לכך &lt;b&gt;שכל הביטקוינים שלך יאבדו&lt;/b&gt;!</translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to encrypt your wallet?</source>
+        <translation>להצפין את הארנק?</translation>
+    </message>
+    <message>
+        <source>Wallet encrypted</source>
+        <translation>הארנק מוצפן</translation>
+    </message>
+    <message>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
+        <translation>%1 ייסגר כעת כדי לסיים את תהליך ההצפנה. נא לשים לב כי הצפנת הארנק שלך לא יכול להגן על הביטקוינים שלך מפני גניבה או נוזקה שתוקפת את מחשבך.</translation>
+    </message>
+    <message>
+        <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
+        <translation>חשוב: כל הגיבויים הקודמים שערכת לארנק שלך אמורים להתחלף עם קובץ הארנק המוצפן שנוצר כרגע. מטעמי אבטחה, הגיבויים הקודמים של קובץ הארנק שאינו מוגן הופכים לחסרי תועלת ברגע התחלת השימוש בארנק החדש והמוצפן.</translation>
+    </message>
+    <message>
+        <source>Wallet encryption failed</source>
+        <translation>הצפנת הארנק נכשלה</translation>
+    </message>
+    <message>
+        <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
+        <translation>הצפנת הארנק נכשלה עקב תקלה פנימית. הארנק שלך לא הוצפן.</translation>
+    </message>
+    <message>
+        <source>The supplied passphrases do not match.</source>
+        <translation>מילות הצופן שסופקו אינן תואמות.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock failed</source>
+        <translation>שחרור האנרק נכשל</translation>
+    </message>
+    <message>
+        <source>The passphrase entered for the wallet decryption was incorrect.</source>
+        <translation>מילת הצופן שהוזנה לצורך פענוח הארנק שגויה.</translation>
+    </message>
+    <message>
+        <source>Wallet decryption failed</source>
+        <translation>פענוח הארנק נכשל</translation>
+    </message>
+    <message>
+        <source>Wallet passphrase was successfully changed.</source>
+        <translation>מילת הצופן של הארנק הוחלפה בהצלחה.</translation>
+    </message>
+    <message>
+        <source>Warning: The Caps Lock key is on!</source>
+        <translation>אזהרה: מקש ה־Caps Lock פעיל!</translation>
+    </message>
+</context>
 <context>
     <name>BanTableModel</name>
     <message>
@@ -218,8 +306,8 @@
         <translation>המקטעים נוספים למפתח בכונן…</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
-        <translation>שליחת מטבעות לכתובת ביטקוין</translation>
+        <source>Send coins to a Litecoin address</source>
+        <translation>שליחת מטבעות לכתובת לייטקוין</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -242,8 +330,8 @@
         <translation>&amp;אימות הודעה…</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>ביטקוין</translation>
+        <source>Litecoin</source>
+        <translation>לייטקוין</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -270,12 +358,12 @@
         <translation>הצפנת המפתחות הפרטיים ששייכים לארנק שלך</translation>
     </message>
     <message>
-        <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>חתום על הודעות עם כתובות הביטקוין שלך כדי להוכיח שהן בבעלותך</translation>
+        <source>Sign messages with your Litecoin addresses to prove you own them</source>
+        <translation>חתום על הודעות עם כתובות לייטקוין שלך כדי להוכיח שהן בבעלותך</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>אמת הודעות כדי להבטיח שהן נחתמו עם כתובת ביטקוין מסוימות</translation>
+        <source>Verify messages to ensure they were signed with specified Litecoin addresses</source>
+        <translation>אמת הודעות כדי להבטיח שהן נחתמו עם כתובת לייטקוין מסוימות</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -294,8 +382,8 @@
         <translation>סרגל כלים לשוניות</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>בקשת תשלומים (יצירה של קודים מסוג QR וסכימות כתובות משאב של :bitcoin)</translation>
+        <source>Request payments (generates QR codes and litecoin: URIs)</source>
+        <translation>בקשת תשלומים (יצירה של קודים מסוג QR וסכימות כתובות משאב של :litecoin)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -306,12 +394,16 @@
         <translation>הצגת רשימת הכתובות והתוויות הנמצאות בשימוש</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>פתיחת ביטקוין: כתובת משאב או בקשת תשלום</translation>
+        <source>Open a litecoin: URI or payment request</source>
+        <translation>פתיחת לייטקוין: כתובת משאב או בקשת תשלום</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>אפשרויות &amp;שורת הפקודה</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n active connection(s) to Litecoin network</source>
+        <translation><numerusform>חיבור אחד פעיל לרשת לייטקוין</numerusform><numerusform>%n חיבורים פעילים לרשת לייטקוין</numerusform></translation>
     </message>
     <message>
         <source>Processing blocks on disk...</source>
@@ -346,6 +438,18 @@
         <translation>עדכני</translation>
     </message>
     <message>
+        <source>Show the %1 help message to get a list with possible Litecoin command-line options</source>
+        <translation>יש להציג את הודעת העזרה של %1 כדי להציג רשימה עם אפשרויות שורת פקודה לייטקוין</translation>
+    </message>
+    <message>
+        <source>%1 client</source>
+        <translation>לקוח %1</translation>
+    </message>
+    <message>
+        <source>Connecting to peers...</source>
+        <translation>מתבצעת התחברות לעמיתים…</translation>
+    </message>
+    <message>
         <source>Catching up...</source>
         <translation>מתבצע עדכון…</translation>
     </message>
@@ -365,7 +469,11 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>הארנק &lt;b&gt;מוצפן&lt;/b&gt; ו&lt;b&gt;נעול&lt;/b&gt; כרגע</translation>
     </message>
-    </context>
+    <message>
+        <source>A fatal error occurred. Litecoin can no longer continue safely and will quit.</source>
+        <translation>אירעה שגיאה חמורה. אין אפשרות להשתמש עוד בלייטקוין באופן מאובטח והיישום ייסגר.</translation>
+    </message>
+</context>
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -463,7 +571,39 @@
         <source>&amp;Address</source>
         <translation>&amp;כתובת</translation>
     </message>
-    </context>
+    <message>
+        <source>New receiving address</source>
+        <translation>כתובת קבלה חדשה</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>כתובת שליחה חדשה</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>עריכת כתובת הקבלה</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>עריכת כתובת השליחה</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is not a valid Litecoin address.</source>
+        <translation>הכתובת שהוקלדה „%1” היא אינה כתובת לייטקוין תקנית.</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>הכתובת שהוקלדה „%1” כבר נמצאת בספר הכתובות.</translation>
+    </message>
+    <message>
+        <source>Could not unlock wallet.</source>
+        <translation>לא ניתן לשחרר את הארנק.</translation>
+    </message>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>יצירת המפתח החדש נכשלה.</translation>
+    </message>
+</context>
 <context>
     <name>FreespaceChecker</name>
     <message>
@@ -670,12 +810,16 @@
         <translation>עודף &amp;בלתי מאושר מההשקעה</translation>
     </message>
     <message>
-        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>פתיחת הפתחה של ביטקוין בנתב באופן אוטומטי. עובד רק אם UPnP מופעל ונתמך בנתב.</translation>
+        <source>Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>פתיחת הפתחה של לייטקוין בנתב באופן אוטומטי. עובד רק אם UPnP מופעל ונתמך בנתב.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>מיפוי פתחה באמצעות UPnP</translation>
+    </message>
+    <message>
+        <source>Connect to the Litecoin network through a SOCKS5 proxy.</source>
+        <translation>התחבר לרשת לייטקוין דרך פרוקסי SOCKS5.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -777,8 +921,8 @@
         <translation>טופס</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>המידע המוצג עשוי להיות מיושן. הארנק שלך מסתנכרן באופן אוטומטי עם רשת הביטקוין לאחר יצירת החיבור, אך התהליך טרם הסתיים.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>המידע המוצג עשוי להיות מיושן. הארנק שלך מסתנכרן באופן אוטומטי עם רשת לייטקוין לאחר יצירת החיבור, אך התהליך טרם הסתיים.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -847,7 +991,71 @@
 </context>
 <context>
     <name>PaymentServer</name>
-    </context>
+    <message>
+        <source>Payment request error</source>
+        <translation>שגיאת בקשת תשלום</translation>
+    </message>
+    <message>
+        <source>Cannot start litecoin: click-to-pay handler</source>
+        <translation>לא ניתן להפעיל את המקשר litecoin: click-to-pay</translation>
+    </message>
+    <message>
+        <source>URI handling</source>
+        <translation>טיפול בכתובות</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>כתובת תשלום שגויה %1</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>בקשת התשלום נדחתה</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>רשת בקשת התשלום אינה תואמת לרשת הלקוח.</translation>
+    </message>
+    <message>
+        <source>Payment request expired.</source>
+        <translation>בקשת התשלום פגה.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>בקשת התשלום לא הופעלה.</translation>
+    </message>
+    <message>
+        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
+        <translation>בקשות תשלום לתסריטי תשלום מותאמים אישית שלא עברו וידוא אינן נתמכות.</translation>
+    </message>
+    <message>
+        <source>Invalid payment request.</source>
+        <translation>בקשת תשלום שגויה.</translation>
+    </message>
+    <message>
+        <source>Refund from %1</source>
+        <translation>זיכוי מאת %1</translation>
+    </message>
+    <message>
+        <source>Error communicating with %1: %2</source>
+        <translation>שגיאה בעת יצירת קשר עם %1:‏ %2</translation>
+    </message>
+    <message>
+        <source>Payment request cannot be parsed!</source>
+        <translation>לא ניתן לפענח את בקשת התשלום!</translation>
+    </message>
+    <message>
+        <source>Bad response from server %1</source>
+        <translation>תגובה שגויה מהשרת %1</translation>
+    </message>
+    <message>
+        <source>Network request error</source>
+        <translation>שגיאת בקשת רשת</translation>
+    </message>
+    <message>
+        <source>Payment acknowledged</source>
+        <translation>התשלום אושר</translation>
+    </message>
+</context>
 <context>
     <name>PeerTableModel</name>
     <message>
@@ -862,8 +1070,8 @@
         <translation>כמות</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. %1)</source>
-        <translation>נא להזין כתובת ביטקוין (למשל: %1)</translation>
+        <source>Enter a Litecoin address (e.g. %1)</source>
+        <translation>נא להזין כתובת לייטקוין (למשל: %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1182,8 +1390,8 @@
         <translation>ש&amp;ימוש &amp;חוזר בכתובת קבלה קיימת (לא מומלץ)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Bitcoin network.</source>
-        <translation>הודעת רשות לצירוף לבקשת התשלום שתוצג בעת פתיחת הבקשה. לתשומת לבך: ההודעה לא תישלח עם התשלום ברשת ביטקוין.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Litecoin network.</source>
+        <translation>הודעת רשות לצירוף לבקשת התשלום שתוצג בעת פתיחת הבקשה. לתשומת לבך: ההודעה לא תישלח עם התשלום ברשת לייטקוין.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1391,6 +1599,110 @@
         <translation>&amp;שליחה</translation>
     </message>
     <message>
+        <source>Copy quantity</source>
+        <translation>העתקת הכמות</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>העתקת הסכום</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>העתקת העמלה</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>העתקה אחרי העמלה</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>העתקת בתים</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>העתקת אבק</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>העתקת השינוי</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>לשלוח?</translation>
+    </message>
+    <message>
+        <source>added as transaction fee</source>
+        <translation>נוספה עמלת העברה</translation>
+    </message>
+    <message>
+        <source>Total Amount %1</source>
+        <translation>סכום כולל %1</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>או</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>אימות שליחת מטבעות</translation>
+    </message>
+    <message>
+        <source>The recipient address is not valid. Please recheck.</source>
+        <translation>כתובת הנמען שגויה. נא לבדוק שוב.</translation>
+    </message>
+    <message>
+        <source>The amount to pay must be larger than 0.</source>
+        <translation>הסכום לתשלום צריך להיות גדול מ־0.</translation>
+    </message>
+    <message>
+        <source>The amount exceeds your balance.</source>
+        <translation>הסכום חורג מהמאזן שלך.</translation>
+    </message>
+    <message>
+        <source>Duplicate address found: addresses should only be used once each.</source>
+        <translation>נמצאה כתובת כפולה: יש להשתמש בכל כתובת פעם אחת בלבד.</translation>
+    </message>
+    <message>
+        <source>Transaction creation failed!</source>
+        <translation>יצירת ההעברה נכשלה!</translation>
+    </message>
+    <message>
+        <source>The transaction was rejected with the following reason: %1</source>
+        <translation>ההעברה נדחתה מהסיבות הבאות: %1</translation>
+    </message>
+    <message>
+        <source>A fee higher than %1 is considered an absurdly high fee.</source>
+        <translation>עמלה מעל לסכום של %1 נחשבת לעמלה גבוהה באופן מוגזם.</translation>
+    </message>
+    <message>
+        <source>Payment request expired.</source>
+        <translation>בקשת התשלום פגה.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n block(s)</source>
+        <translation><numerusform>מקטע אחד</numerusform><numerusform>%n מקטעים</numerusform></translation>
+    </message>
+    <message>
+        <source>Pay only the required fee of %1</source>
+        <translation>תשלום של העמלה הנדרשת בלבד על סך %1</translation>
+    </message>
+    <message>
+        <source>Warning: Invalid Litecoin address</source>
+        <translation>אזהרה: כתובת ביטקיון שגויה</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown change address</source>
+        <translation>אזהרה: כתובת החלפה בלתי ידועה</translation>
+    </message>
+    <message>
+        <source>Confirm custom change address</source>
+        <translation>אימות כתובת החלפה בהתאמה אישית</translation>
+    </message>
+    <message>
+        <source>The address you selected for change is not part of this wallet. Any or all funds in your wallet may be sent to this address. Are you sure?</source>
+        <translation>הכתובת שבחרת עבור ההחלפה אינה חלק מארנק זה. כל ההסכום שבארנק שלך עשוי להישלח לכתובת זו. מקובל עליך?</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(ללא תוית)</translation>
     </message>
@@ -1418,8 +1730,8 @@
         <translation>זהו תשלום רגיל.</translation>
     </message>
     <message>
-        <source>The Bitcoin address to send the payment to</source>
-        <translation>כתובת הביטקוין של המוטב</translation>
+        <source>The Litecoin address to send the payment to</source>
+        <translation>כתובת לייטקוין של המוטב</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1438,6 +1750,14 @@
         <translation>הסרת רשומה זו</translation>
     </message>
     <message>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less litecoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>העמלה תנוכה מהסכום שנשלח. הנמען יקבל פחות ביטקוינים ממה שהזנת בשדה הסכום. אם נבחרו מספר נמענים, העמלה תחולק באופן שווה.</translation>
+    </message>
+    <message>
+        <source>S&amp;ubtract fee from amount</source>
+        <translation>ה&amp;חסרת העמלה מהסכום</translation>
+    </message>
+    <message>
         <source>Message:</source>
         <translation>הודעה:</translation>
     </message>
@@ -1450,8 +1770,8 @@
         <translation>יש להזין תווית עבור כתובת זו כדי להוסיף אותה לרשימת הכתובות בשימוש</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Bitcoin network.</source>
-        <translation>הודעה שצורפה לביטקוין: כתובת שתאוחסן בהעברה לצורך מעקב מצדך. לתשומת לבך: הודעה זו לא תישלח ברשת הביטקוין.</translation>
+        <source>A message that was attached to the litecoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Litecoin network.</source>
+        <translation>הודעה שצורפה לייטקוין: כתובת שתאוחסן בהעברה לצורך מעקב מצדך. לתשומת לבך: הודעה זו לא תישלח ברשת לייטקוין.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1483,8 +1803,8 @@
         <translation>חתימה על הו&amp;דעה</translation>
     </message>
     <message>
-        <source>The Bitcoin address to sign the message with</source>
-        <translation>כתובת הביטקוין אתה לחתום אתה את ההודעה</translation>
+        <source>The Litecoin address to sign the message with</source>
+        <translation>כתובת לייטקוין אתה לחתום אתה את ההודעה</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1515,8 +1835,8 @@
         <translation>העתקת החתימה הנוכחית ללוח הגזירים</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Bitcoin address</source>
-        <translation>ניתן לחתום על ההודעה כדי להוכיח שכתובת הביטקוין הזו בבעלותך.</translation>
+        <source>Sign the message to prove you own this Litecoin address</source>
+        <translation>ניתן לחתום על ההודעה כדי להוכיח שכתובת לייטקוין הזו בבעלותך.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1535,12 +1855,12 @@
         <translation>&amp;אימות הודעה</translation>
     </message>
     <message>
-        <source>The Bitcoin address the message was signed with</source>
-        <translation>כתובת הביטקוין שאתה נחתמה ההודעה</translation>
+        <source>The Litecoin address the message was signed with</source>
+        <translation>כתובת לייטקוין שאתה נחתמה ההודעה</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Bitcoin address</source>
-        <translation>ניתן לאמת את ההודעה כדי להבטיח שהיא נחתמה עם כתובת הביטקוין הנתונה</translation>
+        <source>Verify the message to ensure it was signed with the specified Litecoin address</source>
+        <translation>ניתן לאמת את ההודעה כדי להבטיח שהיא נחתמה עם כתובת לייטקוין הנתונה</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1648,8 +1968,8 @@
         <translation>ריצה כסוכן ברקע וקבלת פקודות</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>ליבת ביטקוין</translation>
+        <source>Litecoin Core</source>
+        <translation>ליבת לייטקוין</translation>
     </message>
     <message>
         <source>The %s developers</source>
