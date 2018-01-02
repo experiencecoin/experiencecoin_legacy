@@ -17,6 +17,121 @@
  * in the block is a special one that creates a new coin owned by the creator
  * of the block.
  */
+
+
+class CAuxMerkleBranch : public CMutableTransaction
+{
+
+public:
+    uint256 hashBlock;
+    std::vector<uint256> vMerkleBranch;
+    int nIndex;
+
+    // memory only
+    mutable bool fMerkleVerified;
+
+
+    CAuxMerkleBranch()
+    {
+        Init();
+    }
+
+    CAuxMerkleBranch(const CMutableTransaction& txIn) : CMutableTransaction(txIn)
+    {
+        Init();
+    }
+
+    void Init()
+    {
+        hashBlock = uint256();
+        nIndex = -1;
+        fMerkleVerified = false;
+    }
+
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action)
+    {
+        READWRITE(*(CMutableTransaction*)this);
+        READWRITE(hashBlock);
+        READWRITE(vMerkleBranch);
+        READWRITE(nIndex);
+    }
+};
+
+class CPureBlockHeader
+{
+public:
+    // header
+    int32_t nVersion;
+    uint256 hashPrevBlock;
+    uint256 hashMerkleRoot;
+    uint32_t nTime;
+    uint32_t nBits;
+    uint32_t nNonce;
+
+    CPureBlockHeader()
+    {
+        SetNull();
+    }
+
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action) {
+        READWRITE(this->nVersion);
+        READWRITE(hashPrevBlock);
+        READWRITE(hashMerkleRoot);
+        READWRITE(nTime);
+        READWRITE(nBits);
+        READWRITE(nNonce);
+    }
+
+    void SetNull()
+    {
+        nVersion = 0;
+        hashPrevBlock.SetNull();
+        hashMerkleRoot.SetNull();
+        nTime = 0;
+        nBits = 0;
+        nNonce = 0;
+    }
+};
+
+
+class CAuxPow: public CAuxMerkleBranch
+{
+public:
+    CAuxMerkleBranch coinbase_branch;
+    int nChainIndex;
+    CPureBlockHeader parent_block;
+
+public:
+    inline explicit CAuxPow(const CMutableTransaction& txIn)
+        : CAuxMerkleBranch(txIn)
+    {
+    }
+
+    inline CAuxPow()
+        : CAuxMerkleBranch()
+    {
+    }
+
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action) {
+        READWRITE(*static_cast<CAuxMerkleBranch*>(this));
+
+        READWRITE(coinbase_branch);
+        READWRITE(nChainIndex);
+        READWRITE(parent_block);
+    }
+
+};
+
+
 class CBlockHeader
 {
 public:
@@ -27,6 +142,7 @@ public:
     uint32_t nTime;
     uint32_t nBits;
     uint32_t nNonce;
+    CAuxPow auxpow;
 
     CBlockHeader()
     {
@@ -43,6 +159,9 @@ public:
         READWRITE(nTime);
         READWRITE(nBits);
         READWRITE(nNonce);
+        if (this->nVersion == 6422786) {
+            READWRITE(auxpow);
+        }
     }
 
     void SetNull()

@@ -8,6 +8,7 @@
 
 #include "support/allocators/zeroafterfree.h"
 #include "serialize.h"
+#include "util.h"
 
 #include <algorithm>
 #include <assert.h>
@@ -627,8 +628,10 @@ public:
 
     // read a number of bytes
     void read(char *pch, size_t nSize) {
-        if (nSize + nReadPos > nReadLimit)
+        if (nSize + nReadPos > nReadLimit) {
+            LogPrintf("read: nsize %d, nReadPos %d, nReadLimit %d\n", nSize, nReadPos, nReadLimit);
             throw std::ios_base::failure("Read attempted past buffer limit");
+        }
         if (nSize + nRewind > vchBuf.size())
             throw std::ios_base::failure("Read larger than buffer size");
         while (nSize > 0) {
