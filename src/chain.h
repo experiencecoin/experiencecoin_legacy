@@ -11,7 +11,6 @@
 #include "pow.h"
 #include "tinyformat.h"
 #include "uint256.h"
-
 #include <vector>
 
 /**
@@ -178,7 +177,6 @@ public:
 
     //! pointer to the index of some further predecessor of this block
     CBlockIndex* pskip;
-
     //! height of the entry in the chain. The genesis block has height 0
     int nHeight;
 
@@ -276,27 +274,11 @@ public:
         return ret;
     }
 
-    CBlockHeader GetBlockHeader() const
-    {
-        CBlockHeader block;
-        block.nVersion       = nVersion;
-        if (pprev)
-            block.hashPrevBlock = pprev->GetBlockHash();
-        block.hashMerkleRoot = hashMerkleRoot;
-        block.nTime          = nTime;
-        block.nBits          = nBits;
-        block.nNonce         = nNonce;
-        return block;
-    }
+    CBlockHeader GetBlockHeader(const Consensus::Params& consensusParams) const;
 
     uint256 GetBlockHash() const
     {
         return *phashBlock;
-    }
-
-    uint256 GetBlockPoWHash() const
-    {
-        return GetBlockHeader().GetPoWHash();
     }
 
     int64_t GetBlockTime() const

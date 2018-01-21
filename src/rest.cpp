@@ -158,8 +158,8 @@ static bool rest_headers(HTTPRequest* req,
     }
 
     CDataStream ssHeader(SER_NETWORK, PROTOCOL_VERSION);
-    for (const CBlockIndex *pindex : headers) {
-        ssHeader << pindex->GetBlockHeader();
+    BOOST_FOREACH(const CBlockIndex *pindex, headers) {
+        ssHeader << pindex->GetBlockHeader(Params().GetConsensus());
     }
 
     switch (rf) {

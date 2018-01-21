@@ -1016,6 +1016,10 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
                 pindex->ToString(), pindex->GetBlockPos().ToString());
     return true;
 }
+bool ReadBlockFromDisk(CBlockHeader& block, const CBlockIndex* pindex, const Consensus::Params& consensusParams)
+{
+    return ReadBlockFromDisk(block, pindex, consensusParams);
+}
 
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
