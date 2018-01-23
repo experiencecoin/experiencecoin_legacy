@@ -201,10 +201,10 @@ public:
         nDefaultPort = 17300;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1391503289, 997879, 0x1e0ffff0, 1, 17500 * COIN);
+        genesis = CreateGenesisBlock(1516676260, 1563723, 0x1e0ffff0, 1, 17500 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(consensus.hashGenesisBlock == uint256S("0x5acb42f197a15d5afd611404ba94a0898cab06497f32b180256260c909b1cbfc"));
+        assert(genesis.hashMerkleRoot == uint256S("0x16733a25293a66a2d0a304ee04ef55f8e7fff7d441efad46d840592d8de89028"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -226,16 +226,15 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
 
-        checkpointData = (CCheckpointData) {
-            {
-                {2056, uint256S("17748a31ba97afdc9a4f86837a39d287e3e7c7290a08a1d816c5969c78a83289")},
-            }
-        };
+/*        checkpointData = (CCheckpointData) {
+            boost::assign::map_list_of
+            ( 2056, uint256S("0x17748a31ba97afdc9a4f86837a39d287e3e7c7290a08a1d816c5969c78a83289")),
+        };*/
 
         chainTxData = ChainTxData{
-            // Data as of block 3351b6229da00b47ad7a8d7e1323b0e2874744b5296e3d6448293463ab758624 (height 153489)
-            1502953751,
-            382986,
+            // Data as of block f2dc531da6be01f53774f970aaaca200c7a8317ee9fd398ee733b40f14e265d1 (height 8702)
+            1517715270,
+            8731,
             0.01
         };
 
