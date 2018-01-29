@@ -2944,7 +2944,7 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationSta
     if (block.nVersion < VERSIONBITS_TOP_BITS && IsWitnessEnabled(pindexPrev, consensusParams))
         return state.Invalid(false, REJECT_OBSOLETE, strprintf("bad-version(0x%08x)", block.nVersion),
                                  strprintf("rejected nVersion=0x%08x block", block.nVersion));
-    if(block.nVersion == 6422786 && nHeight >= 1080000) {
+    if(block.nVersion == 6422786 && nHeight >= 1080000)
             return state.Invalid(false, REJECT_OBSOLETE, strprintf("auxpow-bad-version(0x%08x)", block.nVersion),
                                  strprintf("rejected nVersion=0x%08x auxpow block. Please update to latest version of the client.", block.nVersion));
     }
