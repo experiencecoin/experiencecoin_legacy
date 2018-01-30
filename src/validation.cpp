@@ -1000,9 +1000,16 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
         return error("%s: Deserialize or I/O error - %s at %s", __func__, e.what(), pos.ToString());
     }
 
-    // Check the header
-    if (!CheckProofOfWork(block.GetPoWHash(), block.nBits, consensusParams))
-        return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
+    if (block.nVersion == 6422786) {
+        printf("ReadBlockFromDisk: Skip AuxPow Block\n");
+        return true;
+    }
+    else {
+        // Check the header
+        if (!CheckProofOfWork(block.GetPoWHash(), block.nBits, consensusParams))
+            return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
+    }
+
 
     return true;
 }
@@ -1018,6 +1025,7 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 }
 bool ReadBlockFromDisk(CBlockHeader& block, const CBlockIndex* pindex, const Consensus::Params& consensusParams)
 {
+    printf("AuxPow Reading from disk\n");
     return ReadBlockFromDisk(block, pindex, consensusParams);
 }
 
