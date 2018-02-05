@@ -170,6 +170,14 @@
         <translation>Isključi aplikaciju</translation>
     </message>
     <message>
+        <source>&amp;About %1</source>
+        <translation>&amp;Otprilike %1</translation>
+    </message>
+    <message>
+        <source>Show information about %1</source>
+        <translation>Prikaži informacije za otprilike %1</translation>
+    </message>
+    <message>
         <source>&amp;Options...</source>
         <translation>&amp;Opcije...</translation>
     </message>

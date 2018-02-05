@@ -88,6 +88,14 @@
     </context>
 <context>
     <name>AddressTableModel</name>
+    <message>
+        <source>Label</source>
+        <translation>Etichetă</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresă</translation>
+    </message>
     </context>
 <context>
     <name>AskPassphraseDialog</name>
@@ -106,6 +114,30 @@
     <message>
         <source>Repeat new passphrase</source>
         <translation>Repetaţi noua frază de acces</translation>
+    </message>
+    <message>
+        <source>Encrypt wallet</source>
+        <translation>Criptare portofel</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Deblocare portofel</translation>
+    </message>
+    <message>
+        <source>Decrypt wallet</source>
+        <translation>Decriptare portofel</translation>
+    </message>
+    <message>
+        <source>Change passphrase</source>
+        <translation>Schimbă parola</translation>
+    </message>
+    <message>
+        <source>Confirm wallet encryption</source>
+        <translation>Confirmaţi criptarea portofelului</translation>
+    </message>
+    <message>
+        <source>Wallet encrypted</source>
+        <translation>Portofel criptat</translation>
     </message>
     </context>
 <context>
@@ -1275,12 +1307,24 @@
         <translation>&amp;Salvează imaginea...</translation>
     </message>
     <message>
+        <source>Address</source>
+        <translation>Adresă</translation>
+    </message>
+    <message>
         <source>Amount</source>
         <translation>Cantitate</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etichetă</translation>
     </message>
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
+    <message>
+        <source>Label</source>
+        <translation>Etichetă</translation>
+    </message>
     </context>
 <context>
     <name>SendCoinsDialog</name>
@@ -1591,9 +1635,29 @@
     </context>
 <context>
     <name>TransactionTableModel</name>
+    <message>
+        <source>Label</source>
+        <translation>Etichetă</translation>
+    </message>
     </context>
 <context>
     <name>TransactionView</name>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Fisier .csv cu separator - virgula</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etichetă</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresă</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>Exportarea a eșuat</translation>
+    </message>
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>

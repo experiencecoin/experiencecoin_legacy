@@ -1,7 +1,7 @@
-
 Setup
 ---------------------
-Bitcoin Core is the original Bitcoin client and it builds the backbone of the network. However, it downloads and stores the entire history of Bitcoin transactions (which is currently several GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+Litecoin Core is the original Litecoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Litecoin transactions (which is currently more than 7 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+
 =======
 Litecoin Core
 =============
@@ -9,7 +9,6 @@ Litecoin Core
 Setup
 ---------------------
 Litecoin Core is the original Litecoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Litecoin transactions (which is currently more than 7 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
->>>>>>> 58b7acc2e... Litecoin: Branding
 
 To download Litecoin Core, visit [litecoin.org](https://litecoin.org).
 

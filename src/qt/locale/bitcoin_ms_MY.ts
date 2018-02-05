@@ -319,6 +319,22 @@ Alihkan fail data ke dalam tab semasa</translation>
         <translation>Buka &amp;URI...</translation>
     </message>
     <message>
+        <source>Click to disable network activity.</source>
+        <translation>Tekan untuk lumpuhkan rangkaian</translation>
+    </message>
+    <message>
+        <source>Network activity disabled.</source>
+        <translation>Aktiviti rangkaian dilumpuhkan</translation>
+    </message>
+    <message>
+        <source>Click to enable network activity again.</source>
+        <translation>Tekan untuk mengaktifkan rangkain semula</translation>
+    </message>
+    <message>
+        <source>Syncing Headers (%1%)...</source>
+        <translation>Penyelarasn tajuk (%1%)...</translation>
+    </message>
+    <message>
         <source>Reindexing blocks on disk...</source>
         <translation>Reindexi blok pada cakera...</translation>
     </message>

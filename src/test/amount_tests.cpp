@@ -3,15 +3,23 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "amount.h"
+#include "policy/feerate.h"
 #include "test/test_bitcoin.h"
 
 #include <boost/test/unit_test.hpp>
 
 BOOST_FIXTURE_TEST_SUITE(amount_tests, BasicTestingSetup)
 
+BOOST_AUTO_TEST_CASE(MoneyRangeTest)
+{
+    BOOST_CHECK_EQUAL(MoneyRange(CAmount(-1)), false);
+    BOOST_CHECK_EQUAL(MoneyRange(MAX_MONEY + CAmount(1)), false);
+    BOOST_CHECK_EQUAL(MoneyRange(CAmount(1)), true);
+}
+
 BOOST_AUTO_TEST_CASE(GetFeeTest)
 {
-    CFeeRate feeRate;
+    CFeeRate feeRate, altFeeRate;
 
     feeRate = CFeeRate(0);
     // Must always return 0
@@ -52,6 +60,11 @@ BOOST_AUTO_TEST_CASE(GetFeeTest)
     BOOST_CHECK_EQUAL(feeRate.GetFee(0), 0);
     BOOST_CHECK_EQUAL(feeRate.GetFee(8), -1); // Special case: returns -1 instead of 0
     BOOST_CHECK_EQUAL(feeRate.GetFee(9), -1);
+
+    // check alternate constructor
+    feeRate = CFeeRate(1000);
+    altFeeRate = CFeeRate(feeRate);
+    BOOST_CHECK_EQUAL(feeRate.GetFee(100), altFeeRate.GetFee(100));
 
     // Check full constructor
     // default value

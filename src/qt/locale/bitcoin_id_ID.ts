@@ -528,6 +528,14 @@
         <translation>Transaksi diterima</translation>
     </message>
     <message>
+        <source>HD key generation is &lt;b&gt;enabled&lt;/b&gt;</source>
+        <translation>Pembuatan kunci HD &lt;b&gt;diaktifkan&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>HD key generation is &lt;b&gt;disabled&lt;/b&gt;</source>
+        <translation>Pembuatan kunci HD &lt;b&gt;dinonaktifkan&lt;/b&gt;</translation>
+    </message>
+    <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation>Dompet saat ini &lt;b&gt;terenkripsi&lt;/b&gt; dan &lt;b&gt;terbuka&lt;/b&gt;</translation>
     </message>
@@ -619,8 +627,56 @@
         <translation>Salin label</translation>
     </message>
     <message>
+        <source>Copy amount</source>
+        <translation>Salin Jumlah</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Salain ID Transaksi</translation>
+    </message>
+    <message>
+        <source>Lock unspent</source>
+        <translation>Kunci Yang Tidak Digunakan</translation>
+    </message>
+    <message>
+        <source>Unlock unspent</source>
+        <translation>Buka Kunci Yang Tidak Digunakan</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Salin Kuantitas</translation>
+    </message>
+    <message>
         <source>Copy fee</source>
         <translation>Salin biaya</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Salin Setelah Upah</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Salin bytes</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Salin jumlah yang lebih kecil</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Salin Perubahan</translation>
+    </message>
+    <message>
+        <source>(%1 locked)</source>
+        <translation>(%1 terkunci)</translation>
+    </message>
+    <message>
+        <source>yes</source>
+        <translation>Ya</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>Tidak</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -716,6 +772,10 @@
         <translation>(%1-bit)</translation>
     </message>
     <message>
+        <source>About %1</source>
+        <translation>Tentang %1</translation>
+    </message>
+    <message>
         <source>Command-line options</source>
         <translation>Pilihan Command-line</translation>
     </message>
@@ -751,12 +811,24 @@
         <source>Show splash screen on startup (default: %u)</source>
         <translation>Tampilkan layar kilat saat memulai (default: %u)</translation>
     </message>
-    </context>
+    <message>
+        <source>Reset all settings changed in the GUI</source>
+        <translation>Hapus semua pengaturan pada GUI.</translation>
+    </message>
+</context>
 <context>
     <name>Intro</name>
     <message>
         <source>Welcome</source>
         <translation>Selamat Datang</translation>
+    </message>
+    <message>
+        <source>Welcome to %1.</source>
+        <translation>Selamat Datang ke %1.</translation>
+    </message>
+    <message>
+        <source>As this is the first time the program is launched, you can choose where %1 will store its data.</source>
+        <translation>Karena ini adalah pertama kalinya program dijalankan, Anda dapat memilih lokasi %1 akan menyimpan data.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1321,7 +1393,11 @@
         <source>Copy label</source>
         <translation>Salin label</translation>
     </message>
-    </context>
+    <message>
+        <source>Copy amount</source>
+        <translation>Salin Jumlah</translation>
+    </message>
+</context>
 <context>
     <name>ReceiveRequestDialog</name>
     <message>
@@ -1467,8 +1543,32 @@
         <translation>K&amp;irim</translation>
     </message>
     <message>
+        <source>Copy quantity</source>
+        <translation>Salin Kuantitas</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Salin Jumlah</translation>
+    </message>
+    <message>
         <source>Copy fee</source>
         <translation>Salin biaya</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Salin Setelah Upah</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Salin bytes</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Salin dust</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Salin Perubahan</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1655,6 +1755,14 @@
     <message>
         <source>Copy label</source>
         <translation>Salin label</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Salin Jumlah</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Salain ID Transaksi</translation>
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>

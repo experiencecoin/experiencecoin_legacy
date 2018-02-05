@@ -50,6 +50,10 @@
         <translation>Velg adressen til å motta mynter med</translation>
     </message>
     <message>
+        <source>C&amp;hoose</source>
+        <translation>V&amp;elg</translation>
+    </message>
+    <message>
         <source>Sending addresses</source>
         <translation>Utsendingsadresser</translation>
     </message>
@@ -136,8 +140,16 @@
         <translation>Krypter lommebok</translation>
     </message>
     <message>
+        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
+        <translation>Denne operasjonen krever adgangsfrasen til lommeboken for å låse den opp.</translation>
+    </message>
+    <message>
         <source>Unlock wallet</source>
         <translation>Lås opp lommebok</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation>Denne operasjonen krever adgangsfrasen til lommeboken for å dekryptere den.</translation>
     </message>
     <message>
         <source>Decrypt wallet</source>
@@ -306,6 +318,18 @@
         <translation>Åpne &amp;URI...</translation>
     </message>
     <message>
+        <source>Click to disable network activity.</source>
+        <translation>Klikk for å deaktivere nettverksaktivitet</translation>
+    </message>
+    <message>
+        <source>Network activity disabled.</source>
+        <translation>Nettverksaktivitet deaktivert</translation>
+    </message>
+    <message>
+        <source>Click to enable network activity again.</source>
+        <translation>Klikk for å aktivere nettverksaktivitet igjen.</translation>
+    </message>
+    <message>
         <source>Reindexing blocks on disk...</source>
         <translation>Reindekserer blokker på harddisk...</translation>
     </message>
@@ -409,6 +433,14 @@
         <source>%n active connection(s) to Litecoin network</source>
         <translation><numerusform>%n aktiv forbindelse til Litecoin-nettverket</numerusform><numerusform>%n aktive forbindelser til Litecoin-nettverket</numerusform></translation>
     </message>
+    <message>
+        <source>Indexing blocks on disk...</source>
+        <translation>Indekserer blokker på disk...</translation>
+    </message>
+    <message>
+        <source>Processing blocks on disk...</source>
+        <translation>Prosesserer blokker på disk...</translation>
+    </message>
     <message numerus="yes">
         <source>Processed %n block(s) of transaction history.</source>
         <translation><numerusform>Lastet %n blokk med transaksjonshistorikk.</numerusform><numerusform>Lastet %n blokker med transaksjonshistorikk.</numerusform></translation>
@@ -444,6 +476,10 @@
     <message>
         <source>%1 client</source>
         <translation>%1 klient</translation>
+    </message>
+    <message>
+        <source>Connecting to peers...</source>
+        <translation>Kobler til likemannsnettverket...</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -571,10 +607,58 @@
         <translation>Bekreftet</translation>
     </message>
     <message>
+        <source>Copy address</source>
+        <translation>Kopier adresse</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopier beløp</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopier transaksjons-ID</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopier mengde</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopier gebyr</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopier veksel</translation>
+    </message>
+    <message>
+        <source>(%1 locked)</source>
+        <translation>(%1 låst)</translation>
+    </message>
+    <message>
+        <source>yes</source>
+        <translation>ja</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>nei</translation>
+    </message>
+    <message>
+        <source>Can vary +/- %1 satoshi(s) per input.</source>
+        <translation>Kan variere +/- %1 satoshi(er) per input.</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(ingen merkelapp)</translation>
     </message>
-    </context>
+    <message>
+        <source>change from %1 (%2)</source>
+        <translation>veksel fra %1 (%2)</translation>
+    </message>
+    <message>
+        <source>(change)</source>
+        <translation>(veksel)</translation>
+    </message>
+</context>
 <context>
     <name>EditAddressDialog</name>
     <message>
@@ -597,7 +681,31 @@
         <source>&amp;Address</source>
         <translation>&amp;Adresse</translation>
     </message>
-    </context>
+    <message>
+        <source>New receiving address</source>
+        <translation>Ny mottaksadresse</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>Ny utsendingsadresse</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>Rediger mottaksadresse</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>Rediger utsendingsadresse</translation>
+    </message>
+    <message>
+        <source>Could not unlock wallet.</source>
+        <translation>Kunne ikke låse opp lommebok.</translation>
+    </message>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>Generering av ny nøkkel feilet.</translation>
+    </message>
+</context>
 <context>
     <name>FreespaceChecker</name>
     <message>
@@ -671,7 +779,11 @@
         <source>Show splash screen on startup (default: %u)</source>
         <translation>Vis velkomstbilde ved oppstart (default: %u)</translation>
     </message>
-    </context>
+    <message>
+        <source>Reset all settings changed in the GUI</source>
+        <translation>Nullstill alle innstillinger endret i det grafiske brukergrensesnittet</translation>
+    </message>
+</context>
 <context>
     <name>Intro</name>
     <message>
@@ -714,8 +826,28 @@
         <translation>Skjema</translation>
     </message>
     <message>
+        <source>Unknown...</source>
+        <translation>Ukjent...</translation>
+    </message>
+    <message>
         <source>Last block time</source>
         <translation>Tidspunkt for siste blokk</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>Fremgang</translation>
+    </message>
+    <message>
+        <source>Progress increase per hour</source>
+        <translation>Fremgangen stiger hver time</translation>
+    </message>
+    <message>
+        <source>calculating...</source>
+        <translation>kalkulerer...</translation>
+    </message>
+    <message>
+        <source>Estimated time left until synced</source>
+        <translation>Estimert gjenstående tid før ferdig synkronisert</translation>
     </message>
     <message>
         <source>Hide</source>
@@ -886,6 +1018,10 @@
     <message>
         <source>&amp;Window</source>
         <translation>&amp;Vindu</translation>
+    </message>
+    <message>
+        <source>&amp;Hide the icon from the system tray.</source>
+        <translation>&amp;Skjul ikonet fra oppgavelinjen.</translation>
     </message>
     <message>
         <source>Hide tray icon</source>
@@ -1087,17 +1223,61 @@
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
+    <message numerus="yes">
+        <source>%n second(s)</source>
+        <translation><numerusform>%n sekund</numerusform><numerusform>%n sekunder</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n minute(s)</source>
+        <translation><numerusform>%n minutt</numerusform><numerusform>%n minutter</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n hour(s)</source>
+        <translation><numerusform>%n time</numerusform><numerusform>%n timer</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s)</source>
+        <translation><numerusform>%n dag</numerusform><numerusform>%n dager</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n week(s)</source>
+        <translation><numerusform>%n uke</numerusform><numerusform>%n uker</numerusform></translation>
+    </message>
     <message>
         <source>%1 and %2</source>
         <translation>%1 og %2</translation>
     </message>
+    <message numerus="yes">
+        <source>%n year(s)</source>
+        <translation><numerusform>%n år</numerusform><numerusform>%n år</numerusform></translation>
+    </message>
     </context>
 <context>
     <name>QObject::QObject</name>
-    </context>
+    <message>
+        <source>Error: %1</source>
+        <translation>Feil: %1</translation>
+    </message>
+</context>
 <context>
     <name>QRImageWidget</name>
-    </context>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>&amp;Lagre bilde...</translation>
+    </message>
+    <message>
+        <source>&amp;Copy Image</source>
+        <translation>&amp;Kopier bilde</translation>
+    </message>
+    <message>
+        <source>Save QR Code</source>
+        <translation>Lagre QR-kode</translation>
+    </message>
+    <message>
+        <source>PNG Image (*.png)</source>
+        <translation>PNG-bilde (*.png)</translation>
+    </message>
+</context>
 <context>
     <name>RPCConsole</name>
     <message>
@@ -1435,7 +1615,11 @@
         <source>Remove</source>
         <translation>Fjern</translation>
     </message>
-    </context>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopier beløp</translation>
+    </message>
+</context>
 <context>
     <name>ReceiveRequestDialog</name>
     <message>
@@ -1462,12 +1646,24 @@
         <source>Label</source>
         <translation>Merkelapp</translation>
     </message>
+    <message>
+        <source>Message</source>
+        <translation>Melding</translation>
+    </message>
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
     <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
         <source>Label</source>
         <translation>Merkelapp</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Melding</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1617,6 +1813,26 @@
         <translation>S&amp;end</translation>
     </message>
     <message>
+        <source>Copy quantity</source>
+        <translation>Kopier mengde</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopier beløp</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopier gebyr</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopier veksel</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>eller</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(ingen merkelapp)</translation>
     </message>
@@ -1702,9 +1918,17 @@
     </context>
 <context>
     <name>SendConfirmationDialog</name>
-    </context>
+    <message>
+        <source>Yes</source>
+        <translation>Ja</translation>
+    </message>
+</context>
 <context>
     <name>ShutdownWindow</name>
+    <message>
+        <source>%1 is shutting down...</source>
+        <translation>%1 lukker...</translation>
+    </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
         <translation>Slå ikke av datamaskinen før dette vinduet forsvinner.</translation>
@@ -1796,6 +2020,14 @@
         <source>Reset all verify message fields</source>
         <translation>Tilbakestill alle felter for meldingsverifikasjon</translation>
     </message>
+    <message>
+        <source>Message signing failed.</source>
+        <translation>Signering av melding feilet.</translation>
+    </message>
+    <message>
+        <source>Message signed.</source>
+        <translation>Melding signert.</translation>
+    </message>
     </context>
 <context>
     <name>SplashScreen</name>
@@ -1813,6 +2045,38 @@
 </context>
 <context>
     <name>TransactionDesc</name>
+    <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Fra</translation>
+    </message>
+    <message>
+        <source>unknown</source>
+        <translation>ukjent</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Til</translation>
+    </message>
+    <message>
+        <source>not accepted</source>
+        <translation>ikke akseptert</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Melding</translation>
+    </message>
+    <message>
+        <source>Comment</source>
+        <translation>Kommentar</translation>
+    </message>
+    <message>
+        <source>Transaction ID</source>
+        <translation>Transaksjons-ID</translation>
+    </message>
     </context>
 <context>
     <name>TransactionDescDialog</name>
@@ -1824,8 +2088,24 @@
 <context>
     <name>TransactionTableModel</name>
     <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
         <source>Label</source>
         <translation>Merkelapp</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation>Frakoblet</translation>
+    </message>
+    <message>
+        <source>Unconfirmed</source>
+        <translation>Ubekreftet</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Sendt til</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1835,8 +2115,56 @@
 <context>
     <name>TransactionView</name>
     <message>
+        <source>All</source>
+        <translation>Alt</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>I dag</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>Denne uka</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>Denne måneden</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>Forrige måned</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>Dette året</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Sendt til</translation>
+    </message>
+    <message>
+        <source>To yourself</source>
+        <translation>Til deg selv</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopier adresse</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopier beløp</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopier transaksjons-ID</translation>
+    </message>
+    <message>
         <source>Comma separated file (*.csv)</source>
         <translation>Kommaseparert fil (*.csv)</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Dato</translation>
     </message>
     <message>
         <source>Label</source>

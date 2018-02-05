@@ -314,6 +314,18 @@
         <translation>افتح &amp;URI...</translation>
     </message>
     <message>
+        <source>Click to disable network activity.</source>
+        <translation>اضغط لإلغاء تفعيل الشبكه</translation>
+    </message>
+    <message>
+        <source>Network activity disabled.</source>
+        <translation>تم إلغاء تفعيل الشبكه</translation>
+    </message>
+    <message>
+        <source>Click to enable network activity again.</source>
+        <translation>اضغط لتفعيل الشبكه مره أخرى</translation>
+    </message>
+    <message>
         <source>Reindexing blocks on disk...</source>
         <translation>إعادة الفهرسة الكتل على القرص ...</translation>
     </message>
@@ -613,6 +625,10 @@
         <translation>نسخ بعد الرسوم</translation>
     </message>
     <message>
+        <source>Copy bytes</source>
+        <translation>نسخ البايتات </translation>
+    </message>
+    <message>
         <source>Copy change</source>
         <translation>نسخ التعديل</translation>
     </message>
@@ -798,6 +814,10 @@
     <message>
         <source>Form</source>
         <translation>نمودج</translation>
+    </message>
+    <message>
+        <source>Unknown...</source>
+        <translation>غير معرف</translation>
     </message>
     <message>
         <source>Hide</source>
@@ -1365,6 +1385,10 @@
     <message>
         <source>Copy after fee</source>
         <translation>نسخ بعد الرسوم</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>نسخ البايتات </translation>
     </message>
     <message>
         <source>Copy change</source>
