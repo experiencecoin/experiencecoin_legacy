@@ -1001,7 +1001,6 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
     }
 
     if (block.nVersion == 6422786) {
-        printf("ReadBlockFromDisk: Skip AuxPow Block\n");
         return true;
     }
     else {
@@ -1025,7 +1024,6 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 }
 bool ReadBlockFromDisk(CBlockHeader& block, const CBlockIndex* pindex, const Consensus::Params& consensusParams)
 {
-    printf("AuxPow Reading from disk\n");
     return ReadBlockFromDisk(block, pindex, consensusParams);
 }
 
