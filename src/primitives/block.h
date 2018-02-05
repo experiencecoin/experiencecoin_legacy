@@ -10,6 +10,8 @@
 #include "serialize.h"
 #include "uint256.h"
 
+#include <boost/shared_ptr.hpp>
+
 /** Nodes collect new transactions into a block, hash them into a hash tree,
  * and scan through nonce values to make the block's hash satisfy proof-of-work
  * requirements.  When they solve the proof-of-work, they broadcast the block
@@ -97,13 +99,19 @@ public:
         nBits = 0;
         nNonce = 0;
     }
+    uint256 GetHash() const;
+    uint256 GetPoWHash() const;
+    int64_t GetBlockTime() const
+    {
+         return (int64_t)nTime;
+    }
 };
 
 
 class CAuxPow: public CAuxMerkleBranch
 {
 public:
-    CAuxMerkleBranch coinbase_branch;
+    std::vector <uint256> coinbase_branch;
     int nChainIndex;
     CPureBlockHeader parent_block;
 
@@ -142,7 +150,7 @@ public:
     uint32_t nTime;
     uint32_t nBits;
     uint32_t nNonce;
-    CAuxPow auxpow;
+    boost::shared_ptr<CAuxPow> auxpow;
 
     CBlockHeader()
     {
@@ -160,9 +168,13 @@ public:
         READWRITE(nBits);
         READWRITE(nNonce);
         if (this->nVersion == 6422786) {
-            READWRITE(auxpow);
+            if (ser_action.ForRead())
+                auxpow.reset(new CAuxPow());
+                assert(auxpow);
+                READWRITE(*auxpow);
+            } else if (ser_action.ForRead())
+                auxpow.reset();
         }
-    }
 
     void SetNull()
     {
