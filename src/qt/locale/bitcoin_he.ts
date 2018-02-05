@@ -62,21 +62,12 @@
         <translation>כתובות לקבלה</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>These are your Litecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>אלו הן כתובות לייטקוין שלך לשליחת תשלומים. חשוב לבדוק את כמות הכתובות המקבלות לפני שליחת מטבעות.</translation>
-    </message>
-    <message>
-        <source>These are your Litecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>אלו הן כתובות לייטקוין שלך לקבלת תשלומים. מומלץ להשתמש בכתובת חדשה לכל העברה.</translation>
-=======
         <source>These are your Experiencecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>אלה הם כתובות לייטקוין שלך לשליחת תשלומים. חשוב לבדוק את הכמות של הכתובות המקבלות לפני שליחת מטבעות</translation>
     </message>
     <message>
         <source>These are your Experiencecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>אלה הן כתובות לייטקוין שלך לקבלת תשלומים. מומלץ להשתמש בכתובת חדשה לכל העברה.</translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -2121,13 +2112,8 @@
         <translation>יש להזין תווית עבור כתובת זו כדי להוסיף אותה לרשימת הכתובות בשימוש</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>A message that was attached to the litecoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Litecoin network.</source>
-        <translation>הודעה שצורפה לייטקוין: כתובת שתאוחסן בהעברה לצורך מעקב מצדך. לתשומת לבך: הודעה זו לא תישלח ברשת לייטקוין.</translation>
-=======
         <source>A message that was attached to the experiencecoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Experiencecoin network.</source>
         <translation>הודעה שצורפה ללייטקוין: כתובת שתאוחסן בהעברה לצורך מעקב מצדך. לתשומת לבך: הודעה זו לא תישלח ברשת לייטקוין.</translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Pay To:</source>
@@ -2167,13 +2153,8 @@
         <translation>חתימה על הו&amp;דעה</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>The Litecoin address to sign the message with</source>
-        <translation>כתובת לייטקוין אתה לחתום אתה את ההודעה</translation>
-=======
         <source>The Experiencecoin address to sign the message with</source>
         <translation>כתובת הלייטקוין אתה לחתום אתה את ההודעה</translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2224,13 +2205,8 @@
         <translation>&amp;אימות הודעה</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>The Litecoin address the message was signed with</source>
-        <translation>כתובת לייטקוין שאתה נחתמה ההודעה</translation>
-=======
         <source>The Experiencecoin address the message was signed with</source>
         <translation>כתובת הלייטקוין שאתה נחתמה ההודעה</translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Experiencecoin address</source>

@@ -45,7 +45,7 @@ qt_test_test_experiencecoin_qt_SOURCES = \
   $(TEST_BITCOIN_H)
 if ENABLE_WALLET
 qt_test_test_experiencecoin_qt_SOURCES += \
-  qt/test/paymentservertests.cpp
+  qt/test/paymentservertests.cpp \
   qt/test/wallettests.cpp \
   wallet/test/wallet_test_fixture.cpp
 endif

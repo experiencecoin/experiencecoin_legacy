@@ -98,6 +98,8 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     bnNew *= nModulatedTimespan;
     bnNew /= params.nPowTargetTimespan;
 
+    const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
+
     if (bnNew > bnPowLimit)
         bnNew = bnPowLimit;
 

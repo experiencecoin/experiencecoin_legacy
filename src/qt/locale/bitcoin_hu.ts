@@ -1013,7 +1013,6 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>Szakértő</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <source>Enable coin &amp;control features</source>
         <translation>Pénzküldés beállításainak engedélyezése</translation>
     </message>
@@ -1026,12 +1025,8 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>&amp;Költése a a jóváhagyatlan változásnak</translation>
     </message>
     <message>
-        <source>Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>A Litecoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
-=======
         <source>Automatically open the Experiencecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>A Experiencecoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -2095,13 +2090,8 @@ Kérem a kulcsmondatban használjon &lt;b&gt; tíz vagy több véletlenszerű ka
         <translation>Csak a szükséges %1 díj fizetése</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Warning: Invalid Litecoin address</source>
-        <translation>Figyelmeztetés: Érvénytelen Litecoin cím</translation>
-=======
         <source>Sign the message to prove you own this Experiencecoin address</source>
         <translation>Üzenet </translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Warning: Unknown change address</source>

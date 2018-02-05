@@ -238,13 +238,8 @@
         <translation>&amp;Kontroli mesaĝon...</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
-=======
         <source>Experiencecoin</source>
         <translation>Experiencecoino</translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Wallet</source>
@@ -728,13 +723,8 @@
         <translation>Formularo</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Eblas, ke la informoj videblaj ĉi tie estas eksdataj. Via monujo aŭtomate sinkoniĝas kun la litecoin reto kiam ili konektiĝas, sed tiu procezo ankoraŭ ne finfariĝis.</translation>
-=======
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Experiencecoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Eblas, ke la informoj videblaj ĉi tie estas eksdataj. Via monujo aŭtomate sinkoniĝas kun la liteoin reto kiam ili konektiĝas, sed tiu procezo ankoraŭ ne finfariĝis.</translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Your current spendable balance</source>
@@ -1040,11 +1030,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-<<<<<<< HEAD
-        <translation>Sendi Litecoinn</translation>
-=======
         <translation>Sendi Experiencecoinon</translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1352,13 +1338,8 @@
         <translation>Ruli fone kiel demono kaj akcepti komandojn</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Litecoin Core</source>
-        <translation>Kerno de Litecoino</translation>
-=======
         <source>Experiencecoin Core</source>
         <translation>Kerno de Experiencecoin</translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

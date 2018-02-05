@@ -154,7 +154,6 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-<<<<<<< HEAD
         <source>Sign &amp;message...</source>
         <translation>Подписать &amp;сообщение...</translation>
     </message>
@@ -231,12 +230,8 @@
         <translation>&amp;Проверить сообщение...</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin Core</translation>
-=======
         <source>Experiencecoin</source>
         <translation>Experiencecoin Core</translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <source>Wallet</source>

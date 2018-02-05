@@ -690,13 +690,8 @@
         <translation>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../bitcoin.cpp" line="+534"/>
-        <source>A fatal error occurred. Litecoin can no longer continue safely and will quit.</source>
-=======
         <location filename="../bitcoin.cpp" line="+518"/>
         <source>A fatal error occurred. Experiencecoin can no longer continue safely and will quit.</source>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1079,11 +1074,7 @@
     </message>
     <message>
         <location line="+10"/>
-<<<<<<< HEAD
-        <source>This initial synchronisation is very demanding, and may expose hardware problems with your computer that had previously gone unnoticed. Each time you run %1, it will continue downloading where it left off.</source>
-=======
         <source>%1 will download and store a copy of the Experiencecoin block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1829,13 +1820,8 @@
         <translation type="unfinished">Amount</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../guiutil.cpp" line="+130"/>
-        <source>Enter a Litecoin address (e.g. %1)</source>
-=======
         <location filename="../guiutil.cpp" line="+136"/>
         <source>Enter a Experiencecoin address (e.g. %1)</source>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2934,13 +2920,8 @@
         </translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location line="+101"/>
-        <source>Warning: Invalid Litecoin address</source>
-=======
         <location line="+102"/>
         <source>Warning: Invalid Experiencecoin address</source>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4084,15 +4065,9 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <location line="-384"/>
-        <source>Litecoin Core</source>
-        <translation type="unfinished">Litecoin Core</translation>
-=======
         <location line="-360"/>
         <source>Experiencecoin Core</source>
         <translation type="unfinished">Experiencecoin Core</translation>
->>>>>>> b76f9e434... Replaced Litecoin string with Experiencecoin where necessary
     </message>
     <message>
         <location line="+1"/>
