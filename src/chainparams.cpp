@@ -82,7 +82,7 @@ public:
         consensus.BIP65Height = 968600; // bab3041e8977e0dc3eeff63fe707b92bde1dd449d8efafb248c27c8264cc311a
         consensus.BIP66Height = 968600; // 7aceee012833fa8952f8835d8b1b3ae233cd6ab08fdb27a771d2bd7bdc491894
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
-       consensus.nPowTargetTimespan = 120; // 2 mins
+        consensus.nPowTargetTimespan = 120; // 2 mins
         consensus.nPowTargetSpacing = 60; // 1 min;
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -127,7 +127,11 @@ public:
 
         // Note that of those with the service bits flag, most only support a subset of possible options
 
-        // vSeeds.push_back(CDNSSeedData("experiencecointools.com", "dnsseed.experiencecointools.com"));
+        vSeeds.push_back(CDNSSeedData("epcnodes.com", "bgl.epcnodes.com"));
+        vSeeds.push_back(CDNSSeedData("epcnodes.com", "sgp.epcnodes.com"));
+        vSeeds.push_back(CDNSSeedData("epcnodes.com", "ams.epcnodes.com"));
+        vSeeds.push_back(CDNSSeedData("epcnodes.com", "ny.epcnodes.com"));
+        vSeeds.push_back(CDNSSeedData("epcnodes.com", "lon.epcnodes.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = {0x63, 0x04, 0x90}; // EPCW
         base58Prefixes[SCRIPT_ADDRESS] = {0x63, 0x04, 0x86}; // EPCS
