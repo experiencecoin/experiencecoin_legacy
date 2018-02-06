@@ -129,8 +129,8 @@ public:
 
         // vSeeds.push_back(CDNSSeedData("experiencecointools.com", "dnsseed.experiencecointools.com"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,33);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,22);
+        base58Prefixes[PUBKEY_ADDRESS] = {0x63, 0x04, 0x90}; // EPCW
+        base58Prefixes[SCRIPT_ADDRESS] = {0x63, 0x04, 0x86}; // EPCS
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,50);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,176);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
@@ -215,8 +215,8 @@ public:
         // vSeeds.push_back(CDNSSeedData("loshan.co.uk", "seed-b.experiencecoin.loshan.co.uk", true));
         // vSeeds.push_back(CDNSSeedData("thrasher.io", "dnsseed-testnet.thrasher.io", true));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,113);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
+        base58Prefixes[PUBKEY_ADDRESS] = {0x01, 0x7B, 0x07, 0x65}; //tECW
+        base58Prefixes[SCRIPT_ADDRESS] = {0x01, 0x7B, 0x07, 0x5B}; //tECS
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,58);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
@@ -309,8 +309,8 @@ public:
             0
         };
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
+        base58Prefixes[PUBKEY_ADDRESS] = {0x01, 0x7B, 0x07, 0x65}; //tECW
+        base58Prefixes[SCRIPT_ADDRESS] = {0x01, 0x7B, 0x07, 0x5B}; //tECS
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,58);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
