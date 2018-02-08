@@ -31,9 +31,6 @@
    </property>
    <item>
     <widget class="QWidget" name="bgWidget" native="true">
-     <property name="styleSheet">
-      <string notr="true">#bgWidget { background: rgba(0,0,0,220); }</string>
-     </property>
      <layout class="QVBoxLayout" name="verticalLayoutMain" stretch="1">
       <property name="leftMargin">
        <number>60</number>
@@ -50,9 +47,7 @@
       <item>
        <widget class="QWidget" name="contentWidget" native="true">
         <property name="styleSheet">
-         <string notr="true">#contentWidget { background: rgba(255,255,255,240); border-radius: 6px; }
-
-QLabel { color: rgb(40,40,40);  }</string>
+         <string notr="true">#contentWidget { background-color: #111111; border: 1px solid; border-color: #B20D6B; border-radius: 6px; } QLabel { color: white;  }</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayoutSub" stretch="1,0,0,0">
          <property name="spacing">
@@ -273,6 +268,9 @@ QLabel { color: rgb(40,40,40);  }</string>
              </item>
              <item>
               <widget class="QProgressBar" name="progressBar">
+                <property name="styleSheet">
+                <string notr="true">QProgressBar { background-color: #B20D6B; border-radius: 4px; text-align: center; } QProgressBar::chunk { background-color: #77A83F; border-radius: 4px; margin: 0px; }</string>
+                </property>
                <property name="value">
                 <number>24</number>
                </property>

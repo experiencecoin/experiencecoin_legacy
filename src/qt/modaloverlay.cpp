@@ -26,7 +26,6 @@ userClosed(false)
         parent->installEventFilter(this);
         raise();
     }
-
     blockProcessTime.clear();
     setVisible(false);
 }
@@ -103,6 +102,7 @@ void ModalOverlay::tipUpdate(int count, const QDateTime& blockDate, double nVeri
                 break;
             }
         }
+        
         // show progress increase per hour
         ui->progressIncreasePerH->setText(QString::number(progressPerHour*100, 'f', 2)+"%");
 

@@ -66,7 +66,7 @@ QImage ColorizeImage(const QString& filename, const QColor& colorbase)
 
 QIcon ColorizeIcon(const QString& filename, const QColor& colorbase)
 {
-    return QIcon(QPixmap::fromImage(ColorizeImage(filename, colorbase)));
+    return QIcon(QPixmap::fromImage(ColorizeImage(filename, QColor("#77A83F"))));
 }
 
 }
@@ -82,8 +82,8 @@ PlatformStyle::PlatformStyle(const QString &_name, bool _imagesOnButtons, bool _
 {
     // Determine icon highlighting color
     if (colorizeIcons) {
-        const QColor colorHighlightBg(QApplication::palette().color(QPalette::Highlight));
-        const QColor colorHighlightFg(QApplication::palette().color(QPalette::HighlightedText));
+        const QColor colorHighlightBg("#77A83F");
+        const QColor colorHighlightFg("#77A83F");
         const QColor colorText(QApplication::palette().color(QPalette::WindowText));
         const int colorTextLightness = colorText.lightness();
         QColor colorbase;
