@@ -127,11 +127,11 @@ public:
 
         // Note that of those with the service bits flag, most only support a subset of possible options
 
-        vSeeds.push_back(CDNSSeedData("epcnodes.com", "bgl.epcnodes.com"));
-        vSeeds.push_back(CDNSSeedData("epcnodes.com", "sgp.epcnodes.com"));
-        vSeeds.push_back(CDNSSeedData("epcnodes.com", "ams.epcnodes.com"));
-        vSeeds.push_back(CDNSSeedData("epcnodes.com", "ny.epcnodes.com"));
-        vSeeds.push_back(CDNSSeedData("epcnodes.com", "lon.epcnodes.com"));
+        vSeeds.emplace_back("bgl.epcnodes.com", false);
+        vSeeds.emplace_back("sgp.epcnodes.com", false);
+        vSeeds.emplace_back("ams.epcnodes.com", false);
+        vSeeds.emplace_back("ny.epcnodes.com", false);
+        vSeeds.emplace_back("lon.epcnodes.com", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = {0x63, 0x04, 0x90}; // EPCW
         base58Prefixes[SCRIPT_ADDRESS] = {0x63, 0x04, 0x86}; // EPCS
