@@ -127,15 +127,16 @@ public:
 
         // Note that of those with the service bits flag, most only support a subset of possible options
 
-        vSeeds.emplace_back("bgl.epcnodes.com", false);
-        vSeeds.emplace_back("sgp.epcnodes.com", false);
-        vSeeds.emplace_back("ams.epcnodes.com", false);
-        vSeeds.emplace_back("ny.epcnodes.com", false);
-        vSeeds.emplace_back("lon.epcnodes.com", false);
+        vSeeds.emplace_back("bgl.epcnodes.com", true);
+        vSeeds.emplace_back("sgp.epcnodes.com", true);
+        vSeeds.emplace_back("ams.epcnodes.com", true);
+        vSeeds.emplace_back("ny.epcnodes.com", true);
+        vSeeds.emplace_back("lon.epcnodes.com", true);
 
-        base58Prefixes[PUBKEY_ADDRESS] = {0x63, 0x04, 0x90}; // EPCW
-        base58Prefixes[SCRIPT_ADDRESS] = {0x63, 0x04, 0x86}; // EPCS
-        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,50);
+
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,33);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,78);
+        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,75);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,176);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
@@ -212,16 +213,15 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x5acb42f197a15d5afd611404ba94a0898cab06497f32b180256260c909b1cbfc"));
         assert(genesis.hashMerkleRoot == uint256S("0x16733a25293a66a2d0a304ee04ef55f8e7fff7d441efad46d840592d8de89028"));
 
-        vFixedSeeds.clear();
-        vSeeds.clear();
-        // nodes with support for servicebits filtering should be at the top
-        // vSeeds.push_back(CDNSSeedData("experiencecointools.com", "testnet-seed.experiencecointools.com"));
-        // vSeeds.push_back(CDNSSeedData("loshan.co.uk", "seed-b.experiencecoin.loshan.co.uk", true));
-        // vSeeds.push_back(CDNSSeedData("thrasher.io", "dnsseed-testnet.thrasher.io", true));
+        vSeeds.emplace_back("bgl.epcnodes.com", true);
+        vSeeds.emplace_back("sgp.epcnodes.com", true);
+        vSeeds.emplace_back("ams.epcnodes.com", true);
+        vSeeds.emplace_back("ny.epcnodes.com", true);
+        vSeeds.emplace_back("lon.epcnodes.com", true);
 
-        base58Prefixes[PUBKEY_ADDRESS] = {0x01, 0x7B, 0x07, 0x65}; //tECW
-        base58Prefixes[SCRIPT_ADDRESS] = {0x01, 0x7B, 0x07, 0x5B}; //tECS
-        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,58);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,95);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,135);
+        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,132);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
@@ -313,9 +313,9 @@ public:
             0
         };
 
-        base58Prefixes[PUBKEY_ADDRESS] = {0x01, 0x7B, 0x07, 0x65}; //tECW
-        base58Prefixes[SCRIPT_ADDRESS] = {0x01, 0x7B, 0x07, 0x5B}; //tECS
-        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,58);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,95);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,135);
+        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,132);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
