@@ -10,6 +10,7 @@ This release introduces the following major changes:
 
 
     -   Support for Segwit (paving the way for Lightning Network)
+    -   Reduction in total EPC from 450,000,000,000 to 21,500,000,000
     -   UI and logo redesign
     -   Reduced Block Reward to 64 EPC 
     -   Increased  block halving time from 12 Million to 25 Million
@@ -26,13 +27,7 @@ Minor updates:
 
     -   Custom desktop wallet theme
     -   Legacy merged mining compatibility
-    -   EPC address prefixes.  Your desktop wallet should work just as well, but 
-        be sure to update any addresses you’ve recorded elsewhere.
-        -   EPCW for regular addresses
-        -   EPCS for script addresses (multisig, segwit, etc.)
-        -   tECW for testnet regular
-        -   tECS for testnet script
-
+  
 
 Bug fixes:
 
