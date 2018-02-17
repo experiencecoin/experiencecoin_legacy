@@ -1,158 +1,37 @@
 UNIX BUILD NOTES
 ====================
-Some notes on how to build Experiencecoin Core in Unix.
-
-(for OpenBSD specific instructions, see [build-openbsd.md](build-openbsd.md))
-
-Note
----------------------
-Always use absolute paths to configure and compile experiencecoin and the dependencies,
-for example, when specifying the path of the dependency:
-
-	../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
-
-Here BDB_PREFIX must be an absolute path - it is defined using $(pwd) which ensures
-the usage of the absolute path.
+Some notes on how to build Experiencecoin in Unix. 
 
 To Build
 ---------------------
 
-```bash
-./autogen.sh
-./configure
-make
-make install # optional
-```
+	./autogen.sh
+	./configure
+	make
 
 This will build experiencecoin-qt as well if the dependencies are met.
 
 Dependencies
 ---------------------
 
-These dependencies are required:
-
  Library     | Purpose          | Description
  ------------|------------------|----------------------
- libssl      | Crypto           | Random Number Generation, Elliptic Curve Cryptography
- libboost    | Utility          | Library for threading, data structures, etc
- libevent    | Networking       | OS independent asynchronous networking
-
-Optional dependencies:
-
- Library     | Purpose          | Description
- ------------|------------------|----------------------
- miniupnpc   | UPnP Support     | Firewall-jumping support
- libdb4.8    | Berkeley DB      | Wallet storage (only needed when wallet enabled)
- qt          | GUI              | GUI toolkit (only needed when GUI enabled)
- protobuf    | Payments in GUI  | Data interchange format used for payment protocol (only needed when GUI enabled)
- libqrencode | QR codes in GUI  | Optional for generating QR codes (only needed when GUI enabled)
- univalue    | Utility          | JSON parsing and encoding (bundled version will be used unless --with-system-univalue passed to configure)
- libzmq3     | ZMQ notification | Optional, allows generating ZMQ notifications (requires ZMQ version >= 4.x)
-
-For the versions used in the release, see [release-process.md](release-process.md) under *Fetch and build inputs*.
-
-Memory Requirements
---------------------
-
-C++ compilers are memory-hungry. It is recommended to have at least 1.5 GB of
-memory available when compiling Experiencecoin Core. On systems with less, gcc can be
-tuned to conserve memory with additional CXXFLAGS:
-
-
-    ./configure CXXFLAGS="--param ggc-min-expand=1 --param ggc-min-heapsize=32768"
-
-Dependency Build Instructions: Ubuntu & Debian
-----------------------------------------------
-Build requirements:
-
-    sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
-
-Options when installing required Boost library files:
-
-1. On at least Ubuntu 14.04+ and Debian 7+ there are generic names for the
-individual boost development packages, so the following can be used to only
-install necessary parts of boost:
-
-        sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
-
-2. If that doesn't work, you can install all boost development packages with:
-
-        sudo apt-get install libboost-all-dev
-
-BerkeleyDB is required for the wallet.
-
-**For Ubuntu only:** db4.8 packages are available [here](https://launchpad.net/~bitcoin/+archive/bitcoin).
-You can add the repository and install using the following commands:
-
-    sudo apt-get install software-properties-common
-    sudo add-apt-repository ppa:bitcoin/bitcoin
-    sudo apt-get update
-    sudo apt-get install libdb4.8-dev libdb4.8++-dev
-
-Ubuntu and Debian have their own libdb-dev and libdb++-dev packages, but these will install
-BerkeleyDB 5.1 or later, which break binary wallet compatibility with the distributed executables which
-are based on BerkeleyDB 4.8. If you do not care about wallet compatibility,
-pass `--with-incompatible-bdb` to configure.
-
-See the section "Disable-wallet mode" to build Experiencecoin Core without wallet.
-
-Optional (see --with-miniupnpc and --enable-upnp-default):
-
-    sudo apt-get install libminiupnpc-dev
-
-ZMQ dependencies (provides ZMQ API 4.x):
-
-    sudo apt-get install libzmq3-dev
-
-Dependencies for the GUI: Ubuntu & Debian
------------------------------------------
-
-If you want to build Experiencecoin-Qt, make sure that the required packages for Qt development
-are installed. Either Qt 5 or Qt 4 are necessary to build the GUI.
-If both Qt 4 and Qt 5 are installed, Qt 5 will be used. Pass `--with-gui=qt4` to configure to choose Qt4.
-To build without GUI pass `--without-gui`.
-
-To build with Qt 5 (recommended) you need the following:
-
-    sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
-
-Alternatively, to build with Qt 4 you need the following:
-
-    sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
-
-libqrencode (optional) can be installed with:
-
-    sudo apt-get install libqrencode-dev
-
-Once these are installed, they will be found by configure and a experiencecoin-qt executable will be
-built by default.
-
-Dependency Build Instructions: Fedora
--------------------------------------
-Build requirements:
-
-    sudo dnf install gcc-c++ libtool make autoconf automake openssl-devel libevent-devel boost-devel libdb4-devel libdb4-cxx-devel
-
-Optional:
-
-    sudo dnf install miniupnpc-devel
-
-To build with Qt 5 (recommended) you need the following:
-
-    sudo dnf install qt5-qttools-devel qt5-qtbase-devel protobuf-devel
-
-libqrencode (optional) can be installed with:
-
-    sudo dnf install qrencode-devel
-
-Notes
------
-The release is built with GCC and then "strip experiencecoind" to strip the debug
-symbols, which reduces the executable size by about 90%.
-
-
-miniupnpc
----------
+ libssl      | SSL Support      | Secure communications
+ libdb5.3    | Berkeley DB      | Wallet storage
+ libboost    | Boost            | C++ Library
+ miniupnpc   | UPnP Support     | Optional firewall-jumping support
+ qt          | GUI              | GUI toolkit
+ protobuf    | Payments in GUI  | Data interchange format used for payment protocol
+ libqrencode | QR codes in GUI  | Optional for generating QR codes
+ 
+ Suggested versions of these libraries are as follows:
+      openssl-1.0.1l
+      db-5.3.28
+      boost 1.55
+      miniupnpc-1.9.20140701
+      qt 4.6.4
+      protobuf-2.5.0
+      qrencode-3.4.3
 
 [miniupnpc](http://miniupnp.free.fr/) may be used for UPnP port mapping.  It can be downloaded from [here](
 http://miniupnp.tuxfamily.org/files/).  UPnP support is compiled in and
@@ -162,34 +41,111 @@ turned off by default.  See the configure options for upnp behavior desired:
 	--disable-upnp-default   (the default) UPnP support turned off by default at runtime
 	--enable-upnp-default    UPnP support turned on by default at runtime
 
+Licenses of statically linked libraries:
+ Berkeley DB   New BSD license with additional requirement that linked
+               software must be free open source
+ Boost         MIT-like license
+ miniupnpc     New (3-clause) BSD license
+
+- For the versions used in the release, see doc/release-process.md under *Fetch and build inputs*.
+
+System requirements
+--------------------
+
+C++ compilers are memory-hungry. It is recommended to have at least 1 GB of
+memory available when compiling Experiencecoin Core. With 512MB of memory or less
+compilation will take much longer due to swap thrashing.
+
+Dependency Build Instructions: Ubuntu & Debian
+----------------------------------------------
+Build requirements:
+
+	sudo apt-get install build-essential pkg-config libtool autotools-dev autoconf automake libssl-dev
+
+for Ubuntu 12.04 and later:
+
+	sudo apt-get install libboost-all-dev libdb5.3-dev libdb5.3++-dev
+
+for Debian 7 (Wheezy) and later:
+
+	sudo apt-get install libdb5.3-dev
+        sudo apt-get install libdb5.3++-dev
+
+	Note that if you have Berkeley DB 4.8 packages installed (i.e. for other
+	wallet software), they are incompatible with the packages for 5.3. You
+	will have to manually download 5.3 from
+	http://download.oracle.com/berkeley-db/db-5.3.29.NC.tar.gz and compile
+	it, install it to /usr/local where the configure script should locate it
+	automatically.
+
+Optional:
+
+	sudo apt-get install libminiupnpc-dev (see --with-miniupnpc and --enable-upnp-default)
+
+Dependencies for the GUI: Ubuntu & Debian
+-----------------------------------------
+
+If you want to build Experiencecoin-Qt, make sure that the required packages for Qt development
+are installed. Either Qt 4 or Qt 5 are necessary to build the GUI.
+If both Qt 4 and Qt 5 are installed, Qt 4 will be used. Pass `--with-gui=qt5` to configure to choose Qt5.
+To build without GUI pass `--without-gui`.
+
+To build with Qt 4 you need the following:
+
+    sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
+
+For Qt 5 you need the following:
+
+    sudo apt-get install libqt5gui5 libqt5core5 libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev
+
+libqrencode (optional) can be installed with:
+
+    sudo apt-get install libqrencode-dev
+
+Once these are installed, they will be found by configure and a experiencecoin-qt executable will be
+built by default.
+
+Notes
+-----
+The release is built with GCC and then "strip experiencecoind" to strip the debug
+symbols, which reduces the executable size by about 90%.
+
+
+miniupnpc
+---------
+	tar -xzvf miniupnpc-1.6.tar.gz
+	cd miniupnpc-1.6
+	make
+	sudo su
+	make install
+
 
 Berkeley DB
 -----------
-It is recommended to use Berkeley DB 4.8. If you have to build it yourself:
+It is recommended to use Berkeley DB 5.3. If you have to build it yourself:
 
 ```bash
-EXPERIENCECOIN_ROOT=$(pwd)
+BITCOIN_ROOT=$(pwd)
 
 # Pick some path to install BDB to, here we create a directory within the experiencecoin directory
-BDB_PREFIX="${EXPERIENCECOIN_ROOT}/db4"
+BDB_PREFIX="${BITCOIN_ROOT}/db5"
 mkdir -p $BDB_PREFIX
 
 # Fetch the source and verify that it is not tampered with
-wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
-echo '12edc0df75bf9abd7f82f821795bcee50f42cb2e5f76a6a281b85732798364ef  db-4.8.30.NC.tar.gz' | sha256sum -c
-# -> db-4.8.30.NC.tar.gz: OK
-tar -xzvf db-4.8.30.NC.tar.gz
+wget 'http://download.oracle.com/berkeley-db/db-5.3.29.NC.tar.gz'
+echo '08238e59736d1aacdd47cfb8e68684c695516c37f4fbe1b8267dde58dc3a576c  db-5.3.29.NC.tar.gz' | sha256sum -c
+# -> db-5.3.29.NC.tar.gz: OK
+tar -xzvf db-5.3.29.NC.tar.gz
 
 # Build the library and install to our prefix
-cd db-4.8.30.NC/build_unix/
-#  Note: Do a static build so that it can be embedded into the executable, instead of having to find a .so at runtime
+cd db-5.3.29.NC/build_unix/
+#  Note: Do a static build so that it can be embedded into the exectuable, instead of having to find a .so at runtime
 ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
 make install
 
 # Configure Experiencecoin Core to use our own-built instance of BDB
-cd $EXPERIENCECOIN_ROOT
-./autogen.sh
-./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/" # (other args...)
+cd $BITCOIN_ROOT
+./configure (other args...) LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
 ```
 
 **Note**: You only need Berkeley DB if the wallet is enabled (see the section *Disable-Wallet mode* below).
@@ -201,6 +157,31 @@ If you need to build Boost yourself:
 	sudo su
 	./bootstrap.sh
 	./bjam install
+
+
+Dependency Build Instructions: Fedora
+-------------------------------------
+
+Fedora ships with a version of OpenSSL which does not include elliptic curve
+cryptography functions, and therefore cannot be used for Experiencecoin (or other
+cryptocurrencies based on the Bitcoin design). Further details are available
+on the Bitcoin Wiki: https://en.bitcoin.it/wiki/OpenSSL_and_EC_Libraries
+
+Recommended solution is to compile your own OpenSSL libraries.
+
+Tested on Fedora 20:
+
+	sudo yum install autoconf automake make gcc-c++
+	sudo yum install miniupnpc-devel
+	sudo yum install boost-devel
+	sudo yum install libdb-cxx-devel
+	sudo yum install libss-devel
+	sudo yum install qrencode
+
+Optional:
+
+	sudo yum install miniupnpc-devel (see USE_UPNP compile flag)
+
 
 
 Security
@@ -219,12 +200,12 @@ Hardening enables the following features:
 
 * Position Independent Executable
     Build position independent code to take advantage of Address Space Layout Randomization
-    offered by some kernels. Attackers who can cause execution of code at an arbitrary memory
-    location are thwarted if they don't know where anything useful is located.
+    offered by some kernels. An attacker who is able to cause execution of code at an arbitrary
+    memory location is thwarted if he doesn't know where anything useful is located.
     The stack and heap are randomly located by default but this allows the code section to be
     randomly located as well.
 
-    On an AMD64 processor where a library was not compiled with -fPIC, this will cause an error
+    On an Amd64 processor where a library was not compiled with -fPIC, this will cause an error
     such as: "relocation R_X86_64_32 against `......' can not be used when making a shared object;"
 
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
@@ -232,7 +213,6 @@ Hardening enables the following features:
     	scanelf -e ./experiencecoin
 
     The output should contain:
-
      TYPE
     ET_DYN
 
@@ -259,89 +239,8 @@ disable-wallet mode with:
 
     ./configure --disable-wallet
 
-In this case there is no dependency on Berkeley DB 4.8.
+In this case there is no dependency on Berkeley DB 5.3.
 
 Mining is also possible in disable-wallet mode, but only using the `getblocktemplate` RPC
 call not `getwork`.
 
-Additional Configure Flags
---------------------------
-A list of additional configure flags can be displayed with:
-
-    ./configure --help
-
-
-Setup and Build Example: Arch Linux
------------------------------------
-This example lists the steps necessary to setup and build a command line only, non-wallet distribution of the latest changes on Arch Linux:
-
-    pacman -S git base-devel boost libevent python
-    git clone https://github.com/experiencecoin/experiencecoin.git
-    cd experiencecoin/
-    ./autogen.sh
-    ./configure --disable-wallet --without-gui --without-miniupnpc
-    make check
-
-Note:
-Enabling wallet support requires either compiling against a Berkeley DB newer than 4.8 (package `db`) using `--with-incompatible-bdb`,
-or building and depending on a local version of Berkeley DB 4.8. The readily available Arch Linux packages are currently built using
-`--with-incompatible-bdb` according to the [PKGBUILD](https://projects.archlinux.org/svntogit/community.git/tree/bitcoin/trunk/PKGBUILD).
-As mentioned above, when maintaining portability of the wallet between the standard Experiencecoin Core distributions and independently built
-node software is desired, Berkeley DB 4.8 must be used.
-
-
-ARM Cross-compilation
--------------------
-These steps can be performed on, for example, an Ubuntu VM. The depends system
-will also work on other Linux distributions, however the commands for
-installing the toolchain will be different.
-
-Make sure you install the build requirements mentioned above.
-Then, install the toolchain and curl:
-
-    sudo apt-get install g++-arm-linux-gnueabihf curl
-
-To build executables for ARM:
-
-    cd depends
-    make HOST=arm-linux-gnueabihf NO_QT=1
-    cd ..
-    ./configure --prefix=$PWD/depends/arm-linux-gnueabihf --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++
-    make
-
-
-For further documentation on the depends system see [README.md](../depends/README.md) in the depends directory.
-
-Building on FreeBSD
---------------------
-
-(Updated as of FreeBSD 11.0)
-
-Clang is installed by default as `cc` compiler, this makes it easier to get
-started than on [OpenBSD](build-openbsd.md). Installing dependencies:
-
-    pkg install autoconf automake libtool pkgconf
-    pkg install boost-libs openssl libevent
-    pkg install gmake
-
-You need to use GNU make (`gmake`) instead of `make`.
-(`libressl` instead of `openssl` will also work)
-
-For the wallet (optional):
-
-    pkg install db5
-
-This will give a warning "configure: WARNING: Found Berkeley DB other
-than 4.8; wallets opened by this build will not be portable!", but as FreeBSD never
-had a binary release, this may not matter. If backwards compatibility
-with 4.8-built Experiencecoin Core is needed follow the steps under "Berkeley DB" above.
-
-Then build using:
-
-    ./autogen.sh
-    ./configure --with-incompatible-bdb BDB_CFLAGS="-I/usr/local/include/db5" BDB_LIBS="-L/usr/local/lib -ldb_cxx-5"
-    gmake
-
-*Note on debugging*: The version of `gdb` installed by default is [ancient and considered harmful](https://wiki.freebsd.org/GdbRetirement).
-It is not suitable for debugging a multi-threaded C++ program, not even for getting backtraces. Please install the package `gdb` and
-use the versioned gdb command e.g. `gdb7111`.

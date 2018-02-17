@@ -1,103 +1,148 @@
 Mac OS X Build Instructions and Notes
 ====================================
-The commands in this guide should be executed in a Terminal application.
-The built-in one is located in `/Applications/Utilities/Terminal.app`.
+This guide will show you how to build experiencecoind(headless client) for OSX.
+
+Notes
+-----
+
+* Tested on OS X 10.6 through 10.9 on 64-bit Intel processors only.
+Older OSX releases or 32-bit processors are no longer supported.
+
+* All of the commands should be executed in a Terminal application. The
+built-in one is located in `/Applications/Utilities`.
 
 Preparation
 -----------
-Install the OS X command line tools:
 
-`xcode-select --install`
+You need to install XCode with all the options checked so that the compiler
+and everything is available in /usr not just /Developer. XCode should be
+available on your OS X installation media, but if not, you can get the
+current version from https://developer.apple.com/xcode/. If you install
+Xcode 4.3 or later, you'll need to install its command line tools. This can
+be done in `Xcode > Preferences > Downloads > Components` and generally must
+be re-done or updated every time Xcode is updated.
 
-When the popup appears, click `Install`.
+There's an assumption that you already have `git` installed, as well. If
+not, it's the path of least resistance to install [Github for Mac](https://mac.github.com/)
+(OS X 10.7+) or
+[Git for OS X](https://code.google.com/p/git-osx-installer/). It is also
+available via Homebrew or MacPorts.
 
-Then install [Homebrew](https://brew.sh).
+You will also need to install [Homebrew](http://brew.sh)
+or [MacPorts](https://www.macports.org/) in order to install library
+dependencies. It's largely a religious decision which to choose, but, as of
+December 2012, MacPorts is a little easier because you can just install the
+dependencies immediately - no other work required. If you're unsure, read
+the instructions through first in order to assess what you want to do.
+Homebrew is a little more popular among those newer to OS X.
 
-Dependencies
+The installation of the actual dependencies is covered in the Instructions
+sections below.
+
+Instructions: MacPorts
 ----------------------
 
-    brew install automake berkeley-db4 libtool boost --c++11 miniupnpc openssl pkg-config protobuf qt libevent
+### Install dependencies
 
-If you want to build the disk image with `make deploy` (.dmg / optional), you need RSVG
+Installing the dependencies using MacPorts is very straightforward.
 
-    brew install librsvg
+    sudo port install boost db53@+no_java openssl miniupnpc autoconf pkgconfig automake
 
-If you want to build with ZeroMQ support
-    
-    brew install zeromq
+Optional: install Qt4
 
-NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
+    sudo port install qt4-mac qrencode protobuf-cpp
 
-Build Experiencecoin Core
-------------------------
+### Building `experiencecoind`
 
-1. Clone the experiencecoin source code and cd into `experiencecoin`
+1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/experiencecoin/experiencecoin
+        git clone git@github.com:experiencecoin/experiencecoin.git experiencecoin
         cd experiencecoin
 
-2.  Build experiencecoin-core:
-
-    Configure and build the headless experiencecoin binaries as well as the GUI (if Qt is found).
-
-    You can disable the GUI build by passing `--without-gui` to configure.
+2.  Build experiencecoind (and Experiencecoin-Qt, if configured):
 
         ./autogen.sh
         ./configure
         make
 
-3.  It is recommended to build and run the unit tests:
+3.  It is a good idea to build and run the unit tests, too:
 
         make check
 
-4.  You can also create a .dmg that contains the .app bundle (optional):
+Instructions: Homebrew
+----------------------
 
-        make deploy
+#### Install dependencies using Homebrew
+
+        brew install autoconf automake berkeley-db boost miniupnpc openssl pkg-config protobuf qt
+
+### Building `experiencecoind`
+
+1. Clone the github tree to get the source code and go into the directory.
+
+        git clone https://github.com/experiencecoin/experiencecoin.git
+        cd experiencecoin
+
+2.  Build experiencecoind:
+
+        ./autogen.sh
+        ./configure
+        make
+
+3.  It is a good idea to build and run the unit tests, too:
+
+        make check
+
+Creating a release build
+------------------------
+You can ignore this section if you are building `experiencecoind` for your own use.
+
+experiencecoind/experiencecoin-cli binaries are not included in the Experiencecoin-Qt.app bundle.
+
+If you are building `experiencecoind` or `Experiencecoin-Qt` for others, your build machine should be set up
+as follows for maximum compatibility:
+
+All dependencies should be compiled with these flags:
+
+ -mmacosx-version-min=10.6
+ -arch x86_64
+ -isysroot $(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk
+
+For MacPorts, that means editing your macports.conf and setting
+`macosx_deployment_target` and `build_arch`:
+
+    macosx_deployment_target=10.6
+    build_arch=x86_64
+
+... and then uninstalling and re-installing, or simply rebuilding, all ports.
+
+As of December 2012, the `boost` port does not obey `macosx_deployment_target`.
+Download `http://gavinandresen-bitcoin.s3.amazonaws.com/boost_macports_fix.zip`
+for a fix.
+
+Once dependencies are compiled, see release-process.md for how the Experiencecoin-Qt.app
+bundle is packaged and signed to create the .dmg disk image that is distributed.
 
 Running
 -------
 
-Experiencecoin Core is now available at `./src/experiencecoind`
+It's now available at `./experiencecoind`, provided that you are still in the `src`
+directory. We have to first create the RPC configuration file, though.
 
-Before running, it's recommended you create an RPC configuration file.
+Run `./experiencecoind` to get the filename where it should be put, or just try these
+commands:
 
     echo -e "rpcuser=experiencecoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Experiencecoin/experiencecoin.conf"
-
     chmod 600 "/Users/${USER}/Library/Application Support/Experiencecoin/experiencecoin.conf"
 
-The first time you run experiencecoind, it will start downloading the blockchain. This process could take several hours.
-
-You can monitor the download process by looking at the debug.log file:
+When next you run it, it will start downloading the blockchain, but it won't
+output anything while it's doing this. This process may take several hours;
+you can monitor its process by looking at the debug.log file, like this:
 
     tail -f $HOME/Library/Application\ Support/Experiencecoin/debug.log
 
 Other commands:
--------
 
-    ./src/experiencecoind -daemon # Starts the experiencecoin daemon.
-    ./src/experiencecoin-cli --help # Outputs a list of command-line options.
-    ./src/experiencecoin-cli help # Outputs a list of RPC commands when the daemon is running.
-
-Using Qt Creator as IDE
-------------------------
-You can use Qt Creator as an IDE, for experiencecoin development.
-Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
-Uncheck everything except Qt Creator during the installation process.
-
-1. Make sure you installed everything through Homebrew mentioned above
-2. Do a proper ./configure --enable-debug
-3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "experiencecoin-qt" as project name, enter src/qt as location
-5. Leave the file selection as it is
-6. Confirm the "summary page"
-7. In the "Projects" tab select "Manage Kits..."
-8. Select the default "Desktop" kit and select "Clang (x86 64bit in /usr/bin)" as compiler
-9. Select LLDB as debugger (you might need to set the path to your installation)
-10. Start debugging with Qt Creator
-
-Notes
------
-
-* Tested on OS X 10.8 through 10.12 on 64-bit Intel processors only.
-
-* Building with downloaded Qt binaries is not officially supported. See the notes in [#7714](https://github.com/bitcoin/bitcoin/issues/7714)
+    ./experiencecoind -daemon # to start the experiencecoin daemon.
+    ./experiencecoin-cli --help  # for a list of command-line options.
+    ./experiencecoin-cli help    # When the daemon is running, to get a list of RPC commands

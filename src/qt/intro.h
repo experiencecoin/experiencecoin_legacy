@@ -1,20 +1,18 @@
-// Copyright (c) 2011-2016 The Bitcoin Core developers
-// Distributed under the MIT software license, see the accompanying
+// Copyright (c) 2011-2013 The Bitcoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_INTRO_H
-#define BITCOIN_QT_INTRO_H
+#ifndef INTRO_H
+#define INTRO_H
 
 #include <QDialog>
 #include <QMutex>
 #include <QThread>
 
-static const bool DEFAULT_CHOOSE_DATADIR = false;
-
 class FreespaceChecker;
 
 namespace Ui {
-    class Intro;
+class Intro;
 }
 
 /** Introduction screen (pre-GUI startup).
@@ -35,27 +33,24 @@ public:
     /**
      * Determine data directory. Let the user choose if the current one doesn't exist.
      *
-     * @returns true if a data directory was selected, false if the user cancelled the selection
-     * dialog.
-     *
      * @note do NOT call global GetDataDir() before calling this function, this
      * will cause the wrong path to be cached.
      */
-    static bool pickDataDirectory();
+    static void pickDataDirectory();
 
     /**
      * Determine default data directory for operating system.
      */
     static QString getDefaultDataDirectory();
 
-Q_SIGNALS:
+signals:
     void requestCheck();
     void stopThread();
 
-public Q_SLOTS:
+public slots:
     void setStatus(int status, const QString &message, quint64 bytesAvailable);
 
-private Q_SLOTS:
+private slots:
     void on_dataDirectory_textChanged(const QString &arg1);
     void on_ellipsisButton_clicked();
     void on_dataDirDefault_clicked();
@@ -75,4 +70,4 @@ private:
     friend class FreespaceChecker;
 };
 
-#endif // BITCOIN_QT_INTRO_H
+#endif // INTRO_H

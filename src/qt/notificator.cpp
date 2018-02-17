@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2016 The Bitcoin Core developers
-// Distributed under the MIT software license, see the accompanying
+// Copyright (c) 2011-2013 The Bitcoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "notificator.h"
@@ -28,22 +28,20 @@
 #endif
 
 
-#ifdef USE_DBUS
 // https://wiki.ubuntu.com/NotificationDevelopmentGuidelines recommends at least 128
 const int FREEDESKTOP_NOTIFICATION_ICON_SIZE = 128;
-#endif
 
-Notificator::Notificator(const QString &_programName, QSystemTrayIcon *_trayIcon, QWidget *_parent) :
-    QObject(_parent),
-    parent(_parent),
-    programName(_programName),
+Notificator::Notificator(const QString &programName, QSystemTrayIcon *trayicon, QWidget *parent) :
+    QObject(parent),
+    parent(parent),
+    programName(programName),
     mode(None),
-    trayIcon(_trayIcon)
+    trayIcon(trayicon)
 #ifdef USE_DBUS
     ,interface(0)
 #endif
 {
-    if(_trayIcon && _trayIcon->supportsMessages())
+    if(trayicon && trayicon->supportsMessages())
     {
         mode = QSystemTray;
     }

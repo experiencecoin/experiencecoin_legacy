@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2016 The Bitcoin Core developers
-// Distributed under the MIT software license, see the accompanying
+// Copyright (c) 2011-2013 The Bitcoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "qvalidatedlineedit.h"
@@ -15,14 +15,14 @@ QValidatedLineEdit::QValidatedLineEdit(QWidget *parent) :
     connect(this, SIGNAL(textChanged(QString)), this, SLOT(markValid()));
 }
 
-void QValidatedLineEdit::setValid(bool _valid)
+void QValidatedLineEdit::setValid(bool valid)
 {
-    if(_valid == this->valid)
+    if(valid == this->valid)
     {
         return;
     }
 
-    if(_valid)
+    if(valid)
     {
         setStyleSheet("");
     }
@@ -30,7 +30,7 @@ void QValidatedLineEdit::setValid(bool _valid)
     {
         setStyleSheet(STYLE_INVALID);
     }
-    this->valid = _valid;
+    this->valid = valid;
 }
 
 void QValidatedLineEdit::focusInEvent(QFocusEvent *evt)
@@ -99,25 +99,9 @@ void QValidatedLineEdit::checkValidity()
     }
     else
         setValid(false);
-
-    Q_EMIT validationDidChange(this);
 }
 
 void QValidatedLineEdit::setCheckValidator(const QValidator *v)
 {
     checkValidator = v;
-}
-
-bool QValidatedLineEdit::isValid()
-{
-    // use checkValidator in case the QValidatedLineEdit is disabled
-    if (checkValidator)
-    {
-        QString address = text();
-        int pos = 0;
-        if (checkValidator->validate(address, pos) == QValidator::Acceptable)
-            return true;
-    }
-
-    return valid;
 }

@@ -1,4 +1,15 @@
-Experiencecoin Core 3.0.0
+Experiencecoin 1.8.1
+
+* Copyright (c) 2009-2014 Bitcoin Developers
+* Copyright (c) 2011-2013 Litecoin Developers
+* Copyright (c) 2013-2014 Experiencecoin Developers
+
+Distributed under the MIT/X11 software license, see the accompanying
+file COPYING or http://www.opensource.org/licenses/mit-license.php.
+This product includes software developed by the OpenSSL Project for use in
+the OpenSSL Toolkit (http://www.openssl.org/).  This product includes
+cryptographic software written by Eric Young (eay@cryptsoft.com).
+
 
 Intro
 -----
@@ -16,3 +27,7 @@ Experiencecoin Core is the original Experiencecoin client and it builds the back
 However, it downloads and stores the entire history of Experiencecoin transactions;
 depending on the speed of your computer and network connection, the synchronization
 process can take anywhere from a few hours to a day or more.
+
+See the Experiencecoin wiki at:
+  http://epcco.in/
+for more help and information.

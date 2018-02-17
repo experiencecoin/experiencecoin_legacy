@@ -1,14 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2016 The Bitcoin Core developers
-// Distributed under the MIT software license, see the accompanying
+// Copyright (c) 2009-2013 The Bitcoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_COMPAT_H
-#define BITCOIN_COMPAT_H
-
-#if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
-#endif
+#ifndef _BITCOIN_COMPAT_H
+#define _BITCOIN_COMPAT_H
 
 #ifdef WIN32
 #ifdef _WIN32_WINNT
@@ -34,12 +30,10 @@
 #else
 #include <sys/fcntl.h>
 #include <sys/mman.h>
-#include <sys/select.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <net/if.h>
 #include <netinet/in.h>
-#include <netinet/tcp.h>
 #include <arpa/inet.h>
 #include <ifaddrs.h>
 #include <limits.h>
@@ -47,8 +41,10 @@
 #include <unistd.h>
 #endif
 
-#ifndef WIN32
-typedef unsigned int SOCKET;
+#ifdef WIN32
+#define MSG_DONTWAIT        0
+#else
+typedef u_int SOCKET;
 #include "errno.h"
 #define WSAGetLastError()   errno
 #define WSAEINVAL           EINVAL
@@ -63,25 +59,19 @@ typedef unsigned int SOCKET;
 #define SOCKET_ERROR        -1
 #endif
 
+inline int myclosesocket(SOCKET& hSocket)
+{
+    if (hSocket == INVALID_SOCKET)
+        return WSAENOTSOCK;
 #ifdef WIN32
-#ifndef S_IRUSR
-#define S_IRUSR             0400
-#define S_IWUSR             0200
-#endif
+    int ret = closesocket(hSocket);
 #else
-#define MAX_PATH            1024
+    int ret = close(hSocket);
 #endif
-
-#if HAVE_DECL_STRNLEN == 0
-size_t strnlen( const char *start, size_t max_len);
-#endif // HAVE_DECL_STRNLEN
-
-bool static inline IsSelectableSocket(const SOCKET& s) {
-#ifdef WIN32
-    return true;
-#else
-    return (s < FD_SETSIZE);
-#endif
+    hSocket = INVALID_SOCKET;
+    return ret;
 }
+#define closesocket(s)      myclosesocket(s)
 
-#endif // BITCOIN_COMPAT_H
+
+#endif

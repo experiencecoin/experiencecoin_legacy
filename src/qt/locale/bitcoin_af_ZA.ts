@@ -1,77 +1,21 @@
-<TS language="af_ZA" version="2.1">
+<TS language="af_ZA" version="2.0">
 <context>
     <name>AddressBookPage</name>
     <message>
-        <source>Create a new address</source>
-        <translation>Skep 'n nuwe adres</translation>
+        <source>Double-click to edit address or label</source>
+        <translation>Dubbel-klik om die adres of etiket te wysig</translation>
     </message>
     <message>
-        <source>&amp;New</source>
-        <translation>&amp;Nuwe</translation>
+        <source>Create a new address</source>
+        <translation>Skep 'n nuwe adres</translation>
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
         <translation>Maak 'n kopie van die huidige adres na die stelsel klipbord</translation>
     </message>
     <message>
-        <source>&amp;Copy</source>
-        <translation>&amp;Kopie</translation>
-    </message>
-    <message>
-        <source>Delete the currently selected address from the list</source>
-        <translation>Verwyder die huidiglik gekieste address van die lys</translation>
-    </message>
-    <message>
-        <source>Export the data in the current tab to a file</source>
-        <translation>Voer inligting uit van die huidige blad na n lêer</translation>
-    </message>
-    <message>
-        <source>&amp;Export</source>
-        <translation>&amp;Uitvoer</translation>
-    </message>
-    <message>
         <source>&amp;Delete</source>
         <translation>&amp;Verwyder</translation>
-    </message>
-    <message>
-        <source>Choose the address to send coins to</source>
-        <translation>Kies die address na wie die muntstukke gestuur moet word</translation>
-    </message>
-    <message>
-        <source>C&amp;hoose</source>
-        <translation>K&amp;ies</translation>
-    </message>
-    <message>
-        <source>Sending addresses</source>
-        <translation>Stuur adresse</translation>
-    </message>
-    <message>
-        <source>Receiving addresses</source>
-        <translation>Ontvang adresse</translation>
-    </message>
-    <message>
-        <source>&amp;Copy Address</source>
-        <translation>&amp;Kopie adres</translation>
-    </message>
-    <message>
-        <source>Copy &amp;Label</source>
-        <translation>Kopie &amp;Etiket</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation>&amp;Wysig</translation>
-    </message>
-    <message>
-        <source>Export Address List</source>
-        <translation>Voer adres lys uit</translation>
-    </message>
-    <message>
-        <source>Comma separated file (*.csv)</source>
-        <translation>Koma geskeide lêers (*.csv)</translation>
-    </message>
-    <message>
-        <source>Exporting Failed</source>
-        <translation>Uitvoering Misluk</translation>
     </message>
     </context>
 <context>
@@ -92,20 +36,16 @@
 <context>
     <name>AskPassphraseDialog</name>
     <message>
-        <source>Passphrase Dialog</source>
-        <translation>Wagfrase Dialoog</translation>
-    </message>
-    <message>
         <source>Enter passphrase</source>
-        <translation>Tik wagfrase in</translation>
+        <translation>Tik Wagwoord in</translation>
     </message>
     <message>
         <source>New passphrase</source>
-        <translation>Nuwe wagfrase</translation>
+        <translation>Nuwe wagwoord</translation>
     </message>
     <message>
         <source>Repeat new passphrase</source>
-        <translation>Herhaal nuwe wagfrase</translation>
+        <translation>Herhaal nuwe wagwoord</translation>
     </message>
     <message>
         <source>Encrypt wallet</source>
@@ -129,11 +69,11 @@
     </message>
     <message>
         <source>Change passphrase</source>
-        <translation>Verander wagfrase</translation>
+        <translation>Verander wagwoord</translation>
     </message>
     <message>
-        <source>Enter the old passphrase and new passphrase to the wallet.</source>
-        <translation>Tik in die ou wagfrase en die nuwe wagfrase vir die beursie.</translation>
+        <source>Enter the old and new passphrase to the wallet.</source>
+        <translation>Tik asseblief die ou en nuwe wagwoord vir die beursie in.</translation>
     </message>
     <message>
         <source>Confirm wallet encryption</source>
@@ -153,7 +93,7 @@
     </message>
     <message>
         <source>The supplied passphrases do not match.</source>
-        <translation>Die wagfrase stem nie ooreen nie</translation>
+        <translation>Die wagwoord stem nie ooreen nie</translation>
     </message>
     <message>
         <source>Wallet unlock failed</source>
@@ -161,19 +101,12 @@
     </message>
     <message>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation>Die wagfrase wat ingetik was om die beursie oop te sluit, was verkeerd.</translation>
+        <translation>Die wagwoord wat ingetik was om die beursie oop te sluit, was verkeerd.</translation>
     </message>
     <message>
         <source>Wallet decryption failed</source>
         <translation>Beursie dekripsie het misluk</translation>
     </message>
-    <message>
-        <source>Wallet passphrase was successfully changed.</source>
-        <translation>Die beursie se wagfrase verandering was suksesvol.</translation>
-    </message>
-    </context>
-<context>
-    <name>BanTableModel</name>
     </context>
 <context>
     <name>BitcoinGUI</name>
@@ -214,8 +147,8 @@
         <translation>&amp;Opsies</translation>
     </message>
     <message>
-        <source>Experiencecoin</source>
-        <translation>Experiencecoin</translation>
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -255,6 +188,9 @@
     </message>
     </context>
 <context>
+    <name>ClientModel</name>
+    </context>
+<context>
     <name>CoinControlDialog</name>
     <message>
         <source>Amount:</source>
@@ -283,14 +219,6 @@
     </context>
 <context>
     <name>EditAddressDialog</name>
-    <message>
-        <source>&amp;Label</source>
-        <translation>&amp;Etiket</translation>
-    </message>
-    <message>
-        <source>&amp;Address</source>
-        <translation>&amp;Adres</translation>
-    </message>
     <message>
         <source>New receiving address</source>
         <translation>Nuwe ontvangende adres</translation>
@@ -330,13 +258,6 @@
     </message>
     </context>
 <context>
-    <name>ModalOverlay</name>
-    <message>
-        <source>Form</source>
-        <translation>Vorm</translation>
-    </message>
-    </context>
-<context>
     <name>OpenURIDialog</name>
     </context>
 <context>
@@ -344,10 +265,6 @@
     <message>
         <source>Options</source>
         <translation>Opsies</translation>
-    </message>
-    <message>
-        <source>W&amp;allet</source>
-        <translation>&amp;Beursie</translation>
     </message>
     </context>
 <context>
@@ -371,9 +288,6 @@
     </message>
     </context>
 <context>
-    <name>QObject::QObject</name>
-    </context>
-<context>
     <name>QRImageWidget</name>
     </context>
 <context>
@@ -385,14 +299,6 @@
     </context>
 <context>
     <name>ReceiveCoinsDialog</name>
-    <message>
-        <source>&amp;Amount:</source>
-        <translation>&amp;Bedrag:</translation>
-    </message>
-    <message>
-        <source>&amp;Message:</source>
-        <translation>&amp;Boodskap:</translation>
-    </message>
     <message>
         <source>Copy amount</source>
         <translation>Kopieer bedrag</translation>
@@ -432,6 +338,10 @@
         <translation>Boodskap</translation>
     </message>
     <message>
+        <source>Amount</source>
+        <translation>Bedrag</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(geen etiket)</translation>
     </message>
@@ -443,16 +353,8 @@
         <translation>Stuur Munstukke</translation>
     </message>
     <message>
-        <source>Insufficient funds!</source>
-        <translation>Onvoldoende fondse</translation>
-    </message>
-    <message>
         <source>Amount:</source>
         <translation>Bedrag:</translation>
-    </message>
-    <message>
-        <source>Transaction Fee:</source>
-        <translation>Transaksie bari:</translation>
     </message>
     <message>
         <source>Send to multiple recipients at once</source>
@@ -471,31 +373,16 @@
         <translation>Kopieer bedrag</translation>
     </message>
     <message>
-        <source>%1 to %2</source>
-        <translation>%1 tot %2</translation>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>of</translation>
-    </message>
-    <message>
         <source>(no label)</source>
         <translation>(geen etiket)</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>SendCoinsEntry</name>
-    <message>
-        <source>A&amp;mount:</source>
-        <translation>&amp;Bedrag:</translation>
-    </message>
     <message>
         <source>Message:</source>
         <translation>Boodskap:</translation>
     </message>
-    </context>
-<context>
-    <name>SendConfirmationDialog</name>
     </context>
 <context>
     <name>ShutdownWindow</name>
@@ -532,10 +419,6 @@
         <translation>Van</translation>
     </message>
     <message>
-        <source>unknown</source>
-        <translation>onbekend</translation>
-    </message>
-    <message>
         <source>To</source>
         <translation>Na</translation>
     </message>
@@ -561,7 +444,7 @@
     </message>
     <message>
         <source>Transaction fee</source>
-        <translation>Transaksie bari</translation>
+        <translation>Transaksie fooi</translation>
     </message>
     <message>
         <source>Net amount</source>
@@ -576,10 +459,6 @@
         <translation>Transaksie ID</translation>
     </message>
     <message>
-        <source>Transaction</source>
-        <translation>Transaksie</translation>
-    </message>
-    <message>
         <source>Amount</source>
         <translation>Bedrag</translation>
     </message>
@@ -590,6 +469,10 @@
     <message>
         <source>false</source>
         <translation>onwaar</translation>
+    </message>
+    <message>
+        <source>unknown</source>
+        <translation>onbekend</translation>
     </message>
 </context>
 <context>
@@ -606,8 +489,8 @@
         <translation>Tipe</translation>
     </message>
     <message>
-        <source>Label</source>
-        <translation>Etiket</translation>
+        <source>Address</source>
+        <translation>Adres</translation>
     </message>
     <message>
         <source>Received with</source>
@@ -632,10 +515,6 @@
     <message>
         <source>(n/a)</source>
         <translation>(n.v.t)</translation>
-    </message>
-    <message>
-        <source>(no label)</source>
-        <translation>(geen etiket)</translation>
     </message>
     <message>
         <source>Date and time that the transaction was received.</source>
@@ -709,10 +588,6 @@
         <translation>Kopieer bedrag</translation>
     </message>
     <message>
-        <source>Comma separated file (*.csv)</source>
-        <translation>Koma geskeide lêers (*.csv)</translation>
-    </message>
-    <message>
         <source>Date</source>
         <translation>Datum</translation>
     </message>
@@ -731,10 +606,6 @@
     <message>
         <source>ID</source>
         <translation>ID</translation>
-    </message>
-    <message>
-        <source>Exporting Failed</source>
-        <translation>Uitvoering Misluk</translation>
     </message>
     <message>
         <source>Range:</source>
@@ -760,20 +631,16 @@
 </context>
 <context>
     <name>WalletView</name>
-    <message>
-        <source>&amp;Export</source>
-        <translation>&amp;Uitvoer</translation>
-    </message>
-    <message>
-        <source>Export the data in the current tab to a file</source>
-        <translation>Voer inligting uit van die huidige blad na n lêer</translation>
-    </message>
     </context>
 <context>
     <name>bitcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opsies:</translation>
+    </message>
+    <message>
+        <source>Use the test network</source>
+        <translation>Gebruik die toets netwerk</translation>
     </message>
     <message>
         <source>Error: Disk space is low!</source>
@@ -784,8 +651,16 @@
         <translation>Informasie</translation>
     </message>
     <message>
+        <source>This help message</source>
+        <translation>Hierdie help boodskap</translation>
+    </message>
+    <message>
         <source>Loading addresses...</source>
         <translation>Laai adresse...</translation>
+    </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Ongeldige bedrag</translation>
     </message>
     <message>
         <source>Insufficient funds</source>

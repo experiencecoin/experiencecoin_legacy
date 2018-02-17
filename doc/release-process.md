@@ -1,298 +1,222 @@
 Release Process
 ====================
 
-Before every release candidate:
+* update translations (ping wumpus, Diapolo or tcatm on IRC)
+* see https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md#syncing-with-transifex
+
+* * *
+
+###update (commit) version in sources
+
+	contrib/verifysfbinaries/verify.sh
+	doc/README*
+	share/setup.nsi
+	src/clientversion.h (change CLIENT_VERSION_IS_RELEASE to true)
+
+###tag version in git
+
+	git tag -s v(new version, e.g. 0.8.0)
+
+###write release notes. git shortlog helps a lot, for example:
+
+	git shortlog --no-merges v(current version, e.g. 0.7.2)..v(new version, e.g. 0.8.0)
+
+* * *
+
+##perform gitian builds
+
+ From a directory containing the experiencecoin source, gitian-builder and gitian.sigs
+  
+	export SIGNER=(your gitian key, ie bluematt, sipa, etc)
+	export VERSION=(new version, e.g. 0.8.0)
+	pushd ./experiencecoin
+	git checkout v${VERSION}
+	popd
+	pushd ./gitian-builder
+
+ Fetch and build inputs: (first time, or when dependency versions change)
+
+	mkdir -p inputs; cd inputs/
+	wget 'http://miniupnp.free.fr/files/download.php?file=miniupnpc-1.9.20140701.tar.gz' -O miniupnpc-1.9.20140701.tar.gz
+	wget 'https://www.openssl.org/source/openssl-1.0.1l.tar.gz'
+	wget 'http://download.oracle.com/berkeley-db/db-5.1.29.NC.tar.gz'
+	wget 'http://zlib.net/zlib-1.2.8.tar.gz'
+	wget 'https://downloads.sourceforge.net/project/libpng/libpng16/older-releases/1.6.8/libpng-1.6.8.tar.gz'
+	wget 'https://fukuchi.org/works/qrencode/qrencode-3.4.3.tar.bz2'
+	wget 'https://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2'
+	wget 'https://svn.boost.org/trac/boost/raw-attachment/ticket/7262/boost-mingw.patch' -O \
+	     boost-mingw-gas-cross-compile-2013-03-03.patch
+	wget 'https://download.qt-project.org/official_releases/qt/5.2/5.2.0/single/qt-everywhere-opensource-src-5.2.0.tar.gz'
+	wget 'https://download.qt-project.org/archive/qt/4.6/qt-everywhere-opensource-src-4.6.4.tar.gz'
+	wget 'https://protobuf.googlecode.com/files/protobuf-2.5.0.tar.bz2'
+	cd ..
+	./bin/gbuild ../experiencecoin/contrib/gitian-descriptors/boost-linux.yml
+	mv build/out/boost-*.zip inputs/
+	./bin/gbuild ../experiencecoin/contrib/gitian-descriptors/deps-linux.yml
+	mv build/out/experiencecoin-deps-*.zip inputs/
+	./bin/gbuild ../experiencecoin/contrib/gitian-descriptors/qt-linux.yml
+	mv build/out/qt-*.tar.gz inputs/
+	./bin/gbuild ../experiencecoin/contrib/gitian-descriptors/boost-win.yml
+	mv build/out/boost-*.zip inputs/
+	./bin/gbuild ../experiencecoin/contrib/gitian-descriptors/deps-win.yml
+	mv build/out/experiencecoin-deps-*.zip inputs/
+	./bin/gbuild ../experiencecoin/contrib/gitian-descriptors/qt-win.yml
+	mv build/out/qt-*.zip inputs/
+	./bin/gbuild ../experiencecoin/contrib/gitian-descriptors/protobuf-win.yml
+	mv build/out/protobuf-*.zip inputs/
+
+ The expected SHA256 hashes of the intermediate inputs are:
+
+    0331de2b05c275986545e8d2d6a4becf625e5935034803dc508c9d641e70c7cb  experiencecoin-deps-linux32-gitian-r10.zip
+    d99caabf13011494dd147b4ffad1626480889f5080270a1a04e1a7adc543cc4f  experiencecoin-deps-linux64-gitian-r10.zip
+    f29b7d9577417333fb56e023c2977f5726a7c297f320b175a4108cf7cd4c2d29  boost-linux32-1.55.0-gitian-r1.zip
+    88232451c4104f7eb16e469ac6474fd1231bd485687253f7b2bdf46c0781d535  boost-linux64-1.55.0-gitian-r1.zip
+    57e57dbdadc818cd270e7e00500a5e1085b3bcbdef69a885f0fb7573a8d987e1  qt-linux32-4.6.4-gitian-r1.tar.gz
+    60eb4b9c5779580b7d66529efa5b2836ba1a70edde2a0f3f696d647906a826be  qt-linux64-4.6.4-gitian-r1.tar.gz
+    60dc2d3b61e9c7d5dbe2f90d5955772ad748a47918ff2d8b74e8db9b1b91c909  boost-win32-1.55.0-gitian-r6.zip
+    f65fcaf346bc7b73bc8db3a8614f4f6bee2f61fcbe495e9881133a7c2612a167  boost-win64-1.55.0-gitian-r6.zip
+    3783d98ac49256f11381d4eadffed5b51c1779afedca43ffef6cf8998d1db9c5  experiencecoin-deps-win32-gitian-r17.zip
+    b579a9af8a8b77d542738cf93e5a12bfb0957dade0281bebd96a1619fc587855  experiencecoin-deps-win64-gitian-r17.zip
+    963e3e5e85879010a91143c90a711a5d1d5aba992e38672cdf7b54e42c56b2f1  qt-win32-5.2.0-gitian-r3.zip
+    751c579830d173ef3e6f194e83d18b92ebef6df03289db13ab77a52b6bc86ef0  qt-win64-5.2.0-gitian-r3.zip
+    e2e403e1a08869c7eed4d4293bce13d51ec6a63592918b90ae215a0eceb44cb4  protobuf-win32-2.5.0-gitian-r4.zip
+    a0999037e8b0ef9ade13efd88fee261ba401f5ca910068b7e0cd3262ba667db0  protobuf-win64-2.5.0-gitian-r4.zip
+
+ Build experiencecoind and experiencecoin-qt on Linux32, Linux64, and Win32:
+  
+	./bin/gbuild --commit experiencecoin=v${VERSION} ../experiencecoin/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION} --destination ../gitian.sigs/ ../experiencecoin/contrib/gitian-descriptors/gitian-linux.yml
+	pushd build/out
+	zip -r experiencecoin-${VERSION}-linux-gitian.zip *
+	mv experiencecoin-${VERSION}-linux-gitian.zip ../../../
+	popd
+	./bin/gbuild --commit experiencecoin=v${VERSION} ../experiencecoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-win --destination ../gitian.sigs/ ../experiencecoin/contrib/gitian-descriptors/gitian-win.yml
+	pushd build/out
+	zip -r experiencecoin-${VERSION}-win-gitian.zip *
+	mv experiencecoin-${VERSION}-win-gitian.zip ../../../
+	popd
+	popd
+
+  Build output expected:
+
+  1. linux 32-bit and 64-bit binaries + source (experiencecoin-${VERSION}-linux-gitian.zip)
+  2. windows 32-bit and 64-bit binaries + installer + source (experiencecoin-${VERSION}-win-gitian.zip)
+  3. Gitian signatures (in gitian.sigs/${VERSION}[-win]/(your gitian key)/
 
-* Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md#synchronising-translations).
+repackage gitian builds for release as stand-alone zip/tar/installer exe
 
-* Update manpages, see [gen-manpages.sh](https://github.com/experiencecoin/experiencecoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
+**Linux .tar.gz:**
 
-Before every minor and major release:
+	unzip experiencecoin-${VERSION}-linux-gitian.zip -d experiencecoin-${VERSION}-linux
+	tar czvf experiencecoin-${VERSION}-linux.tar.gz experiencecoin-${VERSION}-linux
+	rm -rf experiencecoin-${VERSION}-linux
 
-* Update [bips.md](bips.md) to account for changes since the last release.
-* Update version in `configure.ac` (don't forget to set `CLIENT_VERSION_IS_RELEASE` to `true`)
-* Write release notes (see below)
-* Update `src/chainparams.cpp` nMinimumChainWork with information from the getblockchaininfo rpc.
-* Update `src/chainparams.cpp` defaultAssumeValid  with information from the getblockhash rpc.
-  - The selected value must not be orphaned so it may be useful to set the value two blocks back from the tip.
-  - Testnet should be set some tens of thousands back from the tip due to reorgs there.
-  - This update should be reviewed with a reindex-chainstate with assumevalid=0 to catch any defect
-     that causes rejection of blocks in the past history.
+**Windows .zip and setup.exe:**
 
-Before every major release:
+	unzip experiencecoin-${VERSION}-win-gitian.zip -d experiencecoin-${VERSION}-win
+	mv experiencecoin-${VERSION}-win/experiencecoin-*-setup.exe .
+	zip -r experiencecoin-${VERSION}-win.zip experiencecoin-${VERSION}-win
+	rm -rf experiencecoin-${VERSION}-win
 
-* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/bitcoin/bitcoin/pull/7415) for an example.
-* Update [`BLOCK_CHAIN_SIZE`](/src/qt/intro.cpp) to the current size plus some overhead.
-* Update `src/chainparams.cpp` chainTxData with statistics about the transaction count and rate.
-* Update version of `contrib/gitian-descriptors/*.yml`: usually one'd want to do this on master after branching off the release - but be sure to at least do it before a new major release
+**Perform Mac build:**
 
-### First time / New builders
+  OSX binaries are created by Gavin Andresen on a 64-bit, OSX 10.6 machine.
 
-If you're using the automated script (found in [contrib/gitian-build.sh](/contrib/gitian-build.sh)), then at this point you should run it with the "--setup" command. Otherwise ignore this.
+	./autogen.sh
+        SDK=$(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk
+        CXXFLAGS="-mmacosx-version-min=10.6 -isysroot $SDK" ./configure --enable-upnp-default
+	make
+	export QTDIR=/opt/local/share/qt4  # needed to find translations/qt_*.qm files
+	T=$(contrib/qt_translations.py $QTDIR/translations src/qt/locale)
+        export CODESIGNARGS='--keychain ...path_to_keychain --sign "Developer ID Application: EXPERIENCECOIN FOUNDATION, INC., THE"'
+	python2.7 contrib/macdeploy/macdeployqtplus Experiencecoin-Qt.app -sign -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
 
-Check out the source code in the following directory hierarchy.
+ Build output expected: Experiencecoin-Qt.dmg
 
-    cd /path/to/your/toplevel/build
-    git clone https://github.com/experiencecoin/gitian.sigs.epc.git
-    git clone https://github.com/experiencecoin/experiencecoin-detached-sigs.git
-    git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/experiencecoin/experiencecoin.git
+###Next steps:
 
-### Experiencecoin maintainers/release engineers, update version in sources
+* Code-sign Windows -setup.exe (in a Windows virtual machine using signtool)
+ Note: only Gavin has the code-signing keys currently.
 
-Update the following:
+* upload builds to SourceForge
 
-- `configure.ac`:
-    - `_CLIENT_VERSION_MAJOR`
-    - `_CLIENT_VERSION_MINOR`
-    - `_CLIENT_VERSION_REVISION`
-    - Don't forget to set `_CLIENT_VERSION_IS_RELEASE` to `true`
-- `src/clientversion.h`: (this mirrors `configure.ac` - see issue #3539)
-    - `CLIENT_VERSION_MAJOR`
-    - `CLIENT_VERSION_MINOR`
-    - `CLIENT_VERSION_REVISION`
-    - Don't forget to set `CLIENT_VERSION_IS_RELEASE` to `true`
-- `doc/README.md` and `doc/README_windows.txt`
-- `doc/Doxyfile`: `PROJECT_NUMBER` contains the full version
-- `contrib/gitian-descriptors/*.yml`: usually one'd want to do this on master after branching off the release - but be sure to at least do it before a new major release
+* create SHA256SUMS for builds, and PGP-sign it
 
-Write release notes. git shortlog helps a lot, for example:
+* update experiencecoin.com version
+  make sure all OS download links go to the right versions
+  
+* update forum version
 
-    git shortlog --no-merges v(current version, e.g. 0.7.2)..v(new version, e.g. 0.8.0)
+* update wiki download links
 
-(or ping @wumpus on IRC, he has specific tooling to generate the list of merged pulls
-and sort them into categories based on labels)
+* update wiki changelog: [https://en.bitcoin.it/wiki/Changelog](https://en.bitcoin.it/wiki/Changelog)
 
-Generate list of authors:
+Commit your signature to gitian.sigs:
 
-    git log --format='%aN' "$*" | sort -ui | sed -e 's/^/- /'
+	pushd gitian.sigs
+	git add ${VERSION}-linux/${SIGNER}
+	git add ${VERSION}-win/${SIGNER}
+	git add ${VERSION}-osx/${SIGNER}
+	git commit -a
+	git push  # Assuming you can push to the gitian.sigs tree
+	popd
 
-Tag version (or release candidate) in git
-
-    git tag -s v(new version, e.g. 0.8.0)
-
-### Setup and perform Gitian builds
-
-If you're using the automated script (found in [contrib/gitian-build.sh](/contrib/gitian-build.sh)), then at this point you should run it with the "--build" command. Otherwise ignore this.
-
-Setup Gitian descriptors:
-
-    pushd ./experiencecoin
-    export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
-    export VERSION=(new version, e.g. 0.8.0)
-    git fetch
-    git checkout v${VERSION}
-    popd
-
-Ensure your gitian.sigs.epc are up-to-date if you wish to gverify your builds against other Gitian signatures.
-
-    pushd ./gitian.sigs.epc
-    git pull
-    popd
-
-Ensure gitian-builder is up-to-date:
-
-    pushd ./gitian-builder
-    git pull
-    popd
-
-### Fetch and create inputs: (first time, or when dependency versions change)
-
-    pushd ./gitian-builder
-    mkdir -p inputs
-    wget -P inputs https://bitcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
-    wget -P inputs http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
-    popd
-
-Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, and copy it into the inputs directory.
-
-### Optional: Seed the Gitian sources cache and offline git repositories
-
-By default, Gitian will fetch source files as needed. To cache them ahead of time:
-
-    pushd ./gitian-builder
-    make -C ../experiencecoin/depends download SOURCES_PATH=`pwd`/cache/common
-    popd
-
-Only missing files will be fetched, so this is safe to re-run for each build.
-
-NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
-
-    pushd ./gitian-builder
-    ./bin/gbuild --url experiencecoin=/path/to/experiencecoin,signature=/path/to/sigs {rest of arguments}
-    popd
-
-The gbuild invocations below <b>DO NOT DO THIS</b> by default.
-
-### Build and sign Experiencecoin Core for Linux, Windows, and OS X:
-
-    pushd ./gitian-builder
-    ./bin/gbuild --num-make 2 --memory 3000 --commit experiencecoin=v${VERSION} ../experiencecoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.ltc/ ../experiencecoin/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/experiencecoin-*.tar.gz build/out/src/experiencecoin-*.tar.gz ../
-
-    ./bin/gbuild --num-make 2 --memory 3000 --commit experiencecoin=v${VERSION} ../experiencecoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.ltc/ ../experiencecoin/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/experiencecoin-*-win-unsigned.tar.gz inputs/experiencecoin-win-unsigned.tar.gz
-    mv build/out/experiencecoin-*.zip build/out/experiencecoin-*.exe ../
-
-    ./bin/gbuild --num-make 2 --memory 3000 --commit experiencecoin=v${VERSION} ../experiencecoin/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.ltc/ ../experiencecoin/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/experiencecoin-*-osx-unsigned.tar.gz inputs/experiencecoin-osx-unsigned.tar.gz
-    mv build/out/experiencecoin-*.tar.gz build/out/experiencecoin-*.dmg ../
-    popd
-
-Build output expected:
-
-  1. source tarball (`experiencecoin-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`experiencecoin-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`experiencecoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `experiencecoin-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`experiencecoin-${VERSION}-osx-unsigned.dmg`, `experiencecoin-${VERSION}-osx64.tar.gz`)
-  5. Gitian signatures (in `gitian.sigs.epc/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
-
-### Verify other gitian builders signatures to your own. (Optional)
-
-Add other gitian builders keys to your gpg keyring, and/or refresh keys.
-
-    gpg --import experiencecoin/contrib/gitian-keys/*.pgp
-    gpg --refresh-keys
-
-Verify the signatures
-
-    pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs.epc/ -r ${VERSION}-linux ../experiencecoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs.epc/ -r ${VERSION}-win-unsigned ../experiencecoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs.epc/ -r ${VERSION}-osx-unsigned ../experiencecoin/contrib/gitian-descriptors/gitian-osx.yml
-    popd
-
-### Next steps:
-
-Commit your signature to gitian.sigs.epc:
-
-    pushd gitian.sigs.epc
-    git add ${VERSION}-linux/${SIGNER}
-    git add ${VERSION}-win-unsigned/${SIGNER}
-    git add ${VERSION}-osx-unsigned/${SIGNER}
-    git commit -a
-    git push  # Assuming you can push to the gitian.sigs.epc tree
-    popd
-
-Codesigner only: Create Windows/OS X detached signatures:
-- Only one person handles codesigning. Everyone else should skip to the next step.
-- Only once the Windows/OS X builds each have 3 matching signatures may they be signed with their respective release keys.
-
-Codesigner only: Sign the osx binary:
-
-    transfer litecoin-osx-unsigned.tar.gz to osx for signing
-    tar xf litecoin-osx-unsigned.tar.gz
-    ./detached-sig-create.sh -s "Key ID"
-    Enter the keychain password and authorize the signature
-    Move signature-osx.tar.gz back to the gitian host
-
-Codesigner only: Sign the windows binaries:
-
-    tar xf litecoin-win-unsigned.tar.gz
-    ./detached-sig-create.sh -key /path/to/codesign.key
-    Enter the passphrase for the key when prompted
-    signature-win.tar.gz will be created
-
-Codesigner only: Commit the detached codesign payloads:
-
-    cd ~/litecoin-detached-sigs
-    checkout the appropriate branch for this release series
-    rm -rf *
-    tar xf signature-osx.tar.gz
-    tar xf signature-win.tar.gz
-    git add -a
-    git commit -m "point to ${VERSION}"
-    git tag -s v${VERSION} HEAD
-    git push the current branch and new tag
-
-Non-codesigners: wait for Windows/OS X detached signatures:
-
-- Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [experiencecoin-detached-sigs](https://github.com/experiencecoin/experiencecoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
-
-Create (and optionally verify) the signed OS X binary:
-
-    pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../experiencecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.epc/ ../experiencecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.epc/ -r ${VERSION}-osx-signed ../experiencecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/experiencecoin-osx-signed.dmg ../experiencecoin-${VERSION}-osx.dmg
-    popd
-
-Create (and optionally verify) the signed Windows binaries:
-
-    pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../experiencecoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.epc/ ../experiencecoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.epc/ -r ${VERSION}-win-signed ../experiencecoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/experiencecoin-*win64-setup.exe ../experiencecoin-${VERSION}-win64-setup.exe
-    mv build/out/experiencecoin-*win32-setup.exe ../experiencecoin-${VERSION}-win32-setup.exe
-    popd
-
-Commit your signature for the signed OS X/Windows binaries:
-
-    pushd gitian.sigs.epc
-    git add ${VERSION}-osx-signed/${SIGNER}
-    git add ${VERSION}-win-signed/${SIGNER}
-    git commit -a
-    git push  # Assuming you can push to the gitian.sigs.epc tree
-    popd
+-------------------------------------------------------------------------
 
 ### After 3 or more people have gitian-built and their results match:
 
-- Create `SHA256SUMS.asc` for the builds, and GPG-sign it:
+From a directory containing experiencecoin source, gitian.sigs and gitian zips
 
-```bash
-sha256sum * > SHA256SUMS
+	export VERSION=(new version, e.g. 0.8.0)
+	mkdir experiencecoin-${VERSION}-linux-gitian
+	pushd experiencecoin-${VERSION}-linux-gitian
+	unzip ../experiencecoin-${VERSION}-linux-gitian.zip
+	mkdir gitian
+	cp ../experiencecoin/contrib/gitian-downloader/*.pgp ./gitian/
+	for signer in $(ls ../gitian.sigs/${VERSION}/); do
+	 cp ../gitian.sigs/${VERSION}/${signer}/experiencecoin-build.assert ./gitian/${signer}-build.assert
+	 cp ../gitian.sigs/${VERSION}/${signer}/experiencecoin-build.assert.sig ./gitian/${signer}-build.assert.sig
+	done
+	zip -r experiencecoin-${VERSION}-linux-gitian.zip *
+	cp experiencecoin-${VERSION}-linux-gitian.zip ../
+	popd
+	mkdir experiencecoin-${VERSION}-win-gitian
+	pushd experiencecoin-${VERSION}-win-gitian
+	unzip ../experiencecoin-${VERSION}-win-gitian.zip
+	mkdir gitian
+	cp ../experiencecoin/contrib/gitian-downloader/*.pgp ./gitian/
+	for signer in $(ls ../gitian.sigs/${VERSION}-win/); do
+	 cp ../gitian.sigs/${VERSION}-win/${signer}/experiencecoin-build.assert ./gitian/${signer}-build.assert
+	 cp ../gitian.sigs/${VERSION}-win/${signer}/experiencecoin-build.assert.sig ./gitian/${signer}-build.assert.sig
+	done
+	zip -r experiencecoin-${VERSION}-win-gitian.zip *
+	cp experiencecoin-${VERSION}-win-gitian.zip ../
+	popd
+
+    - Code-sign MacOSX .dmg
+
+  Note: only Gavin has the code-signing keys currently.
+
+- Create `SHA256SUMS.asc` for builds, and PGP-sign it. This is done manually.
+  Include all the files to be uploaded. The file has `sha256sum` format with a
+  simple header at the top:
+
+```
+Hash: SHA256
+
+0060f7d38b98113ab912d4c184000291d7f026eaf77ca5830deec15059678f54  bitcoin-x.y.z-linux.tar.gz
+...
 ```
 
-The list of files should be:
-```
-experiencecoin-${VERSION}-aarch64-linux-gnu.tar.gz
-experiencecoin-${VERSION}-arm-linux-gnueabihf.tar.gz
-experiencecoin-${VERSION}-i686-pc-linux-gnu.tar.gz
-experiencecoin-${VERSION}-x86_64-linux-gnu.tar.gz
-experiencecoin-${VERSION}-osx64.tar.gz
-experiencecoin-${VERSION}-osx.dmg
-experiencecoin-${VERSION}.tar.gz
-experiencecoin-${VERSION}-win32-setup.exe
-experiencecoin-${VERSION}-win32.zip
-experiencecoin-${VERSION}-win64-setup.exe
-experiencecoin-${VERSION}-win64.zip
-```
-The `*-debug*` files generated by the gitian build contain debug symbols
-for troubleshooting by developers. It is assumed that anyone that is interested
-in debugging can run gitian to generate the files for themselves. To avoid
-end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the experiencecoin.org server, nor put them in the torrent*.
-
-- GPG-sign it, delete the unsigned file:
-```
-gpg --digest-algo sha256 --clearsign SHA256SUMS # outputs SHA256SUMS.asc
-rm SHA256SUMS
-```
-(the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
-Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
-
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the experiencecoin.org server.
-
-```
-
-- Update experiencecoin.org version
+- Upload gitian zips to SourceForge
 
 - Announce the release:
 
-  - experiencecoin-dev and experiencecoin-dev mailing list
+  - Add the release to experiencecoin.com
 
-  - Update title of #experiencecoin and #experiencecoin-dev on Freenode IRC
+  - Announce on reddit /r/experiencecoin, /r/experiencecoindev
 
-  - Optionally twitter, reddit /r/Experiencecoin, ... but this will usually sort out itself
+  - Release sticky on discuss experiencecoin: https://discuss.experiencecoin.com/categories/announcements
 
-  - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
-
-  - Create a [new GitHub release](https://github.com/experiencecoin/experiencecoin/releases/new) with a link to the archived release notes.
-
-  - Celebrate
+- Celebrate 

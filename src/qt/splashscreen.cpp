@@ -1,34 +1,26 @@
-// Copyright (c) 2011-2016 The Bitcoin Core developers
-// Distributed under the MIT software license, see the accompanying
+// Copyright (c) 2011-2014 The Bitcoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
-#if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
-#endif
 
 #include "splashscreen.h"
 
-#include "networkstyle.h"
-
 #include "clientversion.h"
 #include "init.h"
-#include "util.h"
 #include "ui_interface.h"
-#include "version.h"
-
+#include "util.h"
 #ifdef ENABLE_WALLET
-#include "wallet/wallet.h"
+#include "wallet.h"
 #endif
 
 #include <QApplication>
-#include <QCloseEvent>
-#include <QDesktopWidget>
 #include <QPainter>
-#include <QRadialGradient>
+#include <QRectF>
 
-SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) :
-    QWidget(0, f), curAlignment(0)
+SplashScreen::SplashScreen(const QPixmap &pixmap, Qt::WindowFlags f, bool isTestNet) :
+    QSplashScreen(pixmap, f)
 {
+    setAutoFillBackground(true);
+
     // set reference point, paddings
     int paddingRight            = 50;
     int paddingTop              = 50;
@@ -36,57 +28,40 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     int titleCopyrightVSpace    = 40;
 
     float fontFactor            = 1.0;
-    float devicePixelRatio      = 1.0;
-#if QT_VERSION > 0x050100
-    devicePixelRatio = ((QGuiApplication*)QCoreApplication::instance())->devicePixelRatio();
-#endif
 
     // define text to place
-    QString titleText       = tr(PACKAGE_NAME);
+    QString titleText       = tr("Experiencecoin Core");
     QString versionText     = QString("Version %1").arg(QString::fromStdString(FormatFullVersion()));
-    QString copyrightText   = QString::fromUtf8(CopyrightHolders(strprintf("\xc2\xA9 %u-%u ", 2011, COPYRIGHT_YEAR)).c_str());
-    QString titleAddText    = networkStyle->getTitleAddText();
+    QString copyrightText   = QChar(0xA9)+QString(" 2009-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Bitcoin Core developers\n")) + QChar(0xA9)+QString(" 2013-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Experiencecoin Core developers")) + QChar(0xA9)+QString(" 2015-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Experiencecoin Core developers"));
+    QString testnetAddText  = QString(tr("[testnet]")); // define text to place as single text object
 
     QString font            = QApplication::font().toString();
 
-    // create a bitmap according to device pixelratio
-    QSize splashSize(480*devicePixelRatio,480*devicePixelRatio);
-    pixmap = QPixmap(splashSize);
+    // load the bitmap for writing some text over it
+    QPixmap newPixmap;
+    if(isTestNet) {
+        newPixmap     = QPixmap(":/images/splash_testnet");
+    }
+    else {
+        newPixmap     = QPixmap(":/images/splash");
+    }
 
-#if QT_VERSION > 0x050100
-    // change to HiDPI if it makes sense
-    pixmap.setDevicePixelRatio(devicePixelRatio);
-#endif
-
-    QPainter pixPaint(&pixmap);
+    QPainter pixPaint(&newPixmap);
     pixPaint.setPen(QColor(100,100,100));
-
-    // draw a slightly radial gradient
-    QRadialGradient gradient(QPoint(0,0), splashSize.width()/devicePixelRatio);
-    gradient.setColorAt(0, Qt::white);
-    gradient.setColorAt(1, QColor(247,247,247));
-    QRect rGradient(QPoint(0,0), splashSize);
-    pixPaint.fillRect(rGradient, gradient);
-
-    // draw the bitcoin icon, expected size of PNG: 1024x1024
-    QRect rectIcon(QPoint(0,0), QSize(480,480));
-    const QSize requiredSize(1024,1024);
-    QPixmap icon(QString::fromUtf8(":icons/about"));
-
-    pixPaint.drawPixmap(rectIcon, icon);
 
     // check font size and drawing with
     pixPaint.setFont(QFont(font, 33*fontFactor));
     QFontMetrics fm = pixPaint.fontMetrics();
-    int titleTextWidth = fm.width(titleText);
-    if (titleTextWidth > 176) {
-        fontFactor = fontFactor * 176 / titleTextWidth;
+    int titleTextWidth  = fm.width(titleText);
+    if(titleTextWidth > 160) {
+        // strange font rendering, Arial probably not found
+        fontFactor = 0.75;
     }
 
     pixPaint.setFont(QFont(font, 33*fontFactor));
     fm = pixPaint.fontMetrics();
     titleTextWidth  = fm.width(titleText);
-//  pixPaint.drawText(pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight,paddingTop,titleText);
+    pixPaint.drawText(newPixmap.width()-titleTextWidth-paddingRight,paddingTop,titleText);
 
     pixPaint.setFont(QFont(font, 15*fontFactor));
 
@@ -97,40 +72,28 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
         pixPaint.setFont(QFont(font, 10*fontFactor));
         titleVersionVSpace -= 5;
     }
- // pixPaint.drawText(pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight+2,paddingTop+titleVersionVSpace,versionText);
+    pixPaint.drawText(newPixmap.width()-titleTextWidth-paddingRight+2,paddingTop+titleVersionVSpace,versionText);
 
     // draw copyright stuff
-    {
-        pixPaint.setFont(QFont(font, 10*fontFactor));
-        const int x = pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight;
-        const int y = paddingTop+titleCopyrightVSpace;
-        QRect copyrightRect(x, y, pixmap.width() - x - paddingRight, pixmap.height() - y);
-   //     pixPaint.drawText(copyrightRect, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, copyrightText);
-    }
+    pixPaint.setFont(QFont(font, 10*fontFactor));
+    QRect copyrightRect = QRect(newPixmap.width()-titleTextWidth-paddingRight,paddingTop+titleCopyrightVSpace,fm.width(copyrightText),fm.height()*2);
+    pixPaint.drawText(copyrightRect,Qt::TextWordWrap,copyrightText);
 
-    // draw additional text if special network
-    if(!titleAddText.isEmpty()) {
+    // draw testnet string if testnet is on
+    if(isTestNet) {
         QFont boldFont = QFont(font, 10*fontFactor);
         boldFont.setWeight(QFont::Bold);
         pixPaint.setFont(boldFont);
         fm = pixPaint.fontMetrics();
-        int titleAddTextWidth  = fm.width(titleAddText);
-        pixPaint.drawText(pixmap.width()/devicePixelRatio-titleAddTextWidth-10,15,titleAddText);
+        int testnetAddTextWidth  = fm.width(testnetAddText);
+        pixPaint.drawText(newPixmap.width()-testnetAddTextWidth-10,15,testnetAddText);
     }
 
     pixPaint.end();
 
-    // Set window title
-    setWindowTitle(titleText + " " + titleAddText);
-
-    // Resize window and move to center of desktop, disallow resizing
-    QRect r(QPoint(), QSize(pixmap.size().width()/devicePixelRatio,pixmap.size().height()/devicePixelRatio));
-    resize(r.size());
-    setFixedSize(r.size());
-    move(QApplication::desktop()->screenGeometry().center() - r.center());
+    this->setPixmap(newPixmap);
 
     subscribeToCoreSignals();
-    installEventFilter(this);
 }
 
 SplashScreen::~SplashScreen()
@@ -138,26 +101,9 @@ SplashScreen::~SplashScreen()
     unsubscribeFromCoreSignals();
 }
 
-bool SplashScreen::eventFilter(QObject * obj, QEvent * ev) {
-    if (ev->type() == QEvent::KeyPress) {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(ev);
-        if(keyEvent->text()[0] == 'q' && breakAction != nullptr) {
-            breakAction();
-        }
-    }
-    return QObject::eventFilter(obj, ev);
-}
-
 void SplashScreen::slotFinish(QWidget *mainWin)
 {
-    Q_UNUSED(mainWin);
-
-    /* If the window is minimized, hide() will be ignored. */
-    /* Make sure we de-minimize the splashscreen window before hiding */
-    if (isMinimized())
-        showNormal();
-    hide();
-    deleteLater(); // No more need for this
+    finish(mainWin);
 }
 
 static void InitMessage(SplashScreen *splash, const std::string &message)
@@ -174,23 +120,10 @@ static void ShowProgress(SplashScreen *splash, const std::string &title, int nPr
     InitMessage(splash, title + strprintf("%d", nProgress) + "%");
 }
 
-void SplashScreen::setBreakAction(const std::function<void(void)> &action)
-{
-    breakAction = action;
-}
-
-static void SetProgressBreakAction(SplashScreen *splash, const std::function<void(void)> &action)
-{
-    QMetaObject::invokeMethod(splash, "setBreakAction",
-        Qt::QueuedConnection,
-        Q_ARG(std::function<void(void)>, action));
-}
-
 #ifdef ENABLE_WALLET
-void SplashScreen::ConnectWallet(CWallet* wallet)
+static void ConnectWallet(SplashScreen *splash, CWallet* wallet)
 {
-    wallet->ShowProgress.connect(boost::bind(ShowProgress, this, _1, _2));
-    connectedWallets.push_back(wallet);
+    wallet->ShowProgress.connect(boost::bind(ShowProgress, splash, _1, _2));
 }
 #endif
 
@@ -198,10 +131,8 @@ void SplashScreen::subscribeToCoreSignals()
 {
     // Connect signals to client
     uiInterface.InitMessage.connect(boost::bind(InitMessage, this, _1));
-    uiInterface.ShowProgress.connect(boost::bind(ShowProgress, this, _1, _2));
-    uiInterface.SetProgressBreakAction.connect(boost::bind(SetProgressBreakAction, this, _1));
 #ifdef ENABLE_WALLET
-    uiInterface.LoadWallet.connect(boost::bind(&SplashScreen::ConnectWallet, this, _1));
+    uiInterface.LoadWallet.connect(boost::bind(ConnectWallet, this, _1));
 #endif
 }
 
@@ -209,33 +140,8 @@ void SplashScreen::unsubscribeFromCoreSignals()
 {
     // Disconnect signals from client
     uiInterface.InitMessage.disconnect(boost::bind(InitMessage, this, _1));
-    uiInterface.ShowProgress.disconnect(boost::bind(ShowProgress, this, _1, _2));
 #ifdef ENABLE_WALLET
-    for (CWallet* const & pwallet : connectedWallets) {
-        pwallet->ShowProgress.disconnect(boost::bind(ShowProgress, this, _1, _2));
-    }
+    if(pwalletMain)
+        pwalletMain->ShowProgress.disconnect(boost::bind(ShowProgress, this, _1, _2));
 #endif
-}
-
-void SplashScreen::showMessage(const QString &message, int alignment, const QColor &color)
-{
-    curMessage = message;
-    curAlignment = alignment;
-    curColor = color;
-    update();
-}
-
-void SplashScreen::paintEvent(QPaintEvent *event)
-{
-    QPainter painter(this);
-    painter.drawPixmap(0, 0, pixmap);
-    QRect r = rect().adjusted(5, 5, -5, -5);
-    painter.setPen(curColor);
-    painter.drawText(r, curAlignment, curMessage);
-}
-
-void SplashScreen::closeEvent(QCloseEvent *event)
-{
-    StartShutdown(); // allows an "emergency" shutdown during startup
-    event->ignore();
 }
